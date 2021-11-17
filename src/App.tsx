@@ -5,16 +5,14 @@ import Count from './Components/Count';
 import Profile from './Components/Profile';
 import RecoilTest from './Components/recoilTest';
 
-function App() {
+const App = () => {
   return (
     <div>
       <RecoilTest />
-      <Body />
       <Nav />
-      <Profile />
-      <Count />
+      <Body />
     </div>
   );
-}
+};
 
 export default App;

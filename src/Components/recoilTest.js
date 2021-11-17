@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { atom, selector } from 'recoil';
 
-const usernameState = atom({
+// Atoms are units of state
+export const usernameState = atom({
+  // key - unqiue key for persistence
   key: 'username',
-  default: 'Rabbit',
+  // default value similar to react component state
+  default: [],
 });
 
-const countState = selector({
+// Components can subscribe to selectors just like atoms, and will then be re-rendered when the selectors change
+export const countState = selector({
   key: 'count',
   get: ({ get }) => {
     const username = get(usernameState);
