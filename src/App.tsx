@@ -1,10 +1,15 @@
 import React from 'react';
+import Body from './Components/Body';
+import Nav from './Components/Nav';
+import RecoilTest from './Components/recoilTest';
 
 
 const App = () => {
   return (
-    <div >
-      <h1>LND</h1>
+    <div>
+      <RecoilTest />
+      <Body />
+      <Nav />
     </div>
   );
 }
