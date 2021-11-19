@@ -4,12 +4,12 @@ import Count from './Count';
 import '../App.css';
 
 const Body = () => {
-  return (
-    <div className='body'>
-      <Profile />
-      <Count />
-    </div>
-  );
+	return (
+		<div className="body">
+			<Profile />
+			<Count />
+		</div>
+	);
 };
 
 export default Body;
