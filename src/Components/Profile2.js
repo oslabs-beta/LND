@@ -11,6 +11,7 @@ const Profile = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     console.log('triggered submitHandler');
+
     fetch(postUrl, {
       //CHANGE postUrl to '/core'
       method: 'post',
@@ -19,12 +20,18 @@ const Profile = () => {
         username: { username },
       }),
     });
+
+    setUsername((oldUsername) => [
+      ...oldUsername,
+      { id: username.id, username: { username } },
+    ]);
+
+    setUsername('');
   };
   //onClick will invoke the submitHandler
   return (
     <div>
       <h2>Profile:</h2>
-      <p>{username}</p>
       <input
         type='text'
         value={username}
