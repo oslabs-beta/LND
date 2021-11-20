@@ -1,15 +1,13 @@
 import React from 'react';
-import Profile from './Profile';
-import Count from './Count';
+import Profile from './Profile2';
 import '../App.css';
 
 const Body = () => {
-	return (
-		<div className="body">
-			<Profile />
-			<Count />
-		</div>
-	);
+  return (
+    <div className='body'>
+      <Profile />
+    </div>
+  );
 };
 
 export default Body;

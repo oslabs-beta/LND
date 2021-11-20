@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { RecoilRoot } from 'recoil';
+// import RecoilizeDebugger from 'recoilize';
 
 ReactDOM.render(
-	<RecoilRoot>
-		<App />
-	</RecoilRoot>,
-	document.getElementById('root')
+  <RecoilRoot>
+    {/* <RecoilizeDebugger /> */}
+    <App />
+  </RecoilRoot>,
+  document.getElementById('root')
 );

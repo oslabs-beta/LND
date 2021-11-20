@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { usernameState } from './recoilTest';
+import { usernameState } from './recoilPOST';
 import '../App.css';
 
 const Nav = () => {

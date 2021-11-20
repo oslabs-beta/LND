@@ -1,14 +1,14 @@
-import React from 'react';
-import { useRecoilValue } from 'recoil';
-import { countState } from './recoilTest';
+// import React from 'react';
+// import { useRecoilValue } from 'recoil';
+// import { countState } from './recoilGET';
 
-const Count = () => {
-	const count = useRecoilValue(countState);
-	return (
-		<div>
-			<p>Count: {count}</p>
-		</div>
-	);
-};
+// const Count = () => {
+//   const count = useRecoilValue(countState);
+//   return (
+//     <div>
+//       <p>Count: {count}</p>
+//     </div>
+//   );
+// };
 
-export default Count;
+// export default Count;
