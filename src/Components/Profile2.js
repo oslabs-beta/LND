@@ -11,7 +11,7 @@ const Profile = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     console.log('triggered submitHandler');
-    fetch('postUrl', {
+    fetch(postUrl, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
