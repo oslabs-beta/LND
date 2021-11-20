@@ -2,16 +2,17 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 import { usernameState } from './recoilPOST';
 
+// THIS IS EXAMPLE URL FOR TESTING
 export const postUrl = 'https://jsonplaceholder.typicode.com/posts';
 
 const Profile = () => {
   const [username, setUsername] = useRecoilState(usernameState);
-  //   const postData = useRecoilValue(atomData);
-  //created a submit handler that will invoke a fetch request
+
   const submitHandler = async (event) => {
     event.preventDefault();
     console.log('triggered submitHandler');
     fetch(postUrl, {
+      //CHANGE postUrl to '/core'
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
