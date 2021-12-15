@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Profile from './Profile2';
 import '../App.css';
 
-const Body = () => {
+const Body: FC = (): JSX.Element => {
 	return (
 		<div className='body'>
 			<Profile />

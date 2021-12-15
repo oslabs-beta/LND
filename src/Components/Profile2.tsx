@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { FC, ChangeEvent } from 'react';
 import { useRecoilState } from 'recoil';
 import { usernameState } from './recoilPOST';
 
 // THIS IS EXAMPLE URL FOR TESTING
 export const postUrl = 'https://jsonplaceholder.typicode.com/posts';
 
-const Profile = () => {
-	const [username, setUsername] = useRecoilState(usernameState);
+// interface Props {
+// 	onClick: (e: React.MouseEvent<HTMLElement>) => void;
+// }
 
-	const submitHandler = async (event) => {
+const Profile: FC = (): JSX.Element => {
+	const [username, setUsername] = useRecoilState<string | any>(usernameState);
+	//async (url: string): Promise<T> => {
+	const submitHandler = async (event: any) => {
 		event.preventDefault();
 		console.log('triggered submitHandler');
 
@@ -21,10 +25,7 @@ const Profile = () => {
 			}),
 		});
 
-		setUsername((oldUsername) => [
-			...oldUsername,
-			{ id: username.id, username: { username } },
-		]);
+		setUsername((oldUsername:any) => [...oldUsername, { id: username.id, username: { username } }]);
 
 		setUsername('');
 	};
@@ -32,11 +33,7 @@ const Profile = () => {
 	return (
 		<div>
 			<h2>Profile:</h2>
-			<input
-				type='text'
-				value={username}
-				onChange={(event) => setUsername(event.target.value)}
-			/>
+			<input type="text" value={username} onChange={(event: any) => setUsername(event.target.value)} />
 			<button onClick={submitHandler}>Submit</button>
 		</div>
 	);

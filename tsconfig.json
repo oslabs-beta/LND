@@ -5,7 +5,7 @@
 		"module": "es6",
 		"target": "es5",
 		"allowJs": false,
-		"moduleResolution": "node"
-	},
-	"files": ["src/index.ts"]
+		"moduleResolution": "node",
+		"jsx": "react",
+	}
 }
