@@ -1,11 +1,8 @@
-"use strict";
-exports.__esModule = true;
-var react_1 = require("react");
-var Profile2_1 = require("./Profile2");
-require("../App.css");
+import React from 'react';
+import Profile from './Profile2';
+import '../App.css';
 var Body = function () {
-    return (<div className='body'>
-			<Profile2_1["default"] />
-		</div>);
+    return (React.createElement("div", { className: 'body' },
+        React.createElement(Profile, null)));
 };
-exports["default"] = Body;
+export default Body;

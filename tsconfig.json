@@ -6,6 +6,10 @@
 		"target": "es5",
 		"allowJs": false,
 		"moduleResolution": "node",
+<<<<<<< HEAD
 		"jsx": "react",
+=======
+		"jsx": "react"
+>>>>>>> e34a0c152309e77405b5506094670803b06001b1
 	}
 }

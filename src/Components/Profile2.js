@@ -34,25 +34,43 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { atom, selector } from 'recoil';
-//no need to import react since we are not using react
-// Atoms are units of state(boilerPLATE)
-export var usernameState = atom({
-    key: 'username',
-    default: [],
-});
-// Components can subscribe to selectors just like atoms, and will then be re-rendered when the atoms change
-export var atomData = selector({
-    key: 'postUsername',
-    get: function (_a) {
-        var get = _a.get;
-        return __awaiter(void 0, void 0, void 0, function () {
-            var username;
-            return __generator(this, function (_b) {
-                username = get(usernameState);
-                console.log('username', username);
-                return [2 /*return*/];
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+import React from 'react';
+import { useRecoilState } from 'recoil';
+import { usernameState } from './recoilPOST';
+// THIS IS EXAMPLE URL FOR TESTING
+export var postUrl = 'https://jsonplaceholder.typicode.com/posts';
+var Profile = function () {
+    var _a = useRecoilState(usernameState), username = _a[0], setUsername = _a[1];
+    var submitHandler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            event.preventDefault();
+            console.log('triggered submitHandler');
+            fetch(postUrl, {
+                //CHANGE postUrl to '/core'
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: { username: username },
+                }),
             });
+            setUsername(function (oldUsername) { return __spreadArrays(oldUsername, [
+                { id: username.id, username: { username: username } },
+            ]); });
+            setUsername('');
+            return [2 /*return*/];
         });
-    },
-});
+    }); };
+    //onClick will invoke the submitHandler
+    return (React.createElement("div", null,
+        React.createElement("h2", null, "Profile:"),
+        React.createElement("input", { type: 'text', value: username, onChange: function (event) { return setUsername(event.target.value); } }),
+        React.createElement("button", { onClick: submitHandler }, "Submit")));
+};
+export default Profile;
