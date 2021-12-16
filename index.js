@@ -19,11 +19,12 @@ var osObject = {
 var myInterface = readline.createInterface({
     // input: fs.createReadStream('core.5663'),
     input: fs.createReadStream('/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'),
+    //cannot find the module
 });
 var numofLines = 0;
 myInterface.on('line', function (fileLine) {
     ++numofLines;
-    console.log("" + fileLine, numofLines);
+    console.log("".concat(fileLine), numofLines);
 });
 //Happens AFTER the node abort from the client file
 //in future, for the core file; currently, we are just making a dump file from the client side
