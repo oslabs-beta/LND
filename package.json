@@ -5,6 +5,7 @@
 	"repository": "https://github.com/oslabs-beta/LND.git",
 	"author": "J-Mad-08 <maddox.version1@gmail.com>",
 	"license": "MIT",
+	"type": "module",
 	"scripts": {
 		"start": "nodemon dist/index.js",
 		"build": "webpack --mode=production --node-env=production",
@@ -37,6 +38,7 @@
 		"@webpack-cli/generators": "^2.4.1",
 		"autoprefixer": "^10.4.0",
 		"css-loader": "^6.5.1",
+		"exports-loader": "^3.1.0",
 		"html-webpack-plugin": "^5.5.0",
 		"mini-css-extract-plugin": "^2.4.5",
 		"postcss": "^8.4.4",
@@ -51,6 +53,6 @@
 		"webpack-cli": "^4.9.1",
 		"webpack-dev-server": "^4.6.0",
 		"workbox-webpack-plugin": "^6.4.2"
-	},
-	"description": "My webpack project"
+	}
+
 }

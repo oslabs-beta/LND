@@ -1,7 +1,7 @@
 // import express, { Request, Response, NextFunction } from 'express';
 // import todosRoutes from './src/routes/todos';
 //Lastly, send the client back their file with clarity from llnode but compressed with zLib or gzip
-import process from 'process';
+/*import process from 'process';
 import os from 'os';
 import readline from 'readline';
 import fs from 'fs';
@@ -19,6 +19,7 @@ var osObject = {
 var myInterface = readline.createInterface({
     // input: fs.createReadStream('core.5663'),
     input: fs.createReadStream('/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'),
+    //cannot find the module
 });
 var numofLines = 0;
 myInterface.on('line', function (fileLine) {
@@ -74,3 +75,4 @@ osSystemFinder(osObject.platform);
 // 	//process.abort();
 // }, 500);
 //look further into clusters
+*/

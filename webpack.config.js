@@ -1,20 +1,27 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+import { resolve as _resolve } from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { GenerateSW } from 'workbox-webpack-plugin';
+// const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+import pkg from 'mini-css-extract-plugin';
+const { loader } = pkg;
+
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const isProduction = process.env.NODE_ENV == 'production';
 
-const stylesHandler = isProduction
-	? MiniCssExtractPlugin.loader
-	: 'style-loader';
+const stylesHandler = isProduction ? loader : 'style-loader';
 
 const config = {
 	entry: './src/index.ts',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: _resolve(__dirname, 'dist'),
 	},
 	devServer: {
 		open: true,
@@ -55,15 +62,16 @@ const config = {
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
 	},
+	watch: true,
 };
 
-module.exports = () => {
+export default () => {
 	if (isProduction) {
 		config.mode = 'production';
 
 		config.plugins.push(new MiniCssExtractPlugin());
 
-		config.plugins.push(new WorkboxWebpackPlugin.GenerateSW());
+		config.plugins.push(new GenerateSW());
 	} else {
 		config.mode = 'development';
 	}
