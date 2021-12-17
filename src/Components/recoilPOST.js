@@ -35,7 +35,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { atom, selector } from 'recoil';
-//no need to import react since we are not using react
 // Atoms are units of state(boilerPLATE)
 export var usernameState = atom({
     key: 'username',

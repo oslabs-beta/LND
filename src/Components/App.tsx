@@ -7,6 +7,7 @@ const App: FC = (): JSX.Element => {
 		<>
 			<React.Suspense fallback={<div>loading</div>}>
 				{/* <RecoilTest /> */}
+				<h1>hello</h1>
 			</React.Suspense>
 		</>
 	);
