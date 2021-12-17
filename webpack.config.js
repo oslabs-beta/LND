@@ -26,6 +26,12 @@ const config = {
 	devServer: {
 		open: true,
 		host: 'localhost',
+
+		static: {
+			directory: path.join(__dirname, 'public'),
+		},
+		compress: true,
+		port: 3000,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
