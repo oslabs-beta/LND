@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 // import { RecoilTest } from './Components/recoilPOST';
 
-const App: FC = (): JSX.Element => {
+const App = () => {
 	return (
 		<>
 			<React.Suspense fallback={<div>loading</div>}>

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -41,18 +42,22 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-import React from 'react';
-import { useRecoilState } from 'recoil';
-import { usernameState } from './recoilPOST';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var recoil_1 = require("recoil");
+var recoilPOST_1 = require("./recoilPOST");
 // THIS IS EXAMPLE URL FOR TESTING
-export var postUrl = 'https://jsonplaceholder.typicode.com/posts';
+exports.postUrl = 'https://jsonplaceholder.typicode.com/posts';
 var Profile = function () {
-    var _a = useRecoilState(usernameState), username = _a[0], setUsername = _a[1];
+    var _a = recoil_1.useRecoilState(recoilPOST_1.usernameState), username = _a[0], setUsername = _a[1];
     var submitHandler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             event.preventDefault();
             console.log('triggered submitHandler');
-            fetch(postUrl, {
+            fetch(exports.postUrl, {
                 //CHANGE postUrl to '/core'
                 method: 'post',
                 headers: { 'Content-Type': 'application/json' },
@@ -68,9 +73,9 @@ var Profile = function () {
         });
     }); };
     //onClick will invoke the submitHandler
-    return (React.createElement("div", null,
-        React.createElement("h2", null, "Profile:"),
-        React.createElement("input", { type: 'text', value: username, onChange: function (event) { return setUsername(event.target.value); } }),
-        React.createElement("button", { onClick: submitHandler }, "Submit")));
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement("h2", null, "Profile:"),
+        react_1.default.createElement("input", { type: 'text', value: username, onChange: function (event) { return setUsername(event.target.value); } }),
+        react_1.default.createElement("button", { onClick: submitHandler }, "Submit")));
 };
-export default Profile;
+exports.default = Profile;

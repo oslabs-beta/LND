@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,21 +35,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { atom, selector } from 'recoil';
+Object.defineProperty(exports, "__esModule", { value: true });
+var recoil_1 = require("recoil");
 // Atoms are units of state(boilerPLATE)
-export var usernameState = atom({
+exports.usernameState = recoil_1.atom({
     key: 'username',
     default: [],
 });
 // Components can subscribe to selectors just like atoms, and will then be re-rendered when the atoms change
-export var atomData = selector({
+exports.atomData = recoil_1.selector({
     key: 'postUsername',
     get: function (_a) {
         var get = _a.get;
         return __awaiter(void 0, void 0, void 0, function () {
             var username;
             return __generator(this, function (_b) {
-                username = get(usernameState);
+                username = get(exports.usernameState);
                 console.log('username', username);
                 return [2 /*return*/];
             });
