@@ -1,10 +1,12 @@
 'use strict';
 export const __esModule = true;
+import express_1 from 'express';
 //Lastly, send the client back their file with clarity from llnode but compressed with zLib or gzip
 import process_1 from 'process';
 import os_1 from 'os';
 import readline_1 from 'readline';
 import fs_1 from 'fs';
+//import { Atoms } from '../../Atom.js';
 //import Profile2 from '../../src/Components/Profile2.js'
 var osObject = {
 	arch: os_1.arch(),
@@ -21,8 +23,9 @@ var osObject = {
 var myInterface = readline_1.createInterface({
 	// input: fs.createReadStream('core.5663'),
 	input: fs_1.createReadStream(
-		'/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'
+		// '/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'
 		//Profile2,
+		'../../Atom.js'
 	),
 });
 var numofLines = 0;
@@ -30,54 +33,16 @@ myInterface.on('line', function (fileLine) {
 	++numofLines;
 	console.log('' + fileLine, numofLines);
 });
-// //Happens AFTER the node abort from the client file
-// //in future, for the core file; currently, we are just making a dump file from the client side
-var dumpLocation = function () {
-	return process_1.stdout.write(
-		'Please move the location of your core file to this pwd. '
-	);
-};
-var osSystemFinder = function (platform) {
-	switch (platform) {
-		//Mac
-		case 'darwin':
-			return dumpLocation();
-		case 'linux':
-			return 'Your core file is located in your root pwd';
-		//else
-		default:
-			console.log('Your operating system is not supported at this time');
-	}
-	return;
-};
-osSystemFinder(osObject.platform);
 //SECOND: SHOW OS Free memory vs total memory , cpus
-// const app = express();
-// app.use('/todos', todosRoutes);
-// app.use((err: Error, req: Request, response: Response, next: NextFunction) => {
-// 	response.status(500).json({ message: err.message });
-// });
-// app.listen(3000, () => console.log('Server is running'));
-// const { spawn } = require('child_process');
-// const colors = require('colors');
-// const { cpus } = require('os');
-// const os = require('os');
-// const http = require('http');
-// const cluster = require('cluster');
-// const process = require('process');
-// const { dirname } = require('path');
-// const core = require('/Users/jirehmaddox/Desktop/teamWork/LND/LND/core.5663');
-//expensive process; maybe use workers to help read the streams?
-// const server = http.createServer((req, res) => {
-// 	console.log(__dirname, 'DIR');
-// 	const stream = fs.createReadStream(__dirname + '/core.5663');
-// 	console.log('STREAM'.bgWhite, stream);
-// 	stream.pipeline(res);
-// });
-// server.listen(3000);
-// setTimeout(function delayedFailure() {
-// 	// process.abort();
-// 	throw new Error('Fail not really fast');
-// 	//process.abort();
-// }, 500);
+var app = (0, express_1)();
+app.use(function (err, req, response, next) {
+	response.status(500).json({ message: err.message });
+});
+app.listen(3000, function () {
+	return console.log('Server is running');
+});
+setTimeout(function delayedFailure() {
+	process_1.abort();
+	throw new Error('Fail not really fast');
+}, 500);
 //look further into clusters
