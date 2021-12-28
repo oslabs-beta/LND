@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,45 +35,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-import React from 'react';
-import { useRecoilState } from 'recoil';
-import { usernameState } from './recoilPOST';
-// THIS IS EXAMPLE URL FOR TESTING
-export var postUrl = 'https://jsonplaceholder.typicode.com/posts';
-var Profile = function () {
-    var _a = useRecoilState(usernameState), username = _a[0], setUsername = _a[1];
-    var submitHandler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            event.preventDefault();
-            console.log('triggered submitHandler');
-            fetch(postUrl, {
-                //CHANGE postUrl to '/core'
-                method: 'post',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: { username: username },
-                }),
+Object.defineProperty(exports, "__esModule", { value: true });
+var recoil_1 = require("recoil");
+// Atoms are units of state(boilerPLATE)
+exports.usernameState = recoil_1.atom({
+    key: 'username',
+    default: [],
+});
+// Components can subscribe to selectors just like atoms, and will then be re-rendered when the atoms change
+exports.atomData = recoil_1.selector({
+    key: 'postUsername',
+    get: function (_a) {
+        var get = _a.get;
+        return __awaiter(void 0, void 0, void 0, function () {
+            var username;
+            return __generator(this, function (_b) {
+                username = get(exports.usernameState);
+                console.log('username', username);
+                return [2 /*return*/];
             });
-            setUsername(function (oldUsername) { return __spreadArray(__spreadArray([], oldUsername, true), [
-                { id: username.id, username: { username: username } },
-            ], false); });
-            setUsername('');
-            return [2 /*return*/];
         });
-    }); };
-    //onClick will invoke the submitHandler
-    return (React.createElement("div", null,
-        React.createElement("h2", null, "Profile:"),
-        React.createElement("input", { type: 'text', value: username, onChange: function (event) { return setUsername(event.target.value); } }),
-        React.createElement("button", { onClick: submitHandler }, "Submit")));
-};
-export default Profile;
+    },
+});

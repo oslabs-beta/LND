@@ -19,13 +19,19 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = isProduction ? loader : 'style-loader';
 
 const config = {
-	entry: './src/index.ts',
+	entry: './src/index.tsx',
 	output: {
 		path: _resolve(__dirname, 'dist'),
 	},
 	devServer: {
 		open: true,
 		host: 'localhost',
+
+		static: {
+			directory: path.join(__dirname, 'public'),
+		},
+		compress: true,
+		port: 3000,
 	},
 	plugins: [
 		new HtmlWebpackPlugin({

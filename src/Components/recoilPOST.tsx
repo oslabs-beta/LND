@@ -1,5 +1,6 @@
 import { atom, selector } from 'recoil';
 //no need to import react since we are not using react
+import React, { FC } from 'react';
 
 // Atoms are units of state(boilerPLATE)
 export const usernameState = atom({
