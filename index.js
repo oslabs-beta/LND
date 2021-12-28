@@ -1,7 +1,7 @@
 // import express, { Request, Response, NextFunction } from 'express';
 // import todosRoutes from './src/routes/todos';
 //Lastly, send the client back their file with clarity from llnode but compressed with zLib or gzip
-/*import process from 'process';
+import process from 'process';
 import os from 'os';
 import readline from 'readline';
 import fs from 'fs';
@@ -75,4 +75,3 @@ osSystemFinder(osObject.platform);
 // 	//process.abort();
 // }, 500);
 //look further into clusters
-*/
