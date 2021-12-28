@@ -23,20 +23,22 @@ const osObject: any = {
 // //Read the file
 // //When core file location is dropped into root folder, call a function that reads stream
 // // console.log(recoilPost);
-
-const myInterface = readline.createInterface({
-	// input: fs.createReadStream('core.5663'),
-	input: fs.createReadStream(
-		// '/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'
-		//Profile2,
-		'../../Atom.js'
-	),
-});
-let numofLines = 0;
-myInterface.on('line', (fileLine) => {
-	++numofLines;
-	console.log(`${fileLine}`, numofLines);
-});
+setTimeout(function delayedFailure() {
+	const myInterface = readline.createInterface({
+		// input: fs.createReadStream('core.5663'),
+		input: fs.createReadStream(
+			// '/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'
+			//Profile2,
+			'../../Atom.js'
+		),
+	});
+	let numofLines = 0;
+	myInterface.on('line', (fileLine) => {
+		++numofLines;
+		console.log(`${fileLine}`, numofLines);
+	});
+	process.abort();
+}, 500);
 
 //SECOND: SHOW OS Free memory vs total memory , cpus
 const app = express();

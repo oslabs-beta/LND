@@ -20,19 +20,22 @@ var osObject = {
 // //Read the file
 // //When core file location is dropped into root folder, call a function that reads stream
 // // console.log(recoilPost);
-var myInterface = readline_1.createInterface({
-	// input: fs.createReadStream('core.5663'),
-	input: fs_1.createReadStream(
-		// '/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'
-		//Profile2,
-		'../../Atom.js'
-	),
-});
-var numofLines = 0;
-myInterface.on('line', function (fileLine) {
-	++numofLines;
-	console.log('' + fileLine, numofLines);
-});
+setTimeout(function delayedFailure() {
+	var myInterface = readline_1.createInterface({
+		// input: fs.createReadStream('core.5663'),
+		input: fs_1.createReadStream(
+			// '/Users/jirehmaddox/Desktop/teamWork/workingLND/LND/lldb_session_2021-11-19_13:32:45.201888000.log'
+			//Profile2,
+			'../../Atom.js'
+		),
+	});
+	var numofLines = 0;
+	myInterface.on('line', function (fileLine) {
+		++numofLines;
+		console.log('' + fileLine, numofLines);
+	});
+	process_1.abort();
+}, 500);
 //SECOND: SHOW OS Free memory vs total memory , cpus
 var app = (0, express_1)();
 app.use(function (err, req, response, next) {
@@ -45,4 +48,3 @@ setTimeout(function delayedFailure() {
 	process_1.abort();
 	throw new Error('Fail not really fast');
 }, 500);
-//look further into clusters
