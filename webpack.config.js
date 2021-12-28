@@ -19,7 +19,7 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = isProduction ? loader : 'style-loader';
 
 const config = {
-	entry: './index.ts',
+	entry: './src/index.tsx',
 	output: {
 		path: _resolve(__dirname, 'dist'),
 	},

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,25 +35,49 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { atom, selector } from 'recoil';
-//no need to import react since we are not using react
-// Atoms are units of state(boilerPLATE)
-export var usernameState = atom({
-    key: 'username',
-    default: [],
-});
-// Components can subscribe to selectors just like atoms, and will then be re-rendered when the atoms change
-export var atomData = selector({
-    key: 'postUsername',
-    get: function (_a) {
-        var get = _a.get;
-        return __awaiter(void 0, void 0, void 0, function () {
-            var username;
-            return __generator(this, function (_b) {
-                username = get(usernameState);
-                console.log('username', username);
-                return [2 /*return*/];
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(require("react"));
+var recoil_1 = require("recoil");
+var recoilPOST_1 = require("./recoilPOST");
+// THIS IS EXAMPLE URL FOR TESTING
+exports.postUrl = 'https://jsonplaceholder.typicode.com/posts';
+var Profile = function () {
+    var _a = recoil_1.useRecoilState(recoilPOST_1.usernameState), username = _a[0], setUsername = _a[1];
+    var submitHandler = function (event) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            event.preventDefault();
+            console.log('triggered submitHandler');
+            fetch(exports.postUrl, {
+                //CHANGE postUrl to '/core'
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    username: { username: username },
+                }),
             });
+            setUsername(function (oldUsername) { return __spreadArray(__spreadArray([], oldUsername, true), [
+                { id: username.id, username: { username: username } },
+            ], false); });
+            setUsername('');
+            return [2 /*return*/];
         });
-    },
-});
+    }); };
+    //onClick will invoke the submitHandler
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement("h2", null, "Profile:"),
+        react_1.default.createElement("input", { type: 'text', value: username, onChange: function (event) { return setUsername(event.target.value); } }),
+        react_1.default.createElement("button", { onClick: submitHandler }, "Submit")));
+};
+exports.default = Profile;
