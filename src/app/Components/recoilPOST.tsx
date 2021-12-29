@@ -1,18 +1,16 @@
-import { atom, selector } from 'recoil';
-//no need to import react since we are not using react
-import React, { FC } from 'react';
+// import { atom, selector } from 'recoil';
 
-// Atoms are units of state(boilerPLATE)
-export const usernameState = atom({
-	key: 'username',
-	default: [],
-});
+// // Atoms are units of state(boilerPLATE)
+// export const usernameState = atom({
+//   key: 'username',
+//   default: [],
+// });
 
-// Components can subscribe to selectors just like atoms, and will then be re-rendered when the atoms change
-export const atomData = selector({
-	key: 'postUsername',
-	get: async ({ get }) => {
-		const username = get(usernameState);
-		console.log('username', username);
-	},
-});
+// // Components can subscribe to selectors just like atoms, and will then be re-rendered when the atoms change
+// export const atomData = selector({
+//   key: 'postUsername',
+//   get: async ({ get }) => {
+//     const username = get(usernameState);
+//     console.log('username', username);
+//   },
+// });

@@ -1,16 +1,14 @@
-import React, { FC } from "react";
+// import React, { FC } from 'react';
+// import Body from './Body';
 
-// import { RecoilTest } from './Components/recoilPOST';
+// const App = () => {
+//   return (
+//     <>
+//       <React.Suspense fallback={<div>loading</div>}>
+//         <Body />
+//       </React.Suspense>
+//     </>
+//   );
+// };
 
-const App = () => {
-	return (
-		<>
-			<React.Suspense fallback={<div>loading</div>}>
-				{/* <RecoilTest /> */}
-				<h1>hello</h1>
-			</React.Suspense>
-		</>
-	);
-};
-
-export default App;
+// export default App;
