@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Body from "./Body";
 
 // import { RecoilTest } from './Components/recoilPOST';
 
@@ -7,7 +8,7 @@ const App = () => {
 		<>
 			<React.Suspense fallback={<div>loading</div>}>
 				{/* <RecoilTest /> */}
-				<h1>hello</h1>
+				<Body />
 			</React.Suspense>
 		</>
 	);

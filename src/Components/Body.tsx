@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Profile from './Profile2';
-import '../App.css';
+import Profile from './Profile';
+// import '../App.css';
 
 const Body: FC = (): JSX.Element => {
 	return (

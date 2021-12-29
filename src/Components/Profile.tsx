@@ -1,16 +1,16 @@
 import React, { FC, ChangeEvent } from 'react';
 import { useRecoilState } from 'recoil';
-import { usernameState } from './recoilPOST';
+import { usernameState } from './RecoilPOST';
 
 // THIS IS EXAMPLE URL FOR TESTING
-export const postUrl = 'https://jsonplaceholder.typicode.com/posts';
+export const postUrl = '/core';
 
 const Profile: FC = (): JSX.Element => {
 	const [username, setUsername] = useRecoilState<string | any>(usernameState);
 
 	const submitHandler = async (event: any) => {
 		event.preventDefault();
-		console.log('triggered submitHandler');
+		console.log(username);
 
 		fetch(postUrl, {
 			//CHANGE postUrl to '/core'
@@ -21,8 +21,8 @@ const Profile: FC = (): JSX.Element => {
 			}),
 		});
 
-		setUsername((oldUsername: any) => [
-			...oldUsername,
+		setUsername((oldUsername:[]) => [
+			oldUsername,
 			{ id: username.id, username: { username } },
 		]);
 
