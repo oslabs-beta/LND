@@ -7,14 +7,17 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
-		"start": "nodemon src/components/app.js",
+		"clean": "rm -rf ./node_modules yarn.lock && yarn run watch",
+		"build:check": "tsc -watch .",
+		"build:server": "tsc -p ./tsconfig.server.json",
+		"start:server": "ts-node-dev -p --respawn --inspect --transpile-only ./src/server/server.ts",
+		"start": "concurrently \"yarn run start:server\" \"yarn run dev\"",
 		"build:dev": "webpack --mode=development",
 		"build:prod": "webpack --mode=production --node-env=production",
 		"watch": "webpack --watch",
 		"test": "jest",
 		"dev": "webpack serve --open",
-		"build:backend": "tsc",
-		"start-backend": "node ./dist/main.js"
+		"build:backend": "tsc"
 	},
 	"dependencies": {
 		"@babel/core": "^7.16.0",
@@ -25,6 +28,7 @@
 		"babel-loader": "^8.2.3",
 		"body-parser": "^1.19.0",
 		"colors": "^1.4.0",
+		"concurrently": "^6.5.1",
 		"express": "^4.17.1",
 		"heapsnapshot-parser": "^0.1.0",
 		"hexdump-parser": "^1.0.0",
@@ -56,6 +60,7 @@
 		"ts-jest": "^27.0.7",
 		"ts-loader": "^9.2.6",
 		"ts-node": "^10.4.0",
+		"ts-node-dev": "^1.1.8",
 		"typescript": "^4.5.3",
 		"webpack": "^5.65.0",
 		"webpack-cli": "^4.9.1",

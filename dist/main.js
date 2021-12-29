@@ -100,23 +100,23 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ./cjs
 
 /***/ }),
 
-/***/ "./src/Components/App.tsx":
-/*!********************************!*\
-  !*** ./src/Components/App.tsx ***!
-  \********************************/
+/***/ "./src/app/Components/App.tsx":
+/*!************************************!*\
+  !*** ./src/app/Components/App.tsx ***!
+  \************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n// import { RecoilTest } from './Components/recoilPOST';\nconst App = () => {\n    return (react_1.default.createElement(react_1.default.Fragment, null,\n        react_1.default.createElement(react_1.default.Suspense, { fallback: react_1.default.createElement(\"div\", null, \"loading\") },\n            react_1.default.createElement(\"h1\", null, \"hello\"))));\n};\nexports[\"default\"] = App;\n\n\n//# sourceURL=webpack://my-webpack-project/./src/Components/App.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\n// import { RecoilTest } from './Components/recoilPOST';\nconst App = () => {\n    return (react_1.default.createElement(react_1.default.Fragment, null,\n        react_1.default.createElement(react_1.default.Suspense, { fallback: react_1.default.createElement(\"div\", null, \"loading\") },\n            react_1.default.createElement(\"h1\", null, \"hello\"))));\n};\nexports[\"default\"] = App;\n\n\n//# sourceURL=webpack://my-webpack-project/./src/app/Components/App.tsx?");
 
 /***/ }),
 
-/***/ "./src/index.tsx":
-/*!***********************!*\
-  !*** ./src/index.tsx ***!
-  \***********************/
+/***/ "./src/app/Components/index.tsx":
+/*!**************************************!*\
+  !*** ./src/app/Components/index.tsx ***!
+  \**************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nconst react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\"));\n// import './styles.css';\nconst App_1 = __importDefault(__webpack_require__(/*! ./Components/App */ \"./src/Components/App.tsx\"));\n// if (typeof window !== 'undefined') {\n//   ReactDOM.render(<App />, document.getElementById(\"root\"));\n// }\nreact_dom_1.default.render(react_1.default.createElement(App_1.default, null), document.getElementById('root'));\n\n\n//# sourceURL=webpack://my-webpack-project/./src/index.tsx?");
+eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\n};\nObject.defineProperty(exports, \"__esModule\", ({ value: true }));\nconst react_1 = __importDefault(__webpack_require__(/*! react */ \"./node_modules/react/index.js\"));\nconst react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ \"./node_modules/react-dom/index.js\"));\n// import './styles.css';\nconst App_1 = __importDefault(__webpack_require__(/*! ./App */ \"./src/app/Components/App.tsx\"));\n// if (typeof window !== 'undefined') {\n//   ReactDOM.render(<App />, document.getElementById(\"root\"));\n// }\nreact_dom_1.default.render(react_1.default.createElement(App_1.default, null), document.getElementById('root'));\n\n\n//# sourceURL=webpack://my-webpack-project/./src/app/Components/index.tsx?");
 
 /***/ })
 
@@ -151,7 +151,7 @@ eval("\nvar __importDefault = (this && this.__importDefault) || function (mod) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.tsx");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/app/Components/index.tsx");
 /******/ 	
 /******/ })()
 ;

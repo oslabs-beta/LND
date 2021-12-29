@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const react_dom_1 = __importDefault(require("react-dom"));
 // import './styles.css';
-const App_1 = __importDefault(require("./Components/App"));
+const App_1 = __importDefault(require("./App"));
 // if (typeof window !== 'undefined') {
 //   ReactDOM.render(<App />, document.getElementById("root"));
 // }
