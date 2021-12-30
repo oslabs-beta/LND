@@ -13,7 +13,7 @@ export const Subscriber: FC = (): JSX.Element => {
     const u = (old: any) => {
       const item = Math.random();
 
-      if (old.length >= 2000) {
+      if (old.length >= 5000) {
         return [item, ...old.slice(0, -1)];
       } else {
         return [item, ...old];
