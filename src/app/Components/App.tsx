@@ -1,14 +1,13 @@
-// import React, { FC } from 'react';
-// import Body from './Body';
+import React from 'react';
+import { Subscriber } from './Leak';
+import { Test } from './Leak';
 
-// const App = () => {
-//   return (
-//     <>
-//       <React.Suspense fallback={<div>loading</div>}>
-//         <Body />
-//       </React.Suspense>
-//     </>
-//   );
-// };
-
-// export default App;
+export default function App() {
+  console.log('render');
+  return (
+    <>
+      <Subscriber />
+      <Test />
+    </>
+  );
+}
