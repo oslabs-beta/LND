@@ -19,7 +19,7 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = isProduction ? loader : 'style-loader';
 
 const config = {
-	entry: './src/index.tsx',
+	entry: './src/app/Components/index.tsx',
 	output: {
 		path: _resolve(__dirname, 'dist'),
 	},
@@ -47,6 +47,9 @@ const config = {
 				test: /\.(ts|tsx)$/i,
 				loader: 'ts-loader',
 				exclude: ['/node_modules/'],
+				options: {
+					configFile: 'tsconfig.webpack.json',
+				},
 			},
 			{
 				test: /\.s[ac]ss$/i,

@@ -1,0 +1,1170 @@
+(lldb) target create "/usr/local/bin/node" --core "core.5663"
+Core file '/cores/core.5663' (x86_64) was loaded.
+
+(lldb) r
+Process 58054 launched: '/usr/local/bin/node' (x86_64)
+(lldb) memory read
+[0;1;31merror: [0mmemory read takes a start address expression with an optional end address expression.
+Expressions should be quoted if they contain spaces or other special characters.
+(lldb) memory read "0x7ff812cb145e"
+0x7ff812cb145e: 73 08 48 89 c7 e9 89 be ff ff c3 55 48 89 e5 41  s.H........UH..A
+0x7ff812cb146e: 57 41 56 41 55 41 54 53 48 83 ec 28 4c 89 cb 4d  WAVAUATSH..(L..M
+(lldb) image dump sections
+Dumping sections for 47 modules.
+Sections for '/usr/local/bin/node' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x0000000000000000-0x0000000100000000)* ---  0x00000000 0x00000000 0x00000000 node.__PAGEZERO
+  0x00000200 container        [0x0000000100000000-0x0000000103824000)  r-x  0x00000000 0x03824000 0x00000000 node.__TEXT
+  0x00000001 code             [0x0000000100004000-0x00000001013d0703)  r-x  0x00004000 0x013cc703 0x80000400 node.__TEXT.__text
+  0x00000002 code             [0x00000001013d0704-0x00000001013d1c46)  r-x  0x013d0704 0x00001542 0x80000408 node.__TEXT.__stubs
+  0x00000003 code             [0x00000001013d1c48-0x00000001013d2dc4)  r-x  0x013d1c48 0x0000117c 0x80000400 node.__TEXT.__stub_helper
+  0x00000004 data-cstr        [0x00000001013d2dd0-0x000000010150ca7f)  r-x  0x013d2dd0 0x00139caf 0x00000002 node.__TEXT.__cstring
+  0x00000005 regular          [0x000000010150ca80-0x0000000103633a00)  r-x  0x0150ca80 0x02126f80 0x00000000 node.__TEXT.__const
+  0x00000006 regular          [0x0000000103800000-0x00000001038001b1)  r-x  0x03800000 0x000001b1 0x00000000 node.__TEXT.__lpstub
+  0x00000007 regular          [0x00000001038001c0-0x0000000103801c16)  r-x  0x038001c0 0x00001a56 0x00000000 node.__TEXT.__ustring
+  0x00000008 data-cstr        [0x0000000103801c20-0x0000000103801c36)  r-x  0x03801c20 0x00000016 0x00000002 node.__TEXT.__oslogstring
+  0x00000009 debug            [0x0000000103801c36-0x00000001038024d8)  r-x  0x03801c36 0x000008a2 0x0000000f node.__TEXT.__dof_node
+  0x0000000a compact-unwind   [0x00000001038024d8-0x0000000103820430)  r-x  0x038024d8 0x0001df58 0x00000000 node.__TEXT.__unwind_info
+  0x00000300 container        [0x0000000103824000-0x000000010393c000)  rw-  0x03824000 0x000f8000 0x00000000 node.__DATA
+  0x0000000b data-ptrs        [0x0000000103824000-0x0000000103824008)  rw-  0x03824000 0x00000008 0x00000006 node.__DATA.__nl_symbol_ptr
+  0x0000000c data-ptrs        [0x0000000103824008-0x000000010382aec8)  rw-  0x03824008 0x00006ec0 0x00000006 node.__DATA.__got
+  0x0000000d data-ptrs        [0x000000010382aec8-0x000000010382cb20)  rw-  0x0382aec8 0x00001c58 0x00000007 node.__DATA.__la_symbol_ptr
+  0x0000000e data-ptrs        [0x000000010382cb20-0x000000010382cbc0)  rw-  0x0382cb20 0x000000a0 0x00000009 node.__DATA.__mod_init_func
+  0x0000000f regular          [0x000000010382cbc0-0x0000000103903528)  rw-  0x0382cbc0 0x000d6968 0x00000000 node.__DATA.__const
+  0x00000010 data             [0x0000000103903530-0x00000001039192a8)  rw-  0x03903530 0x00015d78 0x00000000 node.__DATA.__data
+  0x00000011 regular          [0x00000001039192a8-0x0000000103919398)  rw-  0x039192a8 0x000000f0 0x00000013 node.__DATA.__thread_vars
+  0x00000012 regular          [0x0000000103919398-0x000000010391939c)  rw-  0x03919398 0x00000004 0x00000011 node.__DATA.__thread_data
+  0x00000013 regular          [0x00000001039193a0-0x00000001039193f8)  rw-  0x00000000 0x00000000 0x00000012 node.__DATA.__thread_bss
+  0x00000014 zero-fill        [0x0000000103919400-0x000000010393b250)  rw-  0x00000000 0x00000000 0x00000001 node.__DATA.__bss
+  0x00000015 zero-fill        [0x000000010393b250-0x000000010393bf90)  rw-  0x00000000 0x00000000 0x00000001 node.__DATA.__common
+  0x00000400 container        [0x000000010393c000-0x0000000104ce4000)  r--  0x0391c000 0x013a5ce0 0x00000000 node.__LINKEDIT
+Sections for '/usr/lib/dyld' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x0000000104ce4000-0x0000000104d50000)  r-x  0x00000000 0x0006c000 0x00000000 dyld.__TEXT
+  0x00000001 code             [0x0000000104ce5000-0x0000000104d40201)  r-x  0x00001000 0x0005b201 0x80000400 dyld.__TEXT.__text
+  0x00000002 regular          [0x0000000104d40220-0x0000000104d41240)  r-x  0x0005c220 0x00001020 0x00000000 dyld.__TEXT.__const
+  0x00000003 data-cstr        [0x0000000104d41240-0x0000000104d49b76)  r-x  0x0005d240 0x00008936 0x00000002 dyld.__TEXT.__cstring
+  0x00000004 compact-unwind   [0x0000000104d49b78-0x0000000104d4ac3c)  r-x  0x00065b78 0x000010c4 0x00000000 dyld.__TEXT.__unwind_info
+  0x00000005 eh-frame         [0x0000000104d4ac40-0x0000000104d4cc08)  r-x  0x00066c40 0x00001fc8 0x00000000 dyld.__TEXT.__eh_frame
+  0x00000200 container        [0x0000000104d50000-0x0000000104d5c000)  rw-  0x0006c000 0x0000c000 0x00000010 dyld.__DATA_CONST
+  0x00000006 data-ptrs        [0x0000000104d50000-0x0000000104d50010)  rw-  0x0006c000 0x00000010 0x00000006 dyld.__DATA_CONST.__got
+  0x00000007 regular          [0x0000000104d50010-0x0000000104d53ce0)  rw-  0x0006c010 0x00003cd0 0x00000000 dyld.__DATA_CONST.__const
+  0x00000008 regular          [0x0000000104d53ce0-0x0000000104d5bce0)  rw-  0x0006fce0 0x00008000 0x00000000 dyld.__DATA_CONST.__bss
+  0x00000300 container        [0x0000000104d5c000-0x0000000104d60000)  rw-  0x00078000 0x00004000 0x00000000 dyld.__DATA
+  0x00000009 data             [0x0000000104d5c000-0x0000000104d5c1b4)  rw-  0x00078000 0x000001b4 0x00000000 dyld.__DATA.__data
+  0x0000000a regular          [0x0000000104d5c1b8-0x0000000104d5c328)  rw-  0x000781b8 0x00000170 0x00000000 dyld.__DATA.__all_image_info
+  0x0000000b regular          [0x0000000104d5c328-0x0000000104d5c368)  rw-  0x00078328 0x00000040 0x00000000 dyld.__DATA.__crash_info
+  0x0000000c zero-fill        [0x0000000104d5c380-0x0000000104d5e590)  rw-  0x00000000 0x00000000 0x00000001 dyld.__DATA.__common
+  0x0000000d zero-fill        [0x0000000104d5e590-0x0000000104d5ea90)  rw-  0x00000000 0x00000000 0x00000001 dyld.__DATA.__bss
+  0x00000400 container        [0x0000000104d60000-0x0000000104d94000)  r--  0x0007c000 0x0002db00 0x00000000 dyld.__LINKEDIT
+Sections for '/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation' (x86_64h):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812d30000-0x00007ff813233000)  r-x  0x00000000 0x00503000 0x00000000 CoreFoundation.__TEXT
+  0x00000001 code             [0x00007ff812d31fd0-0x00007ff812ef2ba8)  r-x  0x00001fd0 0x001c0bd8 0x80000400 CoreFoundation.__TEXT.__text
+  0x00000002 code             [0x00007ff812ef2ba8-0x00007ff812ef3da8)  r-x  0x001c2ba8 0x00001200 0x80000408 CoreFoundation.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812ef3da8-0x00007ff812ef3dac)  r-x  0x001c3da8 0x00000004 0x00000016 CoreFoundation.__TEXT.__init_offsets
+  0x00000004 regular          [0x00007ff812ef3db0-0x00007ff812efc660)  r-x  0x001c3db0 0x000088b0 0x00000000 CoreFoundation.__TEXT.__objc_methlist
+  0x00000005 regular          [0x00007ff812efc660-0x00007ff8130ecb20)  r-x  0x001cc660 0x001f04c0 0x00000000 CoreFoundation.__TEXT.__const
+  0x00000006 data-cstr        [0x00007ff8130ecb20-0x00007ff8131a70aa)  r-x  0x003bcb20 0x000ba58a 0x00000002 CoreFoundation.__TEXT.__cstring
+  0x00000007 regular          [0x00007ff8131a70ac-0x00007ff8131aa7fc)  r-x  0x004770ac 0x00003750 0x00000000 CoreFoundation.__TEXT.__gcc_except_tab
+  0x00000008 data-cstr        [0x00007ff8131aa800-0x00007ff8131b2a82)  r-x  0x0047a800 0x00008282 0x00000002 CoreFoundation.__TEXT.__oslogstring
+  0x00000009 regular          [0x00007ff8131b2a82-0x00007ff8131b3ebe)  r-x  0x00482a82 0x0000143c 0x00000000 CoreFoundation.__TEXT.__ustring
+  0x0000000a data-cstr        [0x00007ff8131b3ec0-0x00007ff8131b3f96)  r-x  0x00483ec0 0x000000d6 0x00000002 CoreFoundation.__TEXT.__dlopen_cstrs
+  0x0000000b debug            [0x00007ff8131b3f96-0x00007ff8131b4465)  r-x  0x00483f96 0x000004cf 0x0000000f CoreFoundation.__TEXT.__dof_NSAppNap
+  0x0000000c debug            [0x00007ff8131b4465-0x00007ff8131b4dc9)  r-x  0x00484465 0x00000964 0x0000000f CoreFoundation.__TEXT.__dof_CFRunLoop
+  0x0000000d debug            [0x00007ff8131b4dc9-0x00007ff8131b524f)  r-x  0x00484dc9 0x00000486 0x0000000f CoreFoundation.__TEXT.__dof_Cocoa_Aut
+  0x0000000e compact-unwind   [0x00007ff8131b5250-0x00007ff8131be4a4)  r-x  0x00485250 0x00009254 0x00000000 CoreFoundation.__TEXT.__unwind_info
+  0x0000000f eh-frame         [0x00007ff8131be4a8-0x00007ff8131d04d8)  r-x  0x0048e4a8 0x00012030 0x00000000 CoreFoundation.__TEXT.__eh_frame
+  0x00000010 data-cstr        [0x00007ff8131d04d8-0x00007ff8131d14ca)  r-x  0x004a04d8 0x00000ff2 0x00000002 CoreFoundation.__TEXT.__objc_classname
+  0x00000011 data-cstr        [0x00007ff8131d14ca-0x00007ff8131d9a84)  r-x  0x004a14ca 0x000085ba 0x00000002 CoreFoundation.__TEXT.__objc_methname
+  0x00000012 data-cstr        [0x00007ff8131d9a90-0x00007ff813232fee)  r-x  0x004a9a90 0x0005955e 0x00000002 CoreFoundation.__TEXT.__objc_methtype
+  0x00000200 container        [0x00007ff85592b2a0-0x00007ff855bb8250)  rw-  0x42bfb2a0 0x0028cfb0 0x00000000 CoreFoundation.__DATA_CONST
+  0x00000013 data-ptrs        [0x00007ff85592b2a0-0x00007ff85592cd78)  rw-  0x42bfb2a0 0x00001ad8 0x00000006 CoreFoundation.__DATA_CONST.__got
+  0x00000014 regular          [0x00007ff85592cd80-0x00007ff855ad7d90)  rw-  0x42bfcd80 0x001ab010 0x00000000 CoreFoundation.__DATA_CONST.__const
+  0x00000015 objc-cfstrings   [0x00007ff855ad7d90-0x00007ff855bab470)  rw-  0x42da7d90 0x000d36e0 0x00000000 CoreFoundation.__DATA_CONST.__cfstring
+  0x00000016 data-ptrs        [0x00007ff855bab470-0x00007ff855baba60)  rw-  0x42e7b470 0x000005f0 0x10000000 CoreFoundation.__DATA_CONST.__objc_classlist
+  0x00000017 regular          [0x00007ff855baba60-0x00007ff855babab8)  rw-  0x42e7ba60 0x00000058 0x10000000 CoreFoundation.__DATA_CONST.__objc_nlclslist
+  0x00000018 regular          [0x00007ff855babab8-0x00007ff855babac8)  rw-  0x42e7bab8 0x00000010 0x10000000 CoreFoundation.__DATA_CONST.__objc_catlist
+  0x00000019 regular          [0x00007ff855babac8-0x00007ff855babad0)  rw-  0x42e7bac8 0x00000008 0x10000000 CoreFoundation.__DATA_CONST.__objc_nlcatlist
+  0x0000001a regular          [0x00007ff855babad0-0x00007ff855babb30)  rw-  0x42e7bad0 0x00000060 0x00000000 CoreFoundation.__DATA_CONST.__objc_protolist
+  0x0000001b regular          [0x00007ff855babb30-0x00007ff855babb38)  rw-  0x42e7bb30 0x00000008 0x00000000 CoreFoundation.__DATA_CONST.__objc_imageinfo
+  0x0000001c data-ptrs        [0x00007ff855babb38-0x00007ff855bb8250)  rw-  0x42e7bb38 0x0000c718 0x00000000 CoreFoundation.__DATA_CONST.__objc_const
+  0x00000300 container        [0x00007ff8545312f0-0x00007ff85453f440)  rw-  0x418012f0 0x0000e150 0x00000000 CoreFoundation.__DATA
+  0x0000001d data-cstr-ptr    [0x00007ff8545312f0-0x00007ff854533990)  rw-  0x418012f0 0x000026a0 0x10000005 CoreFoundation.__DATA.__objc_selrefs
+  0x0000001e regular          [0x00007ff854533990-0x00007ff8545339a0)  rw-  0x41803990 0x00000010 0x00000000 CoreFoundation.__DATA.__objc_protorefs
+  0x0000001f data-ptrs        [0x00007ff8545339a0-0x00007ff854533c78)  rw-  0x418039a0 0x000002d8 0x10000000 CoreFoundation.__DATA.__objc_classrefs
+  0x00000020 data-ptrs        [0x00007ff854533c78-0x00007ff8545340c8)  rw-  0x41803c78 0x00000450 0x10000000 CoreFoundation.__DATA.__objc_superrefs
+  0x00000021 regular          [0x00007ff8545340c8-0x00007ff854534cd0)  rw-  0x418040c8 0x00000c08 0x00000000 CoreFoundation.__DATA.__objc_ivar
+  0x00000022 data-ptrs        [0x00007ff854534cd0-0x00007ff854536440)  rw-  0x41804cd0 0x00001770 0x00000000 CoreFoundation.__DATA.__objc_data
+  0x00000023 data             [0x00007ff854536440-0x00007ff85453bab9)  rw-  0x41806440 0x00005679 0x00000000 CoreFoundation.__DATA.__data
+  0x00000024 regular          [0x00007ff85453bac0-0x00007ff85453c2d8)  rw-  0x4180bac0 0x00000818 0x00000000 CoreFoundation.__DATA.__objc_arraydata
+  0x00000025 regular          [0x00007ff85453c2d8-0x00007ff85453c9b8)  rw-  0x4180c2d8 0x000006e0 0x00000000 CoreFoundation.__DATA.__objc_dictobj
+  0x00000026 regular          [0x00007ff85453c9c0-0x00007ff85453e9c0)  rw-  0x4180c9c0 0x00002000 0x00000000 CoreFoundation.__DATA.__cf_except_bt
+  0x00000027 regular          [0x00007ff85453e9c0-0x00007ff85453e9f0)  rw-  0x4180e9c0 0x00000030 0x00000000 CoreFoundation.__DATA.__objc_arrayobj
+  0x00000028 regular          [0x00007ff85453e9f0-0x00007ff85453ea30)  rw-  0x4180e9f0 0x00000040 0x00000000 CoreFoundation.__DATA.__crash_info
+  0x00000029 zero-fill        [0x00007ff85453ea30-0x00007ff85453f398)  rw-  0x4180ea30 0x00000968 0x00000001 CoreFoundation.__DATA.__bss
+  0x0000002a zero-fill        [0x00007ff85453f398-0x00007ff85453f440)  rw-  0x4180f398 0x000000a8 0x00000001 CoreFoundation.__DATA.__common
+  0x00000400 container        [0x00007ff85435b430-0x00007ff85435efa0)  rw-  0x4162b430 0x00003b70 0x00000000 CoreFoundation.__DATA_DIRTY
+  0x0000002b data-ptrs        [0x00007ff85435b430-0x00007ff85435d820)  rw-  0x4162b430 0x000023f0 0x00000000 CoreFoundation.__DATA_DIRTY.__objc_data
+  0x0000002c data             [0x00007ff85435d820-0x00007ff85435dc20)  rw-  0x4162d820 0x00000400 0x00000000 CoreFoundation.__DATA_DIRTY.__data
+  0x0000002d zero-fill        [0x00007ff85435dc20-0x00007ff85435ef10)  rw-  0x4162dc20 0x000012f0 0x00000001 CoreFoundation.__DATA_DIRTY.__bss
+  0x0000002e zero-fill        [0x00007ff85435ef10-0x00007ff85435efa0)  rw-  0x4162ef10 0x00000090 0x00000001 CoreFoundation.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff8929df000-0x00007ff892a72000)  r--  0x7fcaf000 0x00092cc8 0x00000004 CoreFoundation.__UNICODE
+  0x0000002f regular          [0x00007ff8929df000-0x00007ff892a4f0da)  r--  0x7fcaf000 0x000700da 0x00000000 CoreFoundation.__UNICODE.__csbitmaps
+  0x00000030 regular          [0x00007ff892a4f0e0-0x00007ff892a5a104)  r--  0x7fd1f0e0 0x0000b024 0x00000000 CoreFoundation.__UNICODE.__properties
+  0x00000031 data             [0x00007ff892a5a110-0x00007ff892a71cc8)  r--  0x7fd2a110 0x00017bb8 0x00000000 CoreFoundation.__UNICODE.__data
+  0x00000600 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fd43000 0x0882bb01 0x00000000 CoreFoundation.__LINKEDIT
+Sections for '/usr/lib/libobjc.A.dylib' (x86_64h):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812b77000-0x00007ff812bb1000)  r-x  0x00000000 0x0003a000 0x00000000 libobjc.A.dylib.__TEXT
+  0x00000001 code             [0x00007ff812b78b80-0x00007ff812b9efc3)  r-x  0x00001b80 0x00026443 0x80000400 libobjc.A.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812b9efc4-0x00007ff812b9f312)  r-x  0x00027fc4 0x0000034e 0x80000408 libobjc.A.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812b9f318-0x00007ff812b9f7fc)  r-x  0x00028318 0x000004e4 0x00000000 libobjc.A.dylib.__TEXT.__objc_methlist
+  0x00000004 regular          [0x00007ff812b9f800-0x00007ff812ba39b8)  r-x  0x00028800 0x000041b8 0x00000000 libobjc.A.dylib.__TEXT.__const
+  0x00000005 regular          [0x00007ff812ba39b8-0x00007ff812ba79b8)  r-x  0x0002c9b8 0x00004000 0x00000000 libobjc.A.dylib.__TEXT.__objc_opt_ro
+  0x00000006 data-cstr        [0x00007ff812ba79b8-0x00007ff812bac000)  r-x  0x000309b8 0x00004648 0x00000002 libobjc.A.dylib.__TEXT.__cstring
+  0x00000007 regular          [0x00007ff812bac000-0x00007ff812bac8c0)  r-x  0x00035000 0x000008c0 0x00000000 libobjc.A.dylib.__TEXT.__gcc_except_tab
+  0x00000008 debug            [0x00007ff812bac8c0-0x00007ff812bacb28)  r-x  0x000358c0 0x00000268 0x0000000f libobjc.A.dylib.__TEXT.__dof_objc_runt
+  0x00000009 compact-unwind   [0x00007ff812bacb28-0x00007ff812bae4d8)  r-x  0x00035b28 0x000019b0 0x00000000 libobjc.A.dylib.__TEXT.__unwind_info
+  0x0000000a eh-frame         [0x00007ff812bae4d8-0x00007ff812bb0af0)  r-x  0x000374d8 0x00002618 0x00000000 libobjc.A.dylib.__TEXT.__eh_frame
+  0x0000000b data-cstr        [0x00007ff812bb0af0-0x00007ff812bb0b3d)  r-x  0x00039af0 0x0000004d 0x00000002 libobjc.A.dylib.__TEXT.__objc_classname
+  0x0000000c data-cstr        [0x00007ff812bb0b3d-0x00007ff812bb0ed5)  r-x  0x00039b3d 0x00000398 0x00000002 libobjc.A.dylib.__TEXT.__objc_methname
+  0x0000000d data-cstr        [0x00007ff812bb0ed5-0x00007ff812bb0ff3)  r-x  0x00039ed5 0x0000011e 0x00000002 libobjc.A.dylib.__TEXT.__objc_methtype
+  0x00000200 container        [0x00007ff8529ecc80-0x00007ff8529ee418)  rw-  0x3fe75c80 0x00001798 0x00000000 libobjc.A.dylib.__DATA_CONST
+  0x0000000e data-ptrs        [0x00007ff8529ecc80-0x00007ff8529ed180)  rw-  0x3fe75c80 0x00000500 0x00000006 libobjc.A.dylib.__DATA_CONST.__got
+  0x0000000f regular          [0x00007ff8529ed180-0x00007ff8529edd68)  rw-  0x3fe76180 0x00000be8 0x00000000 libobjc.A.dylib.__DATA_CONST.__const
+  0x00000010 data-ptrs        [0x00007ff8529edd68-0x00007ff8529edd90)  rw-  0x3fe76d68 0x00000028 0x10000000 libobjc.A.dylib.__DATA_CONST.__objc_classlist
+  0x00000011 regular          [0x00007ff8529edd90-0x00007ff8529eddb0)  rw-  0x3fe76d90 0x00000020 0x10000000 libobjc.A.dylib.__DATA_CONST.__objc_nlclslist
+  0x00000012 regular          [0x00007ff8529eddb0-0x00007ff8529eddb8)  rw-  0x3fe76db0 0x00000008 0x00000000 libobjc.A.dylib.__DATA_CONST.__objc_protolist
+  0x00000013 regular          [0x00007ff8529eddb8-0x00007ff8529eddc0)  rw-  0x3fe76db8 0x00000008 0x00000000 libobjc.A.dylib.__DATA_CONST.__objc_imageinfo
+  0x00000014 data-ptrs        [0x00007ff8529eddc0-0x00007ff8529ee418)  rw-  0x3fe76dc0 0x00000658 0x00000000 libobjc.A.dylib.__DATA_CONST.__objc_const
+  0x00000300 container        [0x00007ff85451f000-0x00007ff854523441)  rw-  0x419a8000 0x00004000 0x00000000 libobjc.A.dylib.__DATA
+  0x00000015 data-cstr-ptr    [0x00007ff85451f000-0x00007ff85451f1c8)  rw-  0x419a8000 0x000001c8 0x10000005 libobjc.A.dylib.__DATA.__objc_selrefs
+  0x00000016 regular          [0x00007ff85451f1c8-0x00007ff85451f1d8)  rw-  0x419a81c8 0x00000010 0x00000000 libobjc.A.dylib.__DATA.__objc_ivar
+  0x00000017 data-ptrs        [0x00007ff854520000-0x00007ff854520050)  rw-  0x419a9000 0x00000050 0x00000000 libobjc.A.dylib.__DATA.__objc_data
+  0x00000018 data             [0x00007ff854520050-0x00007ff854520118)  rw-  0x419a9050 0x000000c8 0x00000000 libobjc.A.dylib.__DATA.__data
+  0x00000019 regular          [0x00007ff854520118-0x00007ff854520128)  rw-  0x419a9118 0x00000010 0x00000000 libobjc.A.dylib.__DATA.__objc_msg_break
+  0x0000001a regular          [0x00007ff854520128-0x00007ff854520130)  rw-  0x419a9128 0x00000008 0x00000000 libobjc.A.dylib.__DATA.__objc_opt_ptrs
+  0x0000001b regular          [0x00007ff854520130-0x00007ff854520170)  rw-  0x419a9130 0x00000040 0x00000000 libobjc.A.dylib.__DATA.__crash_info
+  0x0000001c zero-fill        [0x00007ff854520170-0x00007ff854520198)  rw-  0x419a9170 0x00000028 0x00000001 libobjc.A.dylib.__DATA.__common
+  0x0000001d zero-fill        [0x00007ff8545201c0-0x00007ff854523441)  rw-  0x419a91c0 0x00003281 0x00000001 libobjc.A.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff8544d8bc0-0x00007ff8544dba42)  rw-  0x41961bc0 0x00002e82 0x00000000 libobjc.A.dylib.__DATA_DIRTY
+  0x0000001e data-ptrs        [0x00007ff8544d8bc0-0x00007ff8544d8d00)  rw-  0x41961bc0 0x00000140 0x00000000 libobjc.A.dylib.__DATA_DIRTY.__objc_data
+  0x0000001f data             [0x00007ff8544d8d00-0x00007ff8544d9748)  rw-  0x41961d00 0x00000a48 0x00000000 libobjc.A.dylib.__DATA_DIRTY.__data
+  0x00000020 zero-fill        [0x00007ff8544d9748-0x00007ff8544d9760)  rw-  0x41962748 0x00000018 0x00000001 libobjc.A.dylib.__DATA_DIRTY.__common
+  0x00000021 zero-fill        [0x00007ff8544d9780-0x00007ff8544dba42)  rw-  0x41962780 0x000022c2 0x00000001 libobjc.A.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff82d0db000-0x00007ff832267000)  r--  0x1a564000 0x0518c000 0x00000000 libobjc.A.dylib.__OBJC_RO
+  0x00000600 container        [0x00007ff855e1f000-0x00007ff85612b000)  rw-  0x432a8000 0x0030c000 0x00000000 libobjc.A.dylib.__OBJC_RW
+  0x00000700 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fefc000 0x0882bb01 0x00000000 libobjc.A.dylib.__LINKEDIT
+Sections for '/usr/lib/liboah.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81dacb000-0x00007ff81dad3000)  r-x  0x00000000 0x00008000 0x00000000 liboah.dylib.__TEXT
+  0x00000001 code             [0x00007ff81dacc390-0x00007ff81dad1eaa)  r-x  0x00001390 0x00005b1a 0x80000400 liboah.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81dad1eaa-0x00007ff81dad2018)  r-x  0x00006eaa 0x0000016e 0x80000408 liboah.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81dad2020-0x00007ff81dad2060)  r-x  0x00007020 0x00000040 0x00000000 liboah.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81dad2060-0x00007ff81dad2e6b)  r-x  0x00007060 0x00000e0b 0x00000002 liboah.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff81dad2e6c-0x00007ff81dad2fa8)  r-x  0x00007e6c 0x0000013c 0x00000000 liboah.dylib.__TEXT.__unwind_info
+  0x00000006 eh-frame         [0x00007ff81dad2fa8-0x00007ff81dad3000)  r-x  0x00007fa8 0x00000058 0x00000000 liboah.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8531fa1b0-0x00007ff8531fa4e0)  rw-  0x3572f1b0 0x00000330 0x00000000 liboah.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531fa1b0-0x00007ff8531fa3c0)  rw-  0x3572f1b0 0x00000210 0x00000006 liboah.dylib.__DATA_CONST.__got
+  0x00000008 regular          [0x00007ff8531fa3c0-0x00007ff8531fa4e0)  rw-  0x3572f3c0 0x00000120 0x00000000 liboah.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854d8ae88-0x00007ff854d8ae90)  rw-  0x21ff3e88 0x00000000 0x00000000 liboah.dylib.__DATA
+  0x00000009 zero-fill        [0x00007ff854d8ae88-0x00007ff854d8ae90)  rw-  0x372bfe88 0x00000008 0x00000001 liboah.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74fa8000 0x0882bb01 0x00000000 liboah.dylib.__LINKEDIT
+Sections for '/usr/lib/libfakelink.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81daff000-0x00007ff81db03000)  r-x  0x00000000 0x00004000 0x00000000 libfakelink.dylib.__TEXT
+  0x00000001 code             [0x00007ff81daffe30-0x00007ff81db02bc5)  r-x  0x00000e30 0x00002d95 0x80000400 libfakelink.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81db02bc6-0x00007ff81db02c6e)  r-x  0x00003bc6 0x000000a8 0x80000408 libfakelink.dylib.__TEXT.__stubs
+  0x00000003 code             [0x00007ff81db02c70-0x00007ff81db02d98)  r-x  0x00003c70 0x00000128 0x80000400 libfakelink.dylib.__TEXT.__stub_helper
+  0x00000004 data-cstr        [0x00007ff81db02d98-0x00007ff81db02ea5)  r-x  0x00003d98 0x0000010d 0x00000002 libfakelink.dylib.__TEXT.__cstring
+  0x00000005 data-cstr        [0x00007ff81db02eb0-0x00007ff81db02f4c)  r-x  0x00003eb0 0x0000009c 0x00000002 libfakelink.dylib.__TEXT.__oslogstring
+  0x00000006 regular          [0x00007ff81db02f50-0x00007ff81db02fb0)  r-x  0x00003f50 0x00000060 0x00000000 libfakelink.dylib.__TEXT.__const
+  0x00000007 compact-unwind   [0x00007ff81db02fb0-0x00007ff81db02ff8)  r-x  0x00003fb0 0x00000048 0x00000000 libfakelink.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff8531fb3c8-0x00007ff8531fb4b8)  rw-  0x356fc3c8 0x000000f0 0x00000000 libfakelink.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff8531fb3c8-0x00007ff8531fb3d8)  rw-  0x356fc3c8 0x00000010 0x00000006 libfakelink.dylib.__DATA_CONST.__got
+  0x00000009 data-ptrs        [0x00007ff8531fb3d8-0x00007ff8531fb4b8)  rw-  0x356fc3d8 0x000000e0 0x00000007 libfakelink.dylib.__DATA_CONST.__la_symbol_ptr
+  0x00000300 container        [0x00007ff854d8c4c8-0x00007ff854d8c4e8)  rw-  0x3728d4c8 0x00000020 0x00000000 libfakelink.dylib.__DATA
+  0x0000000a data             [0x00007ff854d8c4c8-0x00007ff854d8c4e8)  rw-  0x3728d4c8 0x00000020 0x00000000 libfakelink.dylib.__DATA.__data
+  0x00000400 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f74000 0x0882bb01 0x00000000 libfakelink.dylib.__LINKEDIT
+Sections for '/usr/lib/libicucore.A.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81508c000-0x00007ff815315000)  r-x  0x00000000 0x00289000 0x00000000 libicucore.A.dylib.__TEXT
+  0x00000001 code             [0x00007ff81508d280-0x00007ff8152a763a)  r-x  0x00001280 0x0021a3ba 0x80000400 libicucore.A.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff8152a763a-0x00007ff8152a7886)  r-x  0x0021b63a 0x0000024c 0x80000408 libicucore.A.dylib.__TEXT.__stubs
+  0x00000003 code             [0x00007ff8152a7888-0x00007ff8152a7c44)  r-x  0x0021b888 0x000003bc 0x80000400 libicucore.A.dylib.__TEXT.__stub_helper
+  0x00000004 regular          [0x00007ff8152a7c50-0x00007ff815301090)  r-x  0x0021bc50 0x00059440 0x00000000 libicucore.A.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff815301090-0x00007ff8153097f6)  r-x  0x00275090 0x00008766 0x00000002 libicucore.A.dylib.__TEXT.__cstring
+  0x00000006 regular          [0x00007ff815309800-0x00007ff81530dedc)  r-x  0x0027d800 0x000046dc 0x00000000 libicucore.A.dylib.__TEXT.__ustring
+  0x00000007 data-cstr        [0x00007ff81530dee0-0x00007ff81530e0d8)  r-x  0x00281ee0 0x000001f8 0x00000002 libicucore.A.dylib.__TEXT.__oslogstring
+  0x00000008 compact-unwind   [0x00007ff81530e0d8-0x00007ff815314fa4)  r-x  0x002820d8 0x00006ecc 0x00000000 libicucore.A.dylib.__TEXT.__unwind_info
+  0x00000009 eh-frame         [0x00007ff815314fa8-0x00007ff815315000)  r-x  0x00288fa8 0x00000058 0x00000000 libicucore.A.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff852b8eb30-0x00007ff852baf610)  rw-  0x3db02b30 0x00020ae0 0x00000000 libicucore.A.dylib.__DATA_CONST
+  0x0000000a data-ptrs        [0x00007ff852b8eb30-0x00007ff852b8eb98)  rw-  0x3db02b30 0x00000068 0x00000006 libicucore.A.dylib.__DATA_CONST.__got
+  0x0000000b data-ptrs        [0x00007ff852b8eb98-0x00007ff852b8ee88)  rw-  0x3db02b98 0x000002f0 0x00000007 libicucore.A.dylib.__DATA_CONST.__la_symbol_ptr
+  0x0000000c regular          [0x00007ff852b8ee90-0x00007ff852baf610)  rw-  0x3db02e90 0x00020780 0x00000000 libicucore.A.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8545c0b20-0x00007ff8545c2608)  rw-  0x3f534b20 0x00001ae8 0x00000000 libicucore.A.dylib.__DATA
+  0x0000000d data-ptrs        [0x00007ff8545c0b20-0x00007ff8545c0b40)  rw-  0x3f534b20 0x00000020 0x00000007 libicucore.A.dylib.__DATA.__la_weak_ptr
+  0x0000000e data             [0x00007ff8545c0b40-0x00007ff8545c1470)  rw-  0x3f534b40 0x00000930 0x00000000 libicucore.A.dylib.__DATA.__data
+  0x0000000f zero-fill        [0x00007ff8545c1470-0x00007ff8545c25f8)  rw-  0x3f535470 0x00001188 0x00000001 libicucore.A.dylib.__DATA.__bss
+  0x00000010 zero-fill        [0x00007ff8545c25f8-0x00007ff8545c2608)  rw-  0x3f5365f8 0x00000010 0x00000001 libicucore.A.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff8544d4e00-0x00007ff8544d6580)  rw-  0x3f448e00 0x00001780 0x00000000 libicucore.A.dylib.__DATA_DIRTY
+  0x00000011 data             [0x00007ff8544d4e00-0x00007ff8544d4e9c)  rw-  0x3f448e00 0x0000009c 0x00000000 libicucore.A.dylib.__DATA_DIRTY.__data
+  0x00000012 zero-fill        [0x00007ff8544d4ea0-0x00007ff8544d6560)  rw-  0x3f448ea0 0x000016c0 0x00000001 libicucore.A.dylib.__DATA_DIRTY.__bss
+  0x00000013 zero-fill        [0x00007ff8544d6560-0x00007ff8544d6580)  rw-  0x3f44a560 0x00000020 0x00000001 libicucore.A.dylib.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7d9e7000 0x0882bb01 0x00000000 libicucore.A.dylib.__LINKEDIT
+Sections for '/usr/lib/libSystem.B.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81dafd000-0x00007ff81daff000)  r-x  0x00000000 0x00002000 0x00000000 libSystem.B.dylib.__TEXT
+  0x00000001 code             [0x00007ff81dafe73b-0x00007ff81dafecf0)  r-x  0x0000173b 0x000005b5 0x80000400 libSystem.B.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81dafecf0-0x00007ff81dafeedc)  r-x  0x00001cf0 0x000001ec 0x80000408 libSystem.B.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81dafeedc-0x00007ff81dafeee0)  r-x  0x00001edc 0x00000004 0x00000016 libSystem.B.dylib.__TEXT.__init_offsets
+  0x00000004 regular          [0x00007ff81dafeee0-0x00007ff81dafef30)  r-x  0x00001ee0 0x00000050 0x00000000 libSystem.B.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff81dafef30-0x00007ff81dafef8b)  r-x  0x00001f30 0x0000005b 0x00000002 libSystem.B.dylib.__TEXT.__cstring
+  0x00000006 compact-unwind   [0x00007ff81dafef8c-0x00007ff81dafeff4)  r-x  0x00001f8c 0x00000068 0x00000000 libSystem.B.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff854d8c150-0x00007ff854d8c4c8)  rw-  0x3728f150 0x00000378 0x00000000 libSystem.B.dylib.__DATA
+  0x00000007 data-ptrs        [0x00007ff854d8c150-0x00007ff854d8c3f0)  rw-  0x3728f150 0x000002a0 0x00000006 libSystem.B.dylib.__DATA.__got
+  0x00000008 regular          [0x00007ff854d8c3f0-0x00007ff854d8c4b8)  rw-  0x3728f3f0 0x000000c8 0x00000000 libSystem.B.dylib.__DATA.__const
+  0x00000009 data             [0x00007ff854d8c4b8-0x00007ff854d8c4c0)  rw-  0x3728f4b8 0x00000008 0x00000000 libSystem.B.dylib.__DATA.__data
+  0x0000000a zero-fill        [0x00007ff854d8c4c0-0x00007ff854d8c4c8)  rw-  0x3728f4c0 0x00000008 0x00000001 libSystem.B.dylib.__DATA.__common
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f76000 0x0882bb01 0x00000000 libSystem.B.dylib.__LINKEDIT
+Sections for '/System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81db03000-0x00007ff81db04000)  r-x  0x00000000 0x00001000 0x00000000 SoftLinking.__TEXT
+  0x00000001 code             [0x00007ff81db03c46-0x00007ff81db03ebe)  r-x  0x00000c46 0x00000278 0x80000400 SoftLinking.__TEXT.__text
+  0x00000002 code             [0x00007ff81db03ebe-0x00007ff81db03f00)  r-x  0x00000ebe 0x00000042 0x80000408 SoftLinking.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81db03f00-0x00007ff81db03f40)  r-x  0x00000f00 0x00000040 0x00000000 SoftLinking.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81db03f40-0x00007ff81db03f79)  r-x  0x00000f40 0x00000039 0x00000002 SoftLinking.__TEXT.__oslogstring
+  0x00000005 data-cstr        [0x00007ff81db03f79-0x00007ff81db03fa1)  r-x  0x00000f79 0x00000028 0x00000002 SoftLinking.__TEXT.__cstring
+  0x00000006 compact-unwind   [0x00007ff81db03fa4-0x00007ff81db03ff8)  r-x  0x00000fa4 0x00000054 0x00000000 SoftLinking.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff8531fb4b8-0x00007ff8531fb520)  rw-  0x356f84b8 0x00000068 0x00000000 SoftLinking.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531fb4b8-0x00007ff8531fb520)  rw-  0x356f84b8 0x00000068 0x00000006 SoftLinking.__DATA_CONST.__got
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f70000 0x0882bb01 0x00000000 SoftLinking.__LINKEDIT
+Sections for '/usr/lib/libc++abi.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812c96000-0x00007ff812cac000)  r-x  0x00000000 0x00016000 0x00000000 libc++abi.dylib.__TEXT
+  0x00000001 code             [0x00007ff812c97060-0x00007ff812ca8e20)  r-x  0x00001060 0x00011dc0 0x80000400 libc++abi.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812ca8e20-0x00007ff812ca8f4c)  r-x  0x00012e20 0x0000012c 0x80000408 libc++abi.dylib.__TEXT.__stubs
+  0x00000003 data-cstr        [0x00007ff812ca8f4c-0x00007ff812ca9e03)  r-x  0x00012f4c 0x00000eb7 0x00000002 libc++abi.dylib.__TEXT.__cstring
+  0x00000004 regular          [0x00007ff812ca9e04-0x00007ff812caa230)  r-x  0x00013e04 0x0000042c 0x00000000 libc++abi.dylib.__TEXT.__gcc_except_tab
+  0x00000005 regular          [0x00007ff812caa230-0x00007ff812cab5c8)  r-x  0x00014230 0x00001398 0x00000000 libc++abi.dylib.__TEXT.__const
+  0x00000006 compact-unwind   [0x00007ff812cab5c8-0x00007ff812cabce0)  r-x  0x000155c8 0x00000718 0x00000000 libc++abi.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff812cabce0-0x00007ff812cabff8)  r-x  0x00015ce0 0x00000318 0x00000000 libc++abi.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529f2ed8-0x00007ff8529f61d0)  rw-  0x3fd5ced8 0x000032f8 0x00000000 libc++abi.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff8529f2ed8-0x00007ff8529f3050)  rw-  0x3fd5ced8 0x00000178 0x00000006 libc++abi.dylib.__DATA_CONST.__got
+  0x00000009 regular          [0x00007ff8529f3050-0x00007ff8529f61d0)  rw-  0x3fd5d050 0x00003180 0x00000000 libc++abi.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff85452fe90-0x00007ff8545301d8)  rw-  0x41899e90 0x00000348 0x00000000 libc++abi.dylib.__DATA
+  0x0000000a data-ptrs        [0x00007ff85452fe90-0x00007ff85452fed0)  rw-  0x41899e90 0x00000040 0x00000006 libc++abi.dylib.__DATA.__got_weak
+  0x0000000b data             [0x00007ff85452fed0-0x00007ff85452ff50)  rw-  0x41899ed0 0x00000080 0x00000000 libc++abi.dylib.__DATA.__data
+  0x0000000c regular          [0x00007ff85452ff50-0x00007ff85452ff90)  rw-  0x41899f50 0x00000040 0x00000000 libc++abi.dylib.__DATA.__crash_info
+  0x0000000d zero-fill        [0x00007ff85452ff90-0x00007ff85452ff98)  rw-  0x41899f90 0x00000008 0x00000001 libc++abi.dylib.__DATA.__common
+  0x0000000e zero-fill        [0x00007ff85452ffa0-0x00007ff8545301d8)  rw-  0x41899fa0 0x00000238 0x00000001 libc++abi.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff8544d0a28-0x00007ff8544d0a90)  rw-  0x4183aa28 0x00000068 0x00000000 libc++abi.dylib.__DATA_DIRTY
+  0x0000000f data             [0x00007ff8544d0a28-0x00007ff8544d0a80)  rw-  0x4183aa28 0x00000058 0x00000000 libc++abi.dylib.__DATA_DIRTY.__data
+  0x00000010 zero-fill        [0x00007ff8544d0a80-0x00007ff8544d0a90)  rw-  0x4183aa80 0x00000010 0x00000001 libc++abi.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fddd000 0x0882bb01 0x00000000 libc++abi.dylib.__LINKEDIT
+Sections for '/usr/lib/libc++.1.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812c3d000-0x00007ff812c96000)  r-x  0x00000000 0x00059000 0x00000000 libc++.1.dylib.__TEXT
+  0x00000001 code             [0x00007ff812c41e60-0x00007ff812c8c170)  r-x  0x00004e60 0x0004a310 0x80000400 libc++.1.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812c8c170-0x00007ff812c8c560)  r-x  0x0004f170 0x000003f0 0x80000408 libc++.1.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812c8c560-0x00007ff812c8c568)  r-x  0x0004f560 0x00000008 0x00000016 libc++.1.dylib.__TEXT.__init_offsets
+  0x00000004 data-cstr        [0x00007ff812c8c568-0x00007ff812c8d93c)  r-x  0x0004f568 0x000013d4 0x00000002 libc++.1.dylib.__TEXT.__cstring
+  0x00000005 regular          [0x00007ff812c8d940-0x00007ff812c8f8d8)  r-x  0x00050940 0x00001f98 0x00000000 libc++.1.dylib.__TEXT.__const
+  0x00000006 regular          [0x00007ff812c8f8d8-0x00007ff812c93998)  r-x  0x000528d8 0x000040c0 0x00000000 libc++.1.dylib.__TEXT.__gcc_except_tab
+  0x00000007 compact-unwind   [0x00007ff812c93998-0x00007ff812c95f9c)  r-x  0x00056998 0x00002604 0x00000000 libc++.1.dylib.__TEXT.__unwind_info
+  0x00000008 eh-frame         [0x00007ff812c95fa0-0x00007ff812c95ff8)  r-x  0x00058fa0 0x00000058 0x00000000 libc++.1.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529f0740-0x00007ff8529f2ed8)  rw-  0x3fdb3740 0x00002798 0x00000000 libc++.1.dylib.__DATA_CONST
+  0x00000009 data-ptrs        [0x00007ff8529f0740-0x00007ff8529f0d38)  rw-  0x3fdb3740 0x000005f8 0x00000006 libc++.1.dylib.__DATA_CONST.__got
+  0x0000000a regular          [0x00007ff8529f0d40-0x00007ff8529f2ed8)  rw-  0x3fdb3d40 0x00002198 0x00000000 libc++.1.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854527000-0x00007ff85452fe88)  rw-  0x418ea000 0x00004000 0x00000000 libc++.1.dylib.__DATA
+  0x0000000b data-ptrs        [0x00007ff854527000-0x00007ff854527020)  rw-  0x418ea000 0x00000020 0x00000006 libc++.1.dylib.__DATA.__got_weak
+  0x0000000c data             [0x00007ff854528000-0x00007ff854528041)  rw-  0x418eb000 0x00000041 0x00000000 libc++.1.dylib.__DATA.__data
+  0x0000000d regular          [0x00007ff854528048-0x00007ff85452a7c0)  rw-  0x418eb048 0x00002778 0x00000000 libc++.1.dylib.__DATA.__const_weak
+  0x0000000e zero-fill        [0x00007ff85452a7c0-0x00007ff85452fe60)  rw-  0x418ed7c0 0x000056a0 0x00000001 libc++.1.dylib.__DATA.__bss
+  0x0000000f zero-fill        [0x00007ff85452fe60-0x00007ff85452fe88)  rw-  0x418f2e60 0x00000028 0x00000001 libc++.1.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff8544cf810-0x00007ff8544d0a28)  rw-  0x41892810 0x00001218 0x00000000 libc++.1.dylib.__DATA_DIRTY
+  0x00000010 data             [0x00007ff8544cf810-0x00007ff8544cfe40)  rw-  0x41892810 0x00000630 0x00000000 libc++.1.dylib.__DATA_DIRTY.__data
+  0x00000011 zero-fill        [0x00007ff8544cfe40-0x00007ff8544d0490)  rw-  0x41892e40 0x00000650 0x00000001 libc++.1.dylib.__DATA_DIRTY.__bss
+  0x00000012 zero-fill        [0x00007ff8544d0490-0x00007ff8544d0a28)  rw-  0x41893490 0x00000598 0x00000001 libc++.1.dylib.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fe36000 0x0882bb01 0x00000000 libc++.1.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libcache.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81daf8000-0x00007ff81dafd000)  r-x  0x00000000 0x00005000 0x00000000 libcache.dylib.__TEXT
+  0x00000001 code             [0x00007ff81daf8aa8-0x00007ff81dafb49e)  r-x  0x00000aa8 0x000029f6 0x80000400 libcache.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81dafb49e-0x00007ff81dafb52e)  r-x  0x0000349e 0x00000090 0x80000408 libcache.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81dafb530-0x00007ff81dafb570)  r-x  0x00003530 0x00000040 0x00000000 libcache.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81dafb570-0x00007ff81dafb6b2)  r-x  0x00003570 0x00000142 0x00000002 libcache.dylib.__TEXT.__cstring
+  0x00000005 debug            [0x00007ff81dafb6b2-0x00007ff81dafcee9)  r-x  0x000036b2 0x00001837 0x0000000f libcache.dylib.__TEXT.__dof_cache
+  0x00000006 compact-unwind   [0x00007ff81dafceec-0x00007ff81dafcff4)  r-x  0x00004eec 0x00000108 0x00000000 libcache.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff8531fb2a8-0x00007ff8531fb3c8)  rw-  0x357032a8 0x00000120 0x00000000 libcache.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531fb2a8-0x00007ff8531fb388)  rw-  0x357032a8 0x000000e0 0x00000006 libcache.dylib.__DATA_CONST.__got
+  0x00000008 regular          [0x00007ff8531fb388-0x00007ff8531fb3c8)  rw-  0x35703388 0x00000040 0x00000000 libcache.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f7b000 0x0882bb01 0x00000000 libcache.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libcommonCrypto.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81dab4000-0x00007ff81dac0000)  r-x  0x00000000 0x0000c000 0x00000000 libcommonCrypto.dylib.__TEXT
+  0x00000001 code             [0x00007ff81dab5090-0x00007ff81dabeeec)  r-x  0x00001090 0x00009e5c 0x80000400 libcommonCrypto.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81dabeeec-0x00007ff81dabf33c)  r-x  0x0000aeec 0x00000450 0x80000408 libcommonCrypto.dylib.__TEXT.__stubs
+  0x00000003 data-cstr        [0x00007ff81dabf33c-0x00007ff81dabf638)  r-x  0x0000b33c 0x000002fc 0x00000002 libcommonCrypto.dylib.__TEXT.__cstring
+  0x00000004 regular          [0x00007ff81dabf640-0x00007ff81dabf97c)  r-x  0x0000b640 0x0000033c 0x00000000 libcommonCrypto.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff81dabf980-0x00007ff81dabf9a9)  r-x  0x0000b980 0x00000029 0x00000002 libcommonCrypto.dylib.__TEXT.__oslogstring
+  0x00000006 compact-unwind   [0x00007ff81dabf9ac-0x00007ff81dabfd1c)  r-x  0x0000b9ac 0x00000370 0x00000000 libcommonCrypto.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff81dabfd20-0x00007ff81dac0000)  r-x  0x0000bd20 0x000002e0 0x00000000 libcommonCrypto.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff854d89040-0x00007ff854d8a580)  rw-  0x372d5040 0x00001540 0x00000000 libcommonCrypto.dylib.__DATA
+  0x00000008 data-ptrs        [0x00007ff854d89040-0x00007ff854d89670)  rw-  0x372d5040 0x00000630 0x00000006 libcommonCrypto.dylib.__DATA.__got
+  0x00000009 regular          [0x00007ff854d89670-0x00007ff854d8a560)  rw-  0x372d5670 0x00000ef0 0x00000000 libcommonCrypto.dylib.__DATA.__const
+  0x0000000a data             [0x00007ff854d8a560-0x00007ff854d8a580)  rw-  0x372d6560 0x00000020 0x00000000 libcommonCrypto.dylib.__DATA.__data
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74fbf000 0x0882bb01 0x00000000 libcommonCrypto.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libcompiler_rt.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81dadd000-0x00007ff81dae5000)  r-x  0x00000000 0x00008000 0x00000000 libcompiler_rt.dylib.__TEXT
+  0x00000001 code             [0x00007ff81daddff0-0x00007ff81dae2add)  r-x  0x00000ff0 0x00004aed 0x80000400 libcompiler_rt.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81dae2ade-0x00007ff81dae2b44)  r-x  0x00005ade 0x00000066 0x80000408 libcompiler_rt.dylib.__TEXT.__stubs
+  0x00000003 data-cstr        [0x00007ff81dae2b44-0x00007ff81dae355d)  r-x  0x00005b44 0x00000a19 0x00000002 libcompiler_rt.dylib.__TEXT.__cstring
+  0x00000004 regular          [0x00007ff81dae3560-0x00007ff81dae37f0)  r-x  0x00006560 0x00000290 0x00000000 libcompiler_rt.dylib.__TEXT.__const
+  0x00000005 compact-unwind   [0x00007ff81dae37f0-0x00007ff81dae3a58)  r-x  0x000067f0 0x00000268 0x00000000 libcompiler_rt.dylib.__TEXT.__unwind_info
+  0x00000006 eh-frame         [0x00007ff81dae3a58-0x00007ff81dae5000)  r-x  0x00006a58 0x000015a8 0x00000000 libcompiler_rt.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8531fabc0-0x00007ff8531fac50)  rw-  0x3571dbc0 0x00000090 0x00000000 libcompiler_rt.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531fabc0-0x00007ff8531fac50)  rw-  0x3571dbc0 0x00000090 0x00000006 libcompiler_rt.dylib.__DATA_CONST.__got
+  0x00000300 container        [0x00007ff854d8aea0-0x00007ff854d8bea0)  rw-  0x21ff3ea0 0x00000000 0x00000000 libcompiler_rt.dylib.__DATA
+  0x00000008 zero-fill        [0x00007ff854d8aea0-0x00007ff854d8bea0)  rw-  0x372adea0 0x00001000 0x00000001 libcompiler_rt.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f96000 0x0882bb01 0x00000000 libcompiler_rt.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libcopyfile.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81dad3000-0x00007ff81dadd000)  r-x  0x00000000 0x0000a000 0x00000000 libcopyfile.dylib.__TEXT
+  0x00000001 code             [0x00007ff81dad3a10-0x00007ff81dadb440)  r-x  0x00000a10 0x00007a30 0x80000400 libcopyfile.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81dadb440-0x00007ff81dadb6d4)  r-x  0x00008440 0x00000294 0x80000408 libcopyfile.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81dadb6e0-0x00007ff81dadb888)  r-x  0x000086e0 0x000001a8 0x00000000 libcopyfile.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81dadb888-0x00007ff81dadcee8)  r-x  0x00008888 0x00001660 0x00000002 libcopyfile.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff81dadcee8-0x00007ff81dadcfa0)  r-x  0x00009ee8 0x000000b8 0x00000000 libcopyfile.dylib.__TEXT.__unwind_info
+  0x00000006 eh-frame         [0x00007ff81dadcfa0-0x00007ff81dadcff8)  r-x  0x00009fa0 0x00000058 0x00000000 libcopyfile.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8531fa4e0-0x00007ff8531fabc0)  rw-  0x357274e0 0x000006e0 0x00000000 libcopyfile.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531fa4e0-0x00007ff8531fa870)  rw-  0x357274e0 0x00000390 0x00000006 libcopyfile.dylib.__DATA_CONST.__got
+  0x00000008 regular          [0x00007ff8531fa870-0x00007ff8531fabc0)  rw-  0x35727870 0x00000350 0x00000000 libcopyfile.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854d8ae90-0x00007ff854d8aea0)  rw-  0x21ff3e90 0x00000000 0x00000000 libcopyfile.dylib.__DATA
+  0x00000009 zero-fill        [0x00007ff854d8ae90-0x00007ff854d8aea0)  rw-  0x372b7e90 0x00000010 0x00000001 libcopyfile.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74fa0000 0x0882bb01 0x00000000 libcopyfile.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libcorecrypto.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812a71000-0x00007ff812b04000)  r-x  0x00000000 0x00093000 0x00000000 libcorecrypto.dylib.__TEXT
+  0x00000001 code             [0x00007ff812a72840-0x00007ff812ae1240)  r-x  0x00001840 0x0006ea00 0x80000400 libcorecrypto.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812ae1240-0x00007ff812ae130c)  r-x  0x00070240 0x000000cc 0x80000408 libcorecrypto.dylib.__TEXT.__stubs
+  0x00000003 code             [0x00007ff812ae130c-0x00007ff812ae1470)  r-x  0x0007030c 0x00000164 0x80000400 libcorecrypto.dylib.__TEXT.__stub_helper
+  0x00000004 data-cstr        [0x00007ff812ae1470-0x00007ff812ae55f6)  r-x  0x00070470 0x00004186 0x00000002 libcorecrypto.dylib.__TEXT.__cstring
+  0x00000005 regular          [0x00007ff812ae5600-0x00007ff812b03291)  r-x  0x00074600 0x0001dc91 0x00000000 libcorecrypto.dylib.__TEXT.__const
+  0x00000006 regular          [0x00007ff812b032a0-0x00007ff812b032c0)  r-x  0x000922a0 0x00000020 0x00000000 libcorecrypto.dylib.__TEXT.__fips_hmacs
+  0x00000007 data-cstr        [0x00007ff812b032c0-0x00007ff812b0339d)  r-x  0x000922c0 0x000000dd 0x00000002 libcorecrypto.dylib.__TEXT.__oslogstring
+  0x00000008 compact-unwind   [0x00007ff812b033a0-0x00007ff812b03fa8)  r-x  0x000923a0 0x00000c08 0x00000000 libcorecrypto.dylib.__TEXT.__unwind_info
+  0x00000009 eh-frame         [0x00007ff812b03fa8-0x00007ff812b04000)  r-x  0x00092fa8 0x00000058 0x00000000 libcorecrypto.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529d65f0-0x00007ff8529d8220)  rw-  0x3ff655f0 0x00001c30 0x00000000 libcorecrypto.dylib.__DATA_CONST
+  0x0000000a data-ptrs        [0x00007ff8529d65f0-0x00007ff8529d6610)  rw-  0x3ff655f0 0x00000020 0x00000006 libcorecrypto.dylib.__DATA_CONST.__got
+  0x0000000b data-ptrs        [0x00007ff8529d6610-0x00007ff8529d6720)  rw-  0x3ff65610 0x00000110 0x00000007 libcorecrypto.dylib.__DATA_CONST.__la_symbol_ptr
+  0x0000000c regular          [0x00007ff8529d6720-0x00007ff8529d8220)  rw-  0x3ff65720 0x00001b00 0x00000000 libcorecrypto.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854508260-0x00007ff85450fb38)  rw-  0x41a97260 0x000078d8 0x00000000 libcorecrypto.dylib.__DATA
+  0x0000000d data             [0x00007ff854508260-0x00007ff85450ef90)  rw-  0x41a97260 0x00006d30 0x00000000 libcorecrypto.dylib.__DATA.__data
+  0x0000000e zero-fill        [0x00007ff85450ef90-0x00007ff85450fb30)  rw-  0x41a9df90 0x00000ba0 0x00000001 libcorecrypto.dylib.__DATA.__bss
+  0x0000000f zero-fill        [0x00007ff85450fb30-0x00007ff85450fb38)  rw-  0x41a9eb30 0x00000008 0x00000001 libcorecrypto.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff8544f9220-0x00007ff8544f9978)  rw-  0x41a88220 0x00000758 0x00000000 libcorecrypto.dylib.__DATA_DIRTY
+  0x00000010 data             [0x00007ff8544f9220-0x00007ff8544f9848)  rw-  0x41a88220 0x00000628 0x00000000 libcorecrypto.dylib.__DATA_DIRTY.__data
+  0x00000011 zero-fill        [0x00007ff8544f9848-0x00007ff8544f9978)  rw-  0x41a88848 0x00000130 0x00000001 libcorecrypto.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x80002000 0x0882bb01 0x00000000 libcorecrypto.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libdispatch.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812b30000-0x00007ff812b77000)  r-x  0x00000000 0x00047000 0x00000000 libdispatch.dylib.__TEXT
+  0x00000001 code             [0x00007ff812b31310-0x00007ff812b667cd)  r-x  0x00001310 0x000354bd 0x80000400 libdispatch.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812b667ce-0x00007ff812b66c30)  r-x  0x000367ce 0x00000462 0x80000408 libdispatch.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812b66c30-0x00007ff812b67194)  r-x  0x00036c30 0x00000564 0x00000000 libdispatch.dylib.__TEXT.__objc_methlist
+  0x00000004 regular          [0x00007ff812b671a0-0x00007ff812b677c0)  r-x  0x000371a0 0x00000620 0x00000000 libdispatch.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff812b677c0-0x00007ff812b6d314)  r-x  0x000377c0 0x00005b54 0x00000002 libdispatch.dylib.__TEXT.__cstring
+  0x00000006 regular          [0x00007ff812b6d314-0x00007ff812b6d3b4)  r-x  0x0003d314 0x000000a0 0x00000000 libdispatch.dylib.__TEXT.__gcc_except_tab
+  0x00000007 debug            [0x00007ff812b6d3b4-0x00007ff812b6d95c)  r-x  0x0003d3b4 0x000005a8 0x0000000f libdispatch.dylib.__TEXT.__dof_dispatch
+  0x00000008 compact-unwind   [0x00007ff812b6d95c-0x00007ff812b709c0)  r-x  0x0003d95c 0x00003064 0x00000000 libdispatch.dylib.__TEXT.__unwind_info
+  0x00000009 eh-frame         [0x00007ff812b709c0-0x00007ff812b767e8)  r-x  0x000409c0 0x00005e28 0x00000000 libdispatch.dylib.__TEXT.__eh_frame
+  0x0000000a data-cstr        [0x00007ff812b767e8-0x00007ff812b76c36)  r-x  0x000467e8 0x0000044e 0x00000002 libdispatch.dylib.__TEXT.__objc_classname
+  0x0000000b data-cstr        [0x00007ff812b76c36-0x00007ff812b76edc)  r-x  0x00046c36 0x000002a6 0x00000002 libdispatch.dylib.__TEXT.__objc_methname
+  0x0000000c data-cstr        [0x00007ff812b76edc-0x00007ff812b76ff4)  r-x  0x00046edc 0x00000118 0x00000002 libdispatch.dylib.__TEXT.__objc_methtype
+  0x00000200 container        [0x00007ff8529d8840-0x00007ff8529ecc78)  rw-  0x3fea8840 0x00014438 0x00000000 libdispatch.dylib.__DATA_CONST
+  0x0000000d data-ptrs        [0x00007ff8529d8840-0x00007ff8529d8ea0)  rw-  0x3fea8840 0x00000660 0x00000006 libdispatch.dylib.__DATA_CONST.__got
+  0x0000000e regular          [0x00007ff8529d8ec0-0x00007ff8529ea6a8)  rw-  0x3fea8ec0 0x000117e8 0x00000000 libdispatch.dylib.__DATA_CONST.__const
+  0x0000000f data-ptrs        [0x00007ff8529ea6a8-0x00007ff8529ea790)  rw-  0x3feba6a8 0x000000e8 0x10000000 libdispatch.dylib.__DATA_CONST.__objc_classlist
+  0x00000010 regular          [0x00007ff8529ea790-0x00007ff8529ea840)  rw-  0x3feba790 0x000000b0 0x10000000 libdispatch.dylib.__DATA_CONST.__objc_nlclslist
+  0x00000011 regular          [0x00007ff8529ea840-0x00007ff8529ea9a0)  rw-  0x3feba840 0x00000160 0x00000000 libdispatch.dylib.__DATA_CONST.__objc_protolist
+  0x00000012 regular          [0x00007ff8529ea9a0-0x00007ff8529ea9a8)  rw-  0x3feba9a0 0x00000008 0x00000000 libdispatch.dylib.__DATA_CONST.__objc_imageinfo
+  0x00000013 data-ptrs        [0x00007ff8529ea9a8-0x00007ff8529ecc78)  rw-  0x3feba9a8 0x000022d0 0x00000000 libdispatch.dylib.__DATA_CONST.__objc_const
+  0x00000300 container        [0x00007ff85451d200-0x00007ff85451e5e8)  rw-  0x419ed200 0x000013e8 0x00000000 libdispatch.dylib.__DATA
+  0x00000014 data-cstr-ptr    [0x00007ff85451d200-0x00007ff85451d2d8)  rw-  0x419ed200 0x000000d8 0x10000005 libdispatch.dylib.__DATA.__objc_selrefs
+  0x00000015 data-ptrs        [0x00007ff85451d2d8-0x00007ff85451d2e0)  rw-  0x419ed2d8 0x00000008 0x10000000 libdispatch.dylib.__DATA.__objc_classrefs
+  0x00000016 data-ptrs        [0x00007ff85451d2e0-0x00007ff85451d3c0)  rw-  0x419ed2e0 0x000000e0 0x10000000 libdispatch.dylib.__DATA.__objc_superrefs
+  0x00000017 data             [0x00007ff85451d3c0-0x00007ff85451e520)  rw-  0x419ed3c0 0x00001160 0x00000000 libdispatch.dylib.__DATA.__data
+  0x00000018 regular          [0x00007ff85451e520-0x00007ff85451e560)  rw-  0x419ee520 0x00000040 0x00000000 libdispatch.dylib.__DATA.__crash_info
+  0x00000019 zero-fill        [0x00007ff85451e560-0x00007ff85451e562)  rw-  0x419ee560 0x00000002 0x00000001 libdispatch.dylib.__DATA.__common
+  0x0000001a zero-fill        [0x00007ff85451e570-0x00007ff85451e5e8)  rw-  0x419ee570 0x00000078 0x00000001 libdispatch.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff8544f9980-0x00007ff8544fd350)  rw-  0x419c9980 0x000039d0 0x00000000 libdispatch.dylib.__DATA_DIRTY
+  0x0000001b data-ptrs        [0x00007ff8544f9980-0x00007ff8544fa648)  rw-  0x419c9980 0x00000cc8 0x00000000 libdispatch.dylib.__DATA_DIRTY.__objc_data
+  0x0000001c data             [0x00007ff8544fa680-0x00007ff8544fb8d0)  rw-  0x419ca680 0x00001250 0x00000000 libdispatch.dylib.__DATA_DIRTY.__data
+  0x0000001d zero-fill        [0x00007ff8544fb8d0-0x00007ff8544fba58)  rw-  0x419cb8d0 0x00000188 0x00000001 libdispatch.dylib.__DATA_DIRTY.__common
+  0x0000001e zero-fill        [0x00007ff8544fba60-0x00007ff8544fd350)  rw-  0x419cba60 0x000018f0 0x00000001 libdispatch.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7ff43000 0x0882bb01 0x00000000 libdispatch.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libdyld.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812cef000-0x00007ff812cfb000)  r-x  0x00000000 0x0000c000 0x00000000 libdyld.dylib.__TEXT
+  0x00000001 code             [0x00007ff812cefd70-0x00007ff812cf9fc0)  r-x  0x00000d70 0x0000a250 0x80000400 libdyld.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812cf9fc0-0x00007ff812cfa1c4)  r-x  0x0000afc0 0x00000204 0x80000408 libdyld.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812cfa1d0-0x00007ff812cfa2a8)  r-x  0x0000b1d0 0x000000d8 0x00000000 libdyld.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff812cfa2a8-0x00007ff812cfac64)  r-x  0x0000b2a8 0x000009bc 0x00000002 libdyld.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff812cfac64-0x00007ff812cfafa0)  r-x  0x0000bc64 0x0000033c 0x00000000 libdyld.dylib.__TEXT.__unwind_info
+  0x00000006 eh-frame         [0x00007ff812cfafa0-0x00007ff812cfaff8)  r-x  0x0000bfa0 0x00000058 0x00000000 libdyld.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529f8880-0x00007ff8529f9200)  rw-  0x3fd09880 0x00000980 0x00000000 libdyld.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8529f8880-0x00007ff8529f8b70)  rw-  0x3fd09880 0x000002f0 0x00000006 libdyld.dylib.__DATA_CONST.__got
+  0x00000008 regular          [0x00007ff8529f8b70-0x00007ff8529f9200)  rw-  0x3fd09b70 0x00000690 0x00000000 libdyld.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8545304e0-0x00007ff854530558)  rw-  0x418414e0 0x00000078 0x00000000 libdyld.dylib.__DATA
+  0x00000009 regular          [0x00007ff8545304e0-0x00007ff854530520)  rw-  0x418414e0 0x00000040 0x00000000 libdyld.dylib.__DATA.__dyld4
+  0x0000000a data             [0x00007ff854530520-0x00007ff854530550)  rw-  0x41841520 0x00000030 0x00000000 libdyld.dylib.__DATA.__data
+  0x0000000b zero-fill        [0x00007ff854530550-0x00007ff854530558)  rw-  0x41841550 0x00000008 0x00000001 libdyld.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff8544fd350-0x00007ff8544fd370)  rw-  0x21766350 0x00000000 0x00000000 libdyld.dylib.__DATA_DIRTY
+  0x0000000c zero-fill        [0x00007ff8544fd350-0x00007ff8544fd370)  rw-  0x4180e350 0x00000020 0x00000001 libdyld.dylib.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fd84000 0x0882bb01 0x00000000 libdyld.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libkeymgr.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81daef000-0x00007ff81daf0000)  r-x  0x00000000 0x00001000 0x00000000 libkeymgr.dylib.__TEXT
+  0x00000001 code             [0x00007ff81daefae9-0x00007ff81daeff18)  r-x  0x00000ae9 0x0000042f 0x80000400 libkeymgr.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81daeff18-0x00007ff81daeff60)  r-x  0x00000f18 0x00000048 0x80000408 libkeymgr.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81daeff60-0x00007ff81daeff90)  r-x  0x00000f60 0x00000030 0x00000000 libkeymgr.dylib.__TEXT.__const
+  0x00000004 compact-unwind   [0x00007ff81daeff90-0x00007ff81daefffc)  r-x  0x00000f90 0x0000006c 0x00000000 libkeymgr.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff8531fb238-0x00007ff8531fb2a8)  rw-  0x3570c238 0x00000070 0x00000000 libkeymgr.dylib.__DATA_CONST
+  0x00000005 data-ptrs        [0x00007ff8531fb238-0x00007ff8531fb2a8)  rw-  0x3570c238 0x00000070 0x00000006 libkeymgr.dylib.__DATA_CONST.__got
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f84000 0x0882bb01 0x00000000 libkeymgr.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libmacho.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81da92000-0x00007ff81da98000)  r-x  0x00000000 0x00006000 0x00000000 libmacho.dylib.__TEXT
+  0x00000001 code             [0x00007ff81da934a0-0x00007ff81da97959)  r-x  0x000014a0 0x000044b9 0x80000400 libmacho.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81da9795a-0x00007ff81da979ae)  r-x  0x0000595a 0x00000054 0x80000408 libmacho.dylib.__TEXT.__stubs
+  0x00000003 code             [0x00007ff81da979b0-0x00007ff81da97a4c)  r-x  0x000059b0 0x0000009c 0x80000400 libmacho.dylib.__TEXT.__stub_helper
+  0x00000004 data-cstr        [0x00007ff81da97a4c-0x00007ff81da97e8f)  r-x  0x00005a4c 0x00000443 0x00000002 libmacho.dylib.__TEXT.__cstring
+  0x00000005 regular          [0x00007ff81da97e90-0x00007ff81da97f30)  r-x  0x00005e90 0x000000a0 0x00000000 libmacho.dylib.__TEXT.__const
+  0x00000006 compact-unwind   [0x00007ff81da97f30-0x00007ff81da98000)  r-x  0x00005f30 0x000000d0 0x00000000 libmacho.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff8531f9690-0x00007ff8531f9e50)  rw-  0x35767690 0x000007c0 0x00000000 libmacho.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531f9690-0x00007ff8531f96a0)  rw-  0x35767690 0x00000010 0x00000006 libmacho.dylib.__DATA_CONST.__got
+  0x00000008 data-ptrs        [0x00007ff8531f96a0-0x00007ff8531f9710)  rw-  0x357676a0 0x00000070 0x00000007 libmacho.dylib.__DATA_CONST.__la_symbol_ptr
+  0x00000009 regular          [0x00007ff8531f9710-0x00007ff8531f9e50)  rw-  0x35767710 0x00000740 0x00000000 libmacho.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854d88fa0-0x00007ff854d88fa8)  rw-  0x372f6fa0 0x00000008 0x00000000 libmacho.dylib.__DATA
+  0x0000000a data             [0x00007ff854d88fa0-0x00007ff854d88fa8)  rw-  0x372f6fa0 0x00000008 0x00000000 libmacho.dylib.__DATA.__data
+  0x00000400 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74fe1000 0x0882bb01 0x00000000 libmacho.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libquarantine.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81d129000-0x00007ff81d12c000)  r-x  0x00000000 0x00003000 0x00000000 libquarantine.dylib.__TEXT
+  0x00000001 code             [0x00007ff81d12a0f4-0x00007ff81d12bcf8)  r-x  0x000010f4 0x00001c04 0x80000400 libquarantine.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81d12bcf8-0x00007ff81d12bda0)  r-x  0x00002cf8 0x000000a8 0x80000408 libquarantine.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81d12bda0-0x00007ff81d12be15)  r-x  0x00002da0 0x00000075 0x00000000 libquarantine.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81d12be15-0x00007ff81d12bef0)  r-x  0x00002e15 0x000000db 0x00000002 libquarantine.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff81d12bef0-0x00007ff81d12bff8)  r-x  0x00002ef0 0x00000108 0x00000000 libquarantine.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff854d2d060-0x00007ff854d2d1c0)  rw-  0x37c04060 0x00000160 0x00000000 libquarantine.dylib.__DATA
+  0x00000006 data-ptrs        [0x00007ff854d2d060-0x00007ff854d2d150)  rw-  0x37c04060 0x000000f0 0x00000006 libquarantine.dylib.__DATA.__got
+  0x00000007 regular          [0x00007ff854d2d150-0x00007ff854d2d1b0)  rw-  0x37c04150 0x00000060 0x00000000 libquarantine.dylib.__DATA.__const
+  0x00000008 zero-fill        [0x00007ff854d2d1b0-0x00007ff854d2d1c0)  rw-  0x37c041b0 0x00000010 0x00000001 libquarantine.dylib.__DATA.__bss
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7594a000 0x0882bb01 0x00000000 libquarantine.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libremovefile.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81daed000-0x00007ff81daef000)  r-x  0x00000000 0x00002000 0x00000000 libremovefile.dylib.__TEXT
+  0x00000001 code             [0x00007ff81daed920-0x00007ff81daeed9b)  r-x  0x00000920 0x0000147b 0x80000400 libremovefile.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81daeed9c-0x00007ff81daeee98)  r-x  0x00001d9c 0x000000fc 0x80000408 libremovefile.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81daeeea0-0x00007ff81daeeed8)  r-x  0x00001ea0 0x00000038 0x00000000 libremovefile.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81daeeed8-0x00007ff81daeef07)  r-x  0x00001ed8 0x0000002f 0x00000002 libremovefile.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff81daeef08-0x00007ff81daeefa4)  r-x  0x00001f08 0x0000009c 0x00000000 libremovefile.dylib.__TEXT.__unwind_info
+  0x00000006 eh-frame         [0x00007ff81daeefa8-0x00007ff81daef000)  r-x  0x00001fa8 0x00000058 0x00000000 libremovefile.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8531fb0d0-0x00007ff8531fb238)  rw-  0x3570e0d0 0x00000168 0x00000000 libremovefile.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531fb0d0-0x00007ff8531fb238)  rw-  0x3570e0d0 0x00000168 0x00000006 libremovefile.dylib.__DATA_CONST.__got
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f86000 0x0882bb01 0x00000000 libremovefile.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_asl.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff817c47000-0x00007ff817c5e000)  r-x  0x00000000 0x00017000 0x00000000 libsystem_asl.dylib.__TEXT
+  0x00000001 code             [0x00007ff817c48478-0x00007ff817c5c715)  r-x  0x00001478 0x0001429d 0x80000400 libsystem_asl.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff817c5c716-0x00007ff817c5cabe)  r-x  0x00015716 0x000003a8 0x80000408 libsystem_asl.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff817c5cac0-0x00007ff817c5cbb0)  r-x  0x00015ac0 0x000000f0 0x00000000 libsystem_asl.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff817c5cbb0-0x00007ff817c5dbc1)  r-x  0x00015bb0 0x00001011 0x00000002 libsystem_asl.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff817c5dbc4-0x00007ff817c5dff8)  r-x  0x00016bc4 0x00000434 0x00000000 libsystem_asl.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff852eebe00-0x00007ff852eece70)  rw-  0x3b2a4e00 0x00001070 0x00000000 libsystem_asl.dylib.__DATA_CONST
+  0x00000006 data-ptrs        [0x00007ff852eebe00-0x00007ff852eec340)  rw-  0x3b2a4e00 0x00000540 0x00000006 libsystem_asl.dylib.__DATA_CONST.__got
+  0x00000007 regular          [0x00007ff852eec340-0x00007ff852eece70)  rw-  0x3b2a5340 0x00000b30 0x00000000 libsystem_asl.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8546e3420-0x00007ff8546e3530)  rw-  0x3ca9c420 0x00000110 0x00000000 libsystem_asl.dylib.__DATA
+  0x00000008 data             [0x00007ff8546e3420-0x00007ff8546e34a8)  rw-  0x3ca9c420 0x00000088 0x00000000 libsystem_asl.dylib.__DATA.__data
+  0x00000009 regular          [0x00007ff8546e34a8-0x00007ff8546e34e8)  rw-  0x3ca9c4a8 0x00000040 0x00000000 libsystem_asl.dylib.__DATA.__crash_info
+  0x0000000a zero-fill        [0x00007ff8546e34e8-0x00007ff8546e3530)  rw-  0x3ca9c4e8 0x00000048 0x00000001 libsystem_asl.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff8544fd370-0x00007ff8544fd4e4)  rw-  0x3c8b6370 0x00000174 0x00000000 libsystem_asl.dylib.__DATA_DIRTY
+  0x0000000b data             [0x00007ff8544fd370-0x00007ff8544fd458)  rw-  0x3c8b6370 0x000000e8 0x00000000 libsystem_asl.dylib.__DATA_DIRTY.__data
+  0x0000000c zero-fill        [0x00007ff8544fd460-0x00007ff8544fd4c8)  rw-  0x3c8b6460 0x00000068 0x00000001 libsystem_asl.dylib.__DATA_DIRTY.__bss
+  0x0000000d zero-fill        [0x00007ff8544fd4c8-0x00007ff8544fd4e4)  rw-  0x3c8b64c8 0x0000001c 0x00000001 libsystem_asl.dylib.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7ae2c000 0x0882bb01 0x00000000 libsystem_asl.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_blocks.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812a1f000-0x00007ff812a21000)  r-x  0x00000000 0x00002000 0x00000000 libsystem_blocks.dylib.__TEXT
+  0x00000001 code             [0x00007ff812a202c6-0x00007ff812a20834)  r-x  0x000012c6 0x0000056e 0x80000400 libsystem_blocks.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812a20834-0x00007ff812a20858)  r-x  0x00001834 0x00000024 0x80000408 libsystem_blocks.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812a20858-0x00007ff812a20970)  r-x  0x00001858 0x00000118 0x00000000 libsystem_blocks.dylib.__TEXT.__objc_methlist
+  0x00000004 regular          [0x00007ff812a20970-0x00007ff812a209a8)  r-x  0x00001970 0x00000038 0x00000000 libsystem_blocks.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff812a209a8-0x00007ff812a209a9)  r-x  0x000019a8 0x00000001 0x00000002 libsystem_blocks.dylib.__TEXT.__cstring
+  0x00000006 compact-unwind   [0x00007ff812a209ac-0x00007ff812a20aec)  r-x  0x000019ac 0x00000140 0x00000000 libsystem_blocks.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff812a20af0-0x00007ff812a20e80)  r-x  0x00001af0 0x00000390 0x00000000 libsystem_blocks.dylib.__TEXT.__eh_frame
+  0x00000008 data-cstr        [0x00007ff812a20e80-0x00007ff812a20eef)  r-x  0x00001e80 0x0000006f 0x00000002 libsystem_blocks.dylib.__TEXT.__objc_classname
+  0x00000009 data-cstr        [0x00007ff812a20eef-0x00007ff812a20f8c)  r-x  0x00001eef 0x0000009d 0x00000002 libsystem_blocks.dylib.__TEXT.__objc_methname
+  0x0000000a data-cstr        [0x00007ff812a20f8c-0x00007ff812a20ff3)  r-x  0x00001f8c 0x00000067 0x00000002 libsystem_blocks.dylib.__TEXT.__objc_methtype
+  0x00000200 container        [0x00007ff8529cf000-0x00007ff8529cf4c0)  rw-  0x3ffb0000 0x000004c0 0x00000000 libsystem_blocks.dylib.__DATA_CONST
+  0x0000000b data-ptrs        [0x00007ff8529cf000-0x00007ff8529cf030)  rw-  0x3ffb0000 0x00000030 0x00000006 libsystem_blocks.dylib.__DATA_CONST.__got
+  0x0000000c data-ptrs        [0x00007ff8529cf030-0x00007ff8529cf060)  rw-  0x3ffb0030 0x00000030 0x10000000 libsystem_blocks.dylib.__DATA_CONST.__objc_classlist
+  0x0000000d regular          [0x00007ff8529cf060-0x00007ff8529cf090)  rw-  0x3ffb0060 0x00000030 0x10000000 libsystem_blocks.dylib.__DATA_CONST.__objc_nlclslist
+  0x0000000e regular          [0x00007ff8529cf090-0x00007ff8529cf098)  rw-  0x3ffb0090 0x00000008 0x00000000 libsystem_blocks.dylib.__DATA_CONST.__objc_imageinfo
+  0x0000000f data-ptrs        [0x00007ff8529cf098-0x00007ff8529cf4c0)  rw-  0x3ffb0098 0x00000428 0x00000000 libsystem_blocks.dylib.__DATA_CONST.__objc_const
+  0x00000300 container        [0x00007ff854507000-0x00007ff854507078)  rw-  0x41ae8000 0x00000078 0x00000000 libsystem_blocks.dylib.__DATA
+  0x00000010 data-cstr-ptr    [0x00007ff854507000-0x00007ff854507048)  rw-  0x41ae8000 0x00000048 0x10000005 libsystem_blocks.dylib.__DATA.__objc_selrefs
+  0x00000011 regular          [0x00007ff854507048-0x00007ff854507078)  rw-  0x41ae8048 0x00000030 0x00000000 libsystem_blocks.dylib.__DATA.__objc_ivar
+  0x00000400 container        [0x00007ff8544fd4e8-0x00007ff8544fd6e0)  rw-  0x41ade4e8 0x000001f8 0x00000000 libsystem_blocks.dylib.__DATA_DIRTY
+  0x00000012 data-ptrs        [0x00007ff8544fd4e8-0x00007ff8544fd6c8)  rw-  0x41ade4e8 0x000001e0 0x00000000 libsystem_blocks.dylib.__DATA_DIRTY.__objc_data
+  0x00000013 data             [0x00007ff8544fd6c8-0x00007ff8544fd6e0)  rw-  0x41ade6c8 0x00000018 0x00000000 libsystem_blocks.dylib.__DATA_DIRTY.__data
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x80054000 0x0882bb01 0x00000000 libsystem_blocks.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_c.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812bb4000-0x00007ff812c3d000)  r-x  0x00000000 0x00089000 0x00000000 libsystem_c.dylib.__TEXT
+  0x00000001 code             [0x00007ff812bb4fb0-0x00007ff812c36456)  r-x  0x00000fb0 0x000814a6 0x80000400 libsystem_c.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812c36456-0x00007ff812c36ac2)  r-x  0x00082456 0x0000066c 0x80000408 libsystem_c.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812c36ad0-0x00007ff812c38ef0)  r-x  0x00082ad0 0x00002420 0x00000000 libsystem_c.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff812c38ef0-0x00007ff812c3bd05)  r-x  0x00084ef0 0x00002e15 0x00000002 libsystem_c.dylib.__TEXT.__cstring
+  0x00000005 data-cstr        [0x00007ff812c3bd10-0x00007ff812c3bd6e)  r-x  0x00087d10 0x0000005e 0x00000002 libsystem_c.dylib.__TEXT.__oslogstring
+  0x00000006 compact-unwind   [0x00007ff812c3bd70-0x00007ff812c3cf6c)  r-x  0x00087d70 0x000011fc 0x00000000 libsystem_c.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff812c3cf70-0x00007ff812c3d000)  r-x  0x00088f70 0x00000090 0x00000000 libsystem_c.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529ee5d0-0x00007ff8529f0740)  rw-  0x3fe3a5d0 0x00002170 0x00000000 libsystem_c.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff8529ee5d0-0x00007ff8529eee90)  rw-  0x3fe3a5d0 0x000008c0 0x00000006 libsystem_c.dylib.__DATA_CONST.__got
+  0x00000009 regular          [0x00007ff8529eee90-0x00007ff8529f0740)  rw-  0x3fe3ae90 0x000018b0 0x00000000 libsystem_c.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854523490-0x00007ff8545263c8)  rw-  0x4196f490 0x00002f38 0x00000000 libsystem_c.dylib.__DATA
+  0x0000000a regular          [0x00007ff854523490-0x00007ff8545234d0)  rw-  0x4196f490 0x00000040 0x00000000 libsystem_c.dylib.__DATA.__crash_info
+  0x0000000b data             [0x00007ff8545234d0-0x00007ff854523af4)  rw-  0x4196f4d0 0x00000624 0x00000000 libsystem_c.dylib.__DATA.__data
+  0x0000000c regular          [0x00007ff854523af8-0x00007ff854525470)  rw-  0x4196faf8 0x00001978 0x00000000 libsystem_c.dylib.__DATA.__constrw
+  0x0000000d zero-fill        [0x00007ff854525470-0x00007ff854526360)  rw-  0x41971470 0x00000ef0 0x00000001 libsystem_c.dylib.__DATA.__bss
+  0x0000000e zero-fill        [0x00007ff854526360-0x00007ff8545263c8)  rw-  0x41972360 0x00000068 0x00000001 libsystem_c.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff8544fd6e0-0x00007ff8545002b8)  rw-  0x419496e0 0x00002bd8 0x00000000 libsystem_c.dylib.__DATA_DIRTY
+  0x0000000f data             [0x00007ff8544fd6e0-0x00007ff8544fe961)  rw-  0x419496e0 0x00001281 0x00000000 libsystem_c.dylib.__DATA_DIRTY.__data
+  0x00000010 zero-fill        [0x00007ff8544fe970-0x00007ff854500229)  rw-  0x4194a970 0x000018b9 0x00000001 libsystem_c.dylib.__DATA_DIRTY.__bss
+  0x00000011 zero-fill        [0x00007ff854500230-0x00007ff8545002b8)  rw-  0x4194c230 0x00000088 0x00000001 libsystem_c.dylib.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7febf000 0x0882bb01 0x00000000 libsystem_c.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_collections.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81dae5000-0x00007ff81daea000)  r-x  0x00000000 0x00005000 0x00000000 libsystem_collections.dylib.__TEXT
+  0x00000001 code             [0x00007ff81dae5fee-0x00007ff81dae99dc)  r-x  0x00000fee 0x000039ee 0x80000400 libsystem_collections.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81dae99dc-0x00007ff81dae9a00)  r-x  0x000049dc 0x00000024 0x80000408 libsystem_collections.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81dae9a00-0x00007ff81dae9a40)  r-x  0x00004a00 0x00000040 0x00000000 libsystem_collections.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81dae9a40-0x00007ff81dae9ed4)  r-x  0x00004a40 0x00000494 0x00000002 libsystem_collections.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff81dae9ed4-0x00007ff81dae9ff8)  r-x  0x00004ed4 0x00000124 0x00000000 libsystem_collections.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff8531fac50-0x00007ff8531fada8)  rw-  0x35715c50 0x00000158 0x00000000 libsystem_collections.dylib.__DATA_CONST
+  0x00000006 data-ptrs        [0x00007ff8531fac50-0x00007ff8531fac88)  rw-  0x35715c50 0x00000038 0x00000006 libsystem_collections.dylib.__DATA_CONST.__got
+  0x00000007 regular          [0x00007ff8531fac88-0x00007ff8531fada8)  rw-  0x35715c88 0x00000120 0x00000000 libsystem_collections.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f8e000 0x0882bb01 0x00000000 libsystem_collections.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_configuration.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81c310000-0x00007ff81c314000)  r-x  0x00000000 0x00004000 0x00000000 libsystem_configuration.dylib.__TEXT
+  0x00000001 code             [0x00007ff81c311060-0x00007ff81c3138c8)  r-x  0x00001060 0x00002868 0x80000400 libsystem_configuration.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81c3138c8-0x00007ff81c313a00)  r-x  0x000038c8 0x00000138 0x80000408 libsystem_configuration.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81c313a00-0x00007ff81c313a60)  r-x  0x00003a00 0x00000060 0x00000000 libsystem_configuration.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81c313a60-0x00007ff81c313cea)  r-x  0x00003a60 0x0000028a 0x00000002 libsystem_configuration.dylib.__TEXT.__cstring
+  0x00000005 data-cstr        [0x00007ff81c313cf0-0x00007ff81c313f2f)  r-x  0x00003cf0 0x0000023f 0x00000002 libsystem_configuration.dylib.__TEXT.__oslogstring
+  0x00000006 compact-unwind   [0x00007ff81c313f30-0x00007ff81c313ffc)  r-x  0x00003f30 0x000000cc 0x00000000 libsystem_configuration.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff854cbe3a0-0x00007ff854cbe931)  rw-  0x389ae3a0 0x00000591 0x00000000 libsystem_configuration.dylib.__DATA
+  0x00000007 data-ptrs        [0x00007ff854cbe3a0-0x00007ff854cbe598)  rw-  0x389ae3a0 0x000001f8 0x00000006 libsystem_configuration.dylib.__DATA.__got
+  0x00000008 regular          [0x00007ff854cbe598-0x00007ff854cbe868)  rw-  0x389ae598 0x000002d0 0x00000000 libsystem_configuration.dylib.__DATA.__const
+  0x00000009 data             [0x00007ff854cbe868-0x00007ff854cbe8b8)  rw-  0x389ae868 0x00000050 0x00000000 libsystem_configuration.dylib.__DATA.__data
+  0x0000000a zero-fill        [0x00007ff854cbe8b8-0x00007ff854cbe931)  rw-  0x389ae8b8 0x00000079 0x00000001 libsystem_configuration.dylib.__DATA.__bss
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x76763000 0x0882bb01 0x00000000 libsystem_configuration.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_containermanager.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81b5d2000-0x00007ff81b5ef000)  r-x  0x00000000 0x0001d000 0x00000000 libsystem_containermanager.dylib.__TEXT
+  0x00000001 code             [0x00007ff81b5d32ac-0x00007ff81b5e92c0)  r-x  0x000012ac 0x00016014 0x80000400 libsystem_containermanager.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81b5e92c0-0x00007ff81b5e95f0)  r-x  0x000172c0 0x00000330 0x80000408 libsystem_containermanager.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81b5e95f0-0x00007ff81b5e9684)  r-x  0x000175f0 0x00000094 0x00000000 libsystem_containermanager.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81b5e9684-0x00007ff81b5ebd89)  r-x  0x00017684 0x00002705 0x00000002 libsystem_containermanager.dylib.__TEXT.__cstring
+  0x00000005 data-cstr        [0x00007ff81b5ebd90-0x00007ff81b5eec39)  r-x  0x00019d90 0x00002ea9 0x00000002 libsystem_containermanager.dylib.__TEXT.__oslogstring
+  0x00000006 compact-unwind   [0x00007ff81b5eec3c-0x00007ff81b5eeffc)  r-x  0x0001cc3c 0x000003c0 0x00000000 libsystem_containermanager.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff854ad2d00-0x00007ff854ad4c78)  rw-  0x39500d00 0x00001f78 0x00000000 libsystem_containermanager.dylib.__DATA
+  0x00000007 data-ptrs        [0x00007ff854ad2d00-0x00007ff854ad31a8)  rw-  0x39500d00 0x000004a8 0x00000006 libsystem_containermanager.dylib.__DATA.__got
+  0x00000008 regular          [0x00007ff854ad31b0-0x00007ff854ad4b30)  rw-  0x395011b0 0x00001980 0x00000000 libsystem_containermanager.dylib.__DATA.__const
+  0x00000009 data             [0x00007ff854ad4b30-0x00007ff854ad4b32)  rw-  0x39502b30 0x00000002 0x00000000 libsystem_containermanager.dylib.__DATA.__data
+  0x0000000a zero-fill        [0x00007ff854ad4b40-0x00007ff854ad4c78)  rw-  0x39502b40 0x00000138 0x00000001 libsystem_containermanager.dylib.__DATA.__bss
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x774a1000 0x0882bb01 0x00000000 libsystem_containermanager.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_coreservices.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81d7d1000-0x00007ff81d7d6000)  r-x  0x00000000 0x00005000 0x00000000 libsystem_coreservices.dylib.__TEXT
+  0x00000001 code             [0x00007ff81d7d1e10-0x00007ff81d7d5420)  r-x  0x00000e10 0x00003610 0x80000400 libsystem_coreservices.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81d7d5420-0x00007ff81d7d55e2)  r-x  0x00004420 0x000001c2 0x80000408 libsystem_coreservices.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81d7d55f0-0x00007ff81d7d5658)  r-x  0x000045f0 0x00000068 0x00000000 libsystem_coreservices.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81d7d5660-0x00007ff81d7d5994)  r-x  0x00004660 0x00000334 0x00000002 libsystem_coreservices.dylib.__TEXT.__cstring
+  0x00000005 data-cstr        [0x00007ff81d7d59a0-0x00007ff81d7d5e7e)  r-x  0x000049a0 0x000004de 0x00000002 libsystem_coreservices.dylib.__TEXT.__oslogstring
+  0x00000006 compact-unwind   [0x00007ff81d7d5e80-0x00007ff81d7d5f74)  r-x  0x00004e80 0x000000f4 0x00000000 libsystem_coreservices.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff81d7d5f78-0x00007ff81d7d6000)  r-x  0x00004f78 0x00000088 0x00000000 libsystem_coreservices.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff854d488e0-0x00007ff854d493a8)  rw-  0x375778e0 0x00000ac8 0x00000000 libsystem_coreservices.dylib.__DATA
+  0x00000008 data-ptrs        [0x00007ff854d488e0-0x00007ff854d48b58)  rw-  0x375778e0 0x00000278 0x00000006 libsystem_coreservices.dylib.__DATA.__got
+  0x00000009 regular          [0x00007ff854d48b60-0x00007ff854d492d0)  rw-  0x37577b60 0x00000770 0x00000000 libsystem_coreservices.dylib.__DATA.__const
+  0x0000000a regular          [0x00007ff854d492d0-0x00007ff854d49310)  rw-  0x375782d0 0x00000040 0x00000000 libsystem_coreservices.dylib.__DATA.__crash_info
+  0x0000000b zero-fill        [0x00007ff854d49310-0x00007ff854d49398)  rw-  0x37578310 0x00000088 0x00000001 libsystem_coreservices.dylib.__DATA.__common
+  0x0000000c zero-fill        [0x00007ff854d49398-0x00007ff854d493a8)  rw-  0x37578398 0x00000010 0x00000001 libsystem_coreservices.dylib.__DATA.__bss
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x752a2000 0x0882bb01 0x00000000 libsystem_coreservices.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_darwin.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff815315000-0x00007ff81531f000)  r-x  0x00000000 0x0000a000 0x00000000 libsystem_darwin.dylib.__TEXT
+  0x00000001 code             [0x00007ff8153161b0-0x00007ff81531c433)  r-x  0x000011b0 0x00006283 0x80000400 libsystem_darwin.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81531c434-0x00007ff81531c638)  r-x  0x00007434 0x00000204 0x80000408 libsystem_darwin.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81531c640-0x00007ff81531c6bb)  r-x  0x00007640 0x0000007b 0x00000000 libsystem_darwin.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81531c6bb-0x00007ff81531e555)  r-x  0x000076bb 0x00001e9a 0x00000002 libsystem_darwin.dylib.__TEXT.__cstring
+  0x00000005 data-cstr        [0x00007ff81531e560-0x00007ff81531ee33)  r-x  0x00009560 0x000008d3 0x00000002 libsystem_darwin.dylib.__TEXT.__oslogstring
+  0x00000006 compact-unwind   [0x00007ff81531ee34-0x00007ff81531efa8)  r-x  0x00009e34 0x00000174 0x00000000 libsystem_darwin.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff81531efa8-0x00007ff81531f000)  r-x  0x00009fa8 0x00000058 0x00000000 libsystem_darwin.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff852baf610-0x00007ff852bb23e0)  rw-  0x3d89a610 0x00002dd0 0x00000000 libsystem_darwin.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff852baf610-0x00007ff852baf900)  rw-  0x3d89a610 0x000002f0 0x00000006 libsystem_darwin.dylib.__DATA_CONST.__got
+  0x00000009 regular          [0x00007ff852baf900-0x00007ff852bb23e0)  rw-  0x3d89a900 0x00002ae0 0x00000000 libsystem_darwin.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8545c2608-0x00007ff8545c2618)  rw-  0x3f2ad608 0x00000010 0x00000000 libsystem_darwin.dylib.__DATA
+  0x0000000a data             [0x00007ff8545c2608-0x00007ff8545c2618)  rw-  0x3f2ad608 0x00000010 0x00000000 libsystem_darwin.dylib.__DATA.__data
+  0x00000400 container        [0x00007ff8545002b8-0x00007ff8545002e8)  rw-  0x217692b8 0x00000000 0x00000000 libsystem_darwin.dylib.__DATA_DIRTY
+  0x0000000b zero-fill        [0x00007ff8545002b8-0x00007ff8545002e8)  rw-  0x3f1eb2b8 0x00000030 0x00000001 libsystem_darwin.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7d75e000 0x0882bb01 0x00000000 libsystem_darwin.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_dnssd.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81daf0000-0x00007ff81daf8000)  r-x  0x00000000 0x00008000 0x00000000 libsystem_dnssd.dylib.__TEXT
+  0x00000001 code             [0x00007ff81daf0f68-0x00007ff81daf61ae)  r-x  0x00000f68 0x00005246 0x80000400 libsystem_dnssd.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81daf61ae-0x00007ff81daf62e0)  r-x  0x000061ae 0x00000132 0x80000408 libsystem_dnssd.dylib.__TEXT.__stubs
+  0x00000003 code             [0x00007ff81daf62e0-0x00007ff81daf64ee)  r-x  0x000062e0 0x0000020e 0x80000400 libsystem_dnssd.dylib.__TEXT.__stub_helper
+  0x00000004 regular          [0x00007ff81daf64f0-0x00007ff81daf6561)  r-x  0x000064f0 0x00000071 0x00000000 libsystem_dnssd.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff81daf6561-0x00007ff81daf7ee9)  r-x  0x00006561 0x00001988 0x00000002 libsystem_dnssd.dylib.__TEXT.__cstring
+  0x00000006 compact-unwind   [0x00007ff81daf7eec-0x00007ff81daf7ff4)  r-x  0x00007eec 0x00000108 0x00000000 libsystem_dnssd.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff854d8bee0-0x00007ff854d8c149)  rw-  0x3729bee0 0x00000269 0x00000000 libsystem_dnssd.dylib.__DATA
+  0x00000007 data-ptrs        [0x00007ff854d8bee0-0x00007ff854d8bee8)  rw-  0x3729bee0 0x00000008 0x00000006 libsystem_dnssd.dylib.__DATA.__nl_symbol_ptr
+  0x00000008 data-ptrs        [0x00007ff854d8bee8-0x00007ff854d8bf08)  rw-  0x3729bee8 0x00000020 0x00000006 libsystem_dnssd.dylib.__DATA.__got
+  0x00000009 data-ptrs        [0x00007ff854d8bf08-0x00007ff854d8c0a0)  rw-  0x3729bf08 0x00000198 0x00000007 libsystem_dnssd.dylib.__DATA.__la_symbol_ptr
+  0x0000000a regular          [0x00007ff854d8c0a0-0x00007ff854d8c120)  rw-  0x3729c0a0 0x00000080 0x00000000 libsystem_dnssd.dylib.__DATA.__const
+  0x0000000b zero-fill        [0x00007ff854d8c120-0x00007ff854d8c149)  rw-  0x3729c120 0x00000029 0x00000001 libsystem_dnssd.dylib.__DATA.__bss
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f83000 0x0882bb01 0x00000000 libsystem_dnssd.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_featureflags.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812bb1000-0x00007ff812bb4000)  r-x  0x00000000 0x00003000 0x00000000 libsystem_featureflags.dylib.__TEXT
+  0x00000001 code             [0x00007ff812bb1fb3-0x00007ff812bb3c7c)  r-x  0x00000fb3 0x00001cc9 0x80000400 libsystem_featureflags.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812bb3c7c-0x00007ff812bb3d60)  r-x  0x00002c7c 0x000000e4 0x80000408 libsystem_featureflags.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812bb3d60-0x00007ff812bb3da8)  r-x  0x00002d60 0x00000048 0x00000000 libsystem_featureflags.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff812bb3da8-0x00007ff812bb3f78)  r-x  0x00002da8 0x000001d0 0x00000002 libsystem_featureflags.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff812bb3f78-0x00007ff812bb3ff8)  r-x  0x00002f78 0x00000080 0x00000000 libsystem_featureflags.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff8529ee418-0x00007ff8529ee5c8)  rw-  0x3fe3d418 0x000001b0 0x00000000 libsystem_featureflags.dylib.__DATA_CONST
+  0x00000006 data-ptrs        [0x00007ff8529ee418-0x00007ff8529ee590)  rw-  0x3fe3d418 0x00000178 0x00000006 libsystem_featureflags.dylib.__DATA_CONST.__got
+  0x00000007 regular          [0x00007ff8529ee590-0x00007ff8529ee5c0)  rw-  0x3fe3d590 0x00000030 0x00000000 libsystem_featureflags.dylib.__DATA_CONST.__const
+  0x00000008 regular          [0x00007ff8529ee5c0-0x00007ff8529ee5c8)  rw-  0x3fe3d5c0 0x00000008 0x00000000 libsystem_featureflags.dylib.__DATA_CONST.__objc_imageinfo
+  0x00000300 container        [0x00007ff854523450-0x00007ff854523489)  rw-  0x41972450 0x00000039 0x00000000 libsystem_featureflags.dylib.__DATA
+  0x00000009 data             [0x00007ff854523450-0x00007ff854523469)  rw-  0x41972450 0x00000019 0x00000000 libsystem_featureflags.dylib.__DATA.__data
+  0x0000000a zero-fill        [0x00007ff854523470-0x00007ff854523489)  rw-  0x41972470 0x00000019 0x00000001 libsystem_featureflags.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff8545002e8-0x00007ff8545002f8)  rw-  0x217692e8 0x00000000 0x00000000 libsystem_featureflags.dylib.__DATA_DIRTY
+  0x0000000b zero-fill        [0x00007ff8545002e8-0x00007ff8545002f8)  rw-  0x4194f2e8 0x00000010 0x00000001 libsystem_featureflags.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fec2000 0x0882bb01 0x00000000 libsystem_featureflags.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_info.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812d05000-0x00007ff812d30000)  r-x  0x00000000 0x0002b000 0x00000000 libsystem_info.dylib.__TEXT
+  0x00000001 code             [0x00007ff812d06100-0x00007ff812d2b9d8)  r-x  0x00001100 0x000258d8 0x80000400 libsystem_info.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812d2b9d8-0x00007ff812d2beb2)  r-x  0x000269d8 0x000004da 0x80000408 libsystem_info.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812d2bec0-0x00007ff812d2c0b4)  r-x  0x00026ec0 0x000001f4 0x00000000 libsystem_info.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff812d2c0c0-0x00007ff812d2e3cc)  r-x  0x000270c0 0x0000230c 0x00000002 libsystem_info.dylib.__TEXT.__cstring
+  0x00000005 data-cstr        [0x00007ff812d2e3d0-0x00007ff812d2f750)  r-x  0x000293d0 0x00001380 0x00000002 libsystem_info.dylib.__TEXT.__oslogstring
+  0x00000006 compact-unwind   [0x00007ff812d2f750-0x00007ff812d2ffa4)  r-x  0x0002a750 0x00000854 0x00000000 libsystem_info.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff812d2ffa8-0x00007ff812d30000)  r-x  0x0002afa8 0x00000058 0x00000000 libsystem_info.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529f9200-0x00007ff8529fa898)  rw-  0x3fcf4200 0x00001698 0x00000000 libsystem_info.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff8529f9200-0x00007ff8529f9900)  rw-  0x3fcf4200 0x00000700 0x00000006 libsystem_info.dylib.__DATA_CONST.__got
+  0x00000009 regular          [0x00007ff8529f9900-0x00007ff8529fa898)  rw-  0x3fcf4900 0x00000f98 0x00000000 libsystem_info.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8545305a0-0x00007ff8545312e8)  rw-  0x4182b5a0 0x00000d48 0x00000000 libsystem_info.dylib.__DATA
+  0x0000000a data             [0x00007ff8545305a0-0x00007ff854530954)  rw-  0x4182b5a0 0x000003b4 0x00000000 libsystem_info.dylib.__DATA.__data
+  0x0000000b zero-fill        [0x00007ff854530960-0x00007ff854530d70)  rw-  0x4182b960 0x00000410 0x00000001 libsystem_info.dylib.__DATA.__common
+  0x0000000c zero-fill        [0x00007ff854530d70-0x00007ff8545312e8)  rw-  0x4182bd70 0x00000578 0x00000001 libsystem_info.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff854500300-0x00007ff854500590)  rw-  0x417fb300 0x00000290 0x00000000 libsystem_info.dylib.__DATA_DIRTY
+  0x0000000d data             [0x00007ff854500300-0x00007ff854500510)  rw-  0x417fb300 0x00000210 0x00000000 libsystem_info.dylib.__DATA_DIRTY.__data
+  0x0000000e zero-fill        [0x00007ff854500510-0x00007ff854500590)  rw-  0x417fb510 0x00000080 0x00000001 libsystem_info.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fd6e000 0x0882bb01 0x00000000 libsystem_info.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_m.dylib' (x86_64h):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81da30000-0x00007ff81da91000)  r-x  0x00000000 0x00061000 0x00000000 libsystem_m.dylib.__TEXT
+  0x00000001 code             [0x00007ff81da31280-0x00007ff81da6603c)  r-x  0x00001280 0x00034dbc 0x80000400 libsystem_m.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81da6603c-0x00007ff81da660de)  r-x  0x0003603c 0x000000a2 0x80000408 libsystem_m.dylib.__TEXT.__stubs
+  0x00000003 code             [0x00007ff81da660de-0x00007ff81da6643e)  r-x  0x000360de 0x00000360 0x80000400 libsystem_m.dylib.__TEXT.__stub_helper
+  0x00000004 regular          [0x00007ff81da66440-0x00007ff81da90cec)  r-x  0x00036440 0x0002a8ac 0x00000000 libsystem_m.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff81da90cec-0x00007ff81da90cef)  r-x  0x00060cec 0x00000003 0x00000002 libsystem_m.dylib.__TEXT.__cstring
+  0x00000006 compact-unwind   [0x00007ff81da90cf0-0x00007ff81da90fa4)  r-x  0x00060cf0 0x000002b4 0x00000000 libsystem_m.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff81da90fa8-0x00007ff81da91000)  r-x  0x00060fa8 0x00000058 0x00000000 libsystem_m.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff855c91f98-0x00007ff855c91fb8)  rw-  0x38261f98 0x00000020 0x00000000 libsystem_m.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff855c91f98-0x00007ff855c91fb8)  rw-  0x38261f98 0x00000020 0x00000006 libsystem_m.dylib.__DATA_CONST.__got
+  0x00000300 container        [0x00007ff854d88f60-0x00007ff854d88f64)  rw-  0x21ff1f60 0x00000000 0x00000000 libsystem_m.dylib.__DATA
+  0x00000009 zero-fill        [0x00007ff854d88f60-0x00007ff854d88f64)  rw-  0x37358f60 0x00000004 0x00000001 libsystem_m.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff854500c60-0x00007ff854500d20)  rw-  0x36ad0c60 0x000000c0 0x00000000 libsystem_m.dylib.__DATA_DIRTY
+  0x0000000a data-ptrs        [0x00007ff854500c60-0x00007ff854500d20)  rw-  0x36ad0c60 0x000000c0 0x00000007 libsystem_m.dylib.__DATA_DIRTY.__la_resolver
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x75043000 0x0882bb01 0x00000000 libsystem_m.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_malloc.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812b04000-0x00007ff812b30000)  r-x  0x00000000 0x0002c000 0x00000000 libsystem_malloc.dylib.__TEXT
+  0x00000001 code             [0x00007ff812b054f0-0x00007ff812b27950)  r-x  0x000014f0 0x00022460 0x80000400 libsystem_malloc.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812b27950-0x00007ff812b27b2a)  r-x  0x00023950 0x000001da 0x80000408 libsystem_malloc.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812b27b30-0x00007ff812b27f1b)  r-x  0x00023b30 0x000003eb 0x00000000 libsystem_malloc.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff812b27f1b-0x00007ff812b2c272)  r-x  0x00023f1b 0x00004357 0x00000002 libsystem_malloc.dylib.__TEXT.__cstring
+  0x00000005 debug            [0x00007ff812b2c272-0x00007ff812b2cd03)  r-x  0x00028272 0x00000a91 0x0000000f libsystem_malloc.dylib.__TEXT.__dof_magmalloc
+  0x00000006 compact-unwind   [0x00007ff812b2cd04-0x00007ff812b2dde4)  r-x  0x00028d04 0x000010e0 0x00000000 libsystem_malloc.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff812b2dde8-0x00007ff812b30000)  r-x  0x00029de8 0x00002218 0x00000000 libsystem_malloc.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529d8220-0x00007ff8529d8828)  rw-  0x3fed4220 0x00000608 0x00000000 libsystem_malloc.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff8529d8220-0x00007ff8529d84e0)  rw-  0x3fed4220 0x000002c0 0x00000006 libsystem_malloc.dylib.__DATA_CONST.__got
+  0x00000009 regular          [0x00007ff8529d84e0-0x00007ff8529d8828)  rw-  0x3fed44e0 0x00000348 0x00000000 libsystem_malloc.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854513000-0x00007ff85451d1e4)  rw-  0x41a0f000 0x0000a1e4 0x00000000 libsystem_malloc.dylib.__DATA
+  0x0000000a data             [0x00007ff854513000-0x00007ff854513248)  rw-  0x41a0f000 0x00000248 0x00000000 libsystem_malloc.dylib.__DATA.__data
+  0x0000000b regular          [0x00007ff854517000-0x00007ff85451b000)  rw-  0x41a13000 0x00004000 0x00000000 libsystem_malloc.dylib.__DATA.__v_zone
+  0x0000000c regular          [0x00007ff85451b000-0x00007ff85451b040)  rw-  0x41a17000 0x00000040 0x00000000 libsystem_malloc.dylib.__DATA.__crash_info
+  0x0000000d zero-fill        [0x00007ff85451b040-0x00007ff85451d189)  rw-  0x41a17040 0x00002149 0x00000001 libsystem_malloc.dylib.__DATA.__bss
+  0x0000000e zero-fill        [0x00007ff85451d190-0x00007ff85451d1e4)  rw-  0x41a19190 0x00000054 0x00000001 libsystem_malloc.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff854500d20-0x00007ff854500f38)  rw-  0x419fcd20 0x00000218 0x00000000 libsystem_malloc.dylib.__DATA_DIRTY
+  0x0000000f data             [0x00007ff854500d20-0x00007ff854500d30)  rw-  0x419fcd20 0x00000010 0x00000000 libsystem_malloc.dylib.__DATA_DIRTY.__data
+  0x00000010 zero-fill        [0x00007ff854500d30-0x00007ff854500eec)  rw-  0x419fcd30 0x000001bc 0x00000001 libsystem_malloc.dylib.__DATA_DIRTY.__common
+  0x00000011 zero-fill        [0x00007ff854500ef0-0x00007ff854500f38)  rw-  0x419fcef0 0x00000048 0x00000001 libsystem_malloc.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7ff6f000 0x0882bb01 0x00000000 libsystem_malloc.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_networkextension.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff817be4000-0x00007ff817bfa000)  r-x  0x00000000 0x00016000 0x00000000 libsystem_networkextension.dylib.__TEXT
+  0x00000001 code             [0x00007ff817be4c36-0x00007ff817bf5bf6)  r-x  0x00000c36 0x00010fc0 0x80000400 libsystem_networkextension.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff817bf5bf6-0x00007ff817bf5f02)  r-x  0x00011bf6 0x0000030c 0x80000408 libsystem_networkextension.dylib.__TEXT.__stubs
+  0x00000003 data-cstr        [0x00007ff817bf5f02-0x00007ff817bf7400)  r-x  0x00011f02 0x000014fe 0x00000002 libsystem_networkextension.dylib.__TEXT.__cstring
+  0x00000004 data-cstr        [0x00007ff817bf7400-0x00007ff817bf9c6b)  r-x  0x00013400 0x0000286b 0x00000002 libsystem_networkextension.dylib.__TEXT.__oslogstring
+  0x00000005 regular          [0x00007ff817bf9c70-0x00007ff817bf9ca0)  r-x  0x00015c70 0x00000030 0x00000000 libsystem_networkextension.dylib.__TEXT.__const
+  0x00000006 compact-unwind   [0x00007ff817bf9ca0-0x00007ff817bf9ffc)  r-x  0x00015ca0 0x0000035c 0x00000000 libsystem_networkextension.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff852ea3d08-0x00007ff852ea4dd0)  rw-  0x3b2bfd08 0x000010c8 0x00000000 libsystem_networkextension.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff852ea3d08-0x00007ff852ea4188)  rw-  0x3b2bfd08 0x00000480 0x00000006 libsystem_networkextension.dylib.__DATA_CONST.__got
+  0x00000008 regular          [0x00007ff852ea4188-0x00007ff852ea4dd0)  rw-  0x3b2c0188 0x00000c48 0x00000000 libsystem_networkextension.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8546e27f0-0x00007ff8546e2e01)  rw-  0x3cafe7f0 0x00000611 0x00000000 libsystem_networkextension.dylib.__DATA
+  0x00000009 data             [0x00007ff8546e27f0-0x00007ff8546e2835)  rw-  0x3cafe7f0 0x00000045 0x00000000 libsystem_networkextension.dylib.__DATA.__data
+  0x0000000a zero-fill        [0x00007ff8546e2840-0x00007ff8546e2e00)  rw-  0x3cafe840 0x000005c0 0x00000001 libsystem_networkextension.dylib.__DATA.__bss
+  0x0000000b zero-fill        [0x00007ff8546e2e00-0x00007ff8546e2e01)  rw-  0x3cafee00 0x00000001 0x00000001 libsystem_networkextension.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff854500f40-0x00007ff854500fa9)  rw-  0x3c91cf40 0x00000069 0x00000000 libsystem_networkextension.dylib.__DATA_DIRTY
+  0x0000000c data             [0x00007ff854500f40-0x00007ff854500f54)  rw-  0x3c91cf40 0x00000014 0x00000000 libsystem_networkextension.dylib.__DATA_DIRTY.__data
+  0x0000000d zero-fill        [0x00007ff854500f60-0x00007ff854500fa8)  rw-  0x3c91cf60 0x00000048 0x00000001 libsystem_networkextension.dylib.__DATA_DIRTY.__bss
+  0x0000000e zero-fill        [0x00007ff854500fa8-0x00007ff854500fa9)  rw-  0x3c91cfa8 0x00000001 0x00000001 libsystem_networkextension.dylib.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7ae8f000 0x0882bb01 0x00000000 libsystem_networkextension.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_notify.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81573d000-0x00007ff81574c000)  r-x  0x00000000 0x0000f000 0x00000000 libsystem_notify.dylib.__TEXT
+  0x00000001 code             [0x00007ff81573dd54-0x00007ff81574aed6)  r-x  0x00000d54 0x0000d182 0x80000400 libsystem_notify.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81574aed6-0x00007ff81574b0ce)  r-x  0x0000ded6 0x000001f8 0x80000408 libsystem_notify.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81574b0d0-0x00007ff81574b150)  r-x  0x0000e0d0 0x00000080 0x00000000 libsystem_notify.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81574b150-0x00007ff81574b931)  r-x  0x0000e150 0x000007e1 0x00000002 libsystem_notify.dylib.__TEXT.__cstring
+  0x00000005 debug            [0x00007ff81574b931-0x00007ff81574bed7)  r-x  0x0000e931 0x000005a6 0x0000000f libsystem_notify.dylib.__TEXT.__dof_notify
+  0x00000006 compact-unwind   [0x00007ff81574bed8-0x00007ff81574c000)  r-x  0x0000eed8 0x00000128 0x00000000 libsystem_notify.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff852bd6d30-0x00007ff852bd71f0)  rw-  0x3d499d30 0x000004c0 0x00000000 libsystem_notify.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff852bd6d30-0x00007ff852bd7020)  rw-  0x3d499d30 0x000002f0 0x00000006 libsystem_notify.dylib.__DATA_CONST.__got
+  0x00000008 regular          [0x00007ff852bd7020-0x00007ff852bd71f0)  rw-  0x3d49a020 0x000001d0 0x00000000 libsystem_notify.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8545ca3c0-0x00007ff8545ca40b)  rw-  0x3ee8d3c0 0x0000004b 0x00000000 libsystem_notify.dylib.__DATA
+  0x00000009 regular          [0x00007ff8545ca3c0-0x00007ff8545ca400)  rw-  0x3ee8d3c0 0x00000040 0x00000000 libsystem_notify.dylib.__DATA.__crash_info
+  0x0000000a zero-fill        [0x00007ff8545ca400-0x00007ff8545ca40b)  rw-  0x3ee8d400 0x0000000b 0x00000001 libsystem_notify.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff854500fb0-0x00007ff854500fb8)  rw-  0x21769fb0 0x00000000 0x00000000 libsystem_notify.dylib.__DATA_DIRTY
+  0x0000000b zero-fill        [0x00007ff854500fb0-0x00007ff854500fb8)  rw-  0x3edc3fb0 0x00000008 0x00000001 libsystem_notify.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7d336000 0x0882bb01 0x00000000 libsystem_notify.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_product_info_filter.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff823c2e000-0x00007ff823c2f000)  r-x  0x00000000 0x00001000 0x00000000 libsystem_product_info_filter.dylib.__TEXT
+  0x00000001 code                                                      r-x  0x00001000 0x00000000 0x80000400 libsystem_product_info_filter.dylib.__TEXT.__text
+  0x00000200 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x6ee45000 0x0882bb01 0x00000000 libsystem_product_info_filter.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_sandbox.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81c314000-0x00007ff81c319000)  r-x  0x00000000 0x00005000 0x00000000 libsystem_sandbox.dylib.__TEXT
+  0x00000001 code             [0x00007ff81c314820-0x00007ff81c318422)  r-x  0x00000820 0x00003c02 0x80000400 libsystem_sandbox.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81c318422-0x00007ff81c3185ae)  r-x  0x00004422 0x0000018c 0x80000408 libsystem_sandbox.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81c3185b0-0x00007ff81c3186e8)  r-x  0x000045b0 0x00000138 0x00000000 libsystem_sandbox.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81c3186e8-0x00007ff81c318eb1)  r-x  0x000046e8 0x000007c9 0x00000002 libsystem_sandbox.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff81c318eb4-0x00007ff81c318ffc)  r-x  0x00004eb4 0x00000148 0x00000000 libsystem_sandbox.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff854cbe940-0x00007ff854cbebf8)  rw-  0x389aa940 0x000002b8 0x00000000 libsystem_sandbox.dylib.__DATA
+  0x00000006 data-ptrs        [0x00007ff854cbe940-0x00007ff854cbeb58)  rw-  0x389aa940 0x00000218 0x00000006 libsystem_sandbox.dylib.__DATA.__got
+  0x00000007 regular          [0x00007ff854cbeb60-0x00007ff854cbebd0)  rw-  0x389aab60 0x00000070 0x00000000 libsystem_sandbox.dylib.__DATA.__const
+  0x00000008 data             [0x00007ff854cbebd0-0x00007ff854cbebe3)  rw-  0x389aabd0 0x00000013 0x00000000 libsystem_sandbox.dylib.__DATA.__data
+  0x00000009 zero-fill        [0x00007ff854cbebe8-0x00007ff854cbebf8)  rw-  0x389aabe8 0x00000010 0x00000001 libsystem_sandbox.dylib.__DATA.__bss
+  0x00000300 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7675f000 0x0882bb01 0x00000000 libsystem_sandbox.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_secinit.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81daea000-0x00007ff81daed000)  r-x  0x00000000 0x00003000 0x00000000 libsystem_secinit.dylib.__TEXT
+  0x00000001 code             [0x00007ff81daeaf8c-0x00007ff81daec520)  r-x  0x00000f8c 0x00001594 0x80000400 libsystem_secinit.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81daec520-0x00007ff81daec6a0)  r-x  0x00002520 0x00000180 0x80000408 libsystem_secinit.dylib.__TEXT.__stubs
+  0x00000003 data-cstr        [0x00007ff81daec6a0-0x00007ff81daec831)  r-x  0x000026a0 0x00000191 0x00000002 libsystem_secinit.dylib.__TEXT.__oslogstring
+  0x00000004 data-cstr        [0x00007ff81daec831-0x00007ff81daecdf0)  r-x  0x00002831 0x000005bf 0x00000002 libsystem_secinit.dylib.__TEXT.__cstring
+  0x00000005 regular          [0x00007ff81daecdf0-0x00007ff81daecdfc)  r-x  0x00002df0 0x0000000c 0x00000000 libsystem_secinit.dylib.__TEXT.__const
+  0x00000006 compact-unwind   [0x00007ff81daecdfc-0x00007ff81daeceb8)  r-x  0x00002dfc 0x000000bc 0x00000000 libsystem_secinit.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff81daeceb8-0x00007ff81daecff8)  r-x  0x00002eb8 0x00000140 0x00000000 libsystem_secinit.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8531fadb0-0x00007ff8531fb0d0)  rw-  0x35710db0 0x00000320 0x00000000 libsystem_secinit.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff8531fadb0-0x00007ff8531fafd8)  rw-  0x35710db0 0x00000228 0x00000006 libsystem_secinit.dylib.__DATA_CONST.__got
+  0x00000009 regular          [0x00007ff8531fafe0-0x00007ff8531fb0d0)  rw-  0x35710fe0 0x000000f0 0x00000000 libsystem_secinit.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854d8bea0-0x00007ff854d8bee0)  rw-  0x372a1ea0 0x00000040 0x00000000 libsystem_secinit.dylib.__DATA
+  0x0000000a regular          [0x00007ff854d8bea0-0x00007ff854d8bee0)  rw-  0x372a1ea0 0x00000040 0x00000000 libsystem_secinit.dylib.__DATA.__crash_info
+  0x00000400 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74f89000 0x0882bb01 0x00000000 libsystem_secinit.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_kernel.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812cac000-0x00007ff812ce3000)  r-x  0x00000000 0x00037000 0x00000000 libsystem_kernel.dylib.__TEXT
+  0x00000001 code             [0x00007ff812cac7c0-0x00007ff812cd207b)  r-x  0x000007c0 0x000258bb 0x80000400 libsystem_kernel.dylib.__TEXT.__text
+  0x00000002 regular          [0x00007ff812cd2080-0x00007ff812cd22d0)  r-x  0x00026080 0x00000250 0x00000000 libsystem_kernel.dylib.__TEXT.__const
+  0x00000003 data-cstr        [0x00007ff812cd22d0-0x00007ff812cd7bc9)  r-x  0x000262d0 0x000058f9 0x00000002 libsystem_kernel.dylib.__TEXT.__cstring
+  0x00000004 compact-unwind   [0x00007ff812cd7bcc-0x00007ff812cd9044)  r-x  0x0002bbcc 0x00001478 0x00000000 libsystem_kernel.dylib.__TEXT.__unwind_info
+  0x00000005 eh-frame         [0x00007ff812cd9048-0x00007ff812ce3000)  r-x  0x0002d048 0x00009fb8 0x00000000 libsystem_kernel.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529f61d0-0x00007ff8529f8620)  rw-  0x3fd4a1d0 0x00002450 0x00000000 libsystem_kernel.dylib.__DATA_CONST
+  0x00000006 data-ptrs        [0x00007ff8529f61d0-0x00007ff8529f61d8)  rw-  0x3fd4a1d0 0x00000008 0x00000006 libsystem_kernel.dylib.__DATA_CONST.__got
+  0x00000007 regular          [0x00007ff8529f61e0-0x00007ff8529f8620)  rw-  0x3fd4a1e0 0x00002440 0x00000000 libsystem_kernel.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8545301e0-0x00007ff854530459)  rw-  0x418841e0 0x00000279 0x00000000 libsystem_kernel.dylib.__DATA
+  0x00000008 regular          [0x00007ff8545301e0-0x00007ff854530220)  rw-  0x418841e0 0x00000040 0x00000000 libsystem_kernel.dylib.__DATA.__crash_info
+  0x00000009 data             [0x00007ff854530220-0x00007ff8545303e8)  rw-  0x41884220 0x000001c8 0x00000000 libsystem_kernel.dylib.__DATA.__data
+  0x0000000a zero-fill        [0x00007ff8545303e8-0x00007ff854530440)  rw-  0x418843e8 0x00000058 0x00000001 libsystem_kernel.dylib.__DATA.__common
+  0x0000000b zero-fill        [0x00007ff854530440-0x00007ff854530459)  rw-  0x41884440 0x00000019 0x00000001 libsystem_kernel.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff854500590-0x00007ff854500c60)  rw-  0x41854590 0x000006d0 0x00000000 libsystem_kernel.dylib.__DATA_DIRTY
+  0x0000000c data             [0x00007ff854500590-0x00007ff8545005a4)  rw-  0x41854590 0x00000014 0x00000000 libsystem_kernel.dylib.__DATA_DIRTY.__data
+  0x0000000d zero-fill        [0x00007ff8545005b0-0x00007ff854500c40)  rw-  0x418545b0 0x00000690 0x00000001 libsystem_kernel.dylib.__DATA_DIRTY.__common
+  0x0000000e zero-fill        [0x00007ff854500c40-0x00007ff854500c60)  rw-  0x41854c40 0x00000020 0x00000001 libsystem_kernel.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fdc7000 0x0882bb01 0x00000000 libsystem_kernel.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_platform.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812cfb000-0x00007ff812d05000)  r-x  0x00000000 0x0000a000 0x00000000 libsystem_platform.dylib.__TEXT
+  0x00000001 code             [0x00007ff812cfc040-0x00007ff812d0307f)  r-x  0x00001040 0x0000703f 0x80000400 libsystem_platform.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812d03080-0x00007ff812d031e2)  r-x  0x00008080 0x00000162 0x80000408 libsystem_platform.dylib.__TEXT.__stubs
+  0x00000003 code             [0x00007ff812d031e2-0x00007ff812d03392)  r-x  0x000081e2 0x000001b0 0x80000400 libsystem_platform.dylib.__TEXT.__stub_helper
+  0x00000004 regular          [0x00007ff812d033a0-0x00007ff812d034a0)  r-x  0x000083a0 0x00000100 0x00000000 libsystem_platform.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff812d034a0-0x00007ff812d03c1c)  r-x  0x000084a0 0x0000077c 0x00000002 libsystem_platform.dylib.__TEXT.__cstring
+  0x00000006 compact-unwind   [0x00007ff812d03c1c-0x00007ff812d0405c)  r-x  0x00008c1c 0x00000440 0x00000000 libsystem_platform.dylib.__TEXT.__unwind_info
+  0x00000007 eh-frame         [0x00007ff812d04060-0x00007ff812d04ff0)  r-x  0x00009060 0x00000f90 0x00000000 libsystem_platform.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff85592b000-0x00007ff85592b2a0)  rw-  0x42c30000 0x000002a0 0x00000000 libsystem_platform.dylib.__DATA_CONST
+  0x00000008 data-ptrs        [0x00007ff85592b000-0x00007ff85592b198)  rw-  0x42c30000 0x00000198 0x00000006 libsystem_platform.dylib.__DATA_CONST.__got
+  0x00000009 regular          [0x00007ff85592b198-0x00007ff85592b2a0)  rw-  0x42c30198 0x00000108 0x00000000 libsystem_platform.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854530558-0x00007ff854530598)  rw-  0x41835558 0x00000040 0x00000000 libsystem_platform.dylib.__DATA
+  0x0000000a regular          [0x00007ff854530558-0x00007ff854530598)  rw-  0x41835558 0x00000040 0x00000000 libsystem_platform.dylib.__DATA.__crash_info
+  0x00000400 container        [0x00007ff854500fb8-0x00007ff854501034)  rw-  0x41805fb8 0x0000007c 0x00000000 libsystem_platform.dylib.__DATA_DIRTY
+  0x0000000b data-ptrs        [0x00007ff854500fb8-0x00007ff854501018)  rw-  0x41805fb8 0x00000060 0x00000007 libsystem_platform.dylib.__DATA_DIRTY.__la_resolver
+  0x0000000c zero-fill        [0x00007ff854501018-0x00007ff854501034)  rw-  0x41806018 0x0000001c 0x00000001 libsystem_platform.dylib.__DATA_DIRTY.__common
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fd78000 0x0882bb01 0x00000000 libsystem_platform.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_pthread.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812ce3000-0x00007ff812cef000)  r-x  0x00000000 0x0000c000 0x00000000 libsystem_pthread.dylib.__TEXT
+  0x00000001 code             [0x00007ff812ce4108-0x00007ff812cec817)  r-x  0x00001108 0x0000870f 0x80000400 libsystem_pthread.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812cec818-0x00007ff812cec9b0)  r-x  0x00009818 0x00000198 0x80000408 libsystem_pthread.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812cec9b0-0x00007ff812cecae0)  r-x  0x000099b0 0x00000130 0x00000000 libsystem_pthread.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff812cecae0-0x00007ff812ced5e3)  r-x  0x00009ae0 0x00000b03 0x00000002 libsystem_pthread.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff812ced5e4-0x00007ff812cedccc)  r-x  0x0000a5e4 0x000006e8 0x00000000 libsystem_pthread.dylib.__TEXT.__unwind_info
+  0x00000006 eh-frame         [0x00007ff812cedcd0-0x00007ff812ceeff8)  r-x  0x0000acd0 0x00001328 0x00000000 libsystem_pthread.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8529f8620-0x00007ff8529f8878)  rw-  0x3fd15620 0x00000258 0x00000000 libsystem_pthread.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8529f8620-0x00007ff8529f8878)  rw-  0x3fd15620 0x00000258 0x00000006 libsystem_pthread.dylib.__DATA_CONST.__got
+  0x00000300 container        [0x00007ff854530460-0x00007ff8545304d6)  rw-  0x4184d460 0x00000076 0x00000000 libsystem_pthread.dylib.__DATA
+  0x00000008 data             [0x00007ff854530460-0x00007ff854530464)  rw-  0x4184d460 0x00000004 0x00000000 libsystem_pthread.dylib.__DATA.__data
+  0x00000009 regular          [0x00007ff854530468-0x00007ff8545304a8)  rw-  0x4184d468 0x00000040 0x00000000 libsystem_pthread.dylib.__DATA.__crash_info
+  0x0000000a zero-fill        [0x00007ff8545304b0-0x00007ff8545304d4)  rw-  0x4184d4b0 0x00000024 0x00000001 libsystem_pthread.dylib.__DATA.__bss
+  0x0000000b zero-fill        [0x00007ff8545304d4-0x00007ff8545304d6)  rw-  0x4184d4d4 0x00000002 0x00000001 libsystem_pthread.dylib.__DATA.__common
+  0x00000400 container        [0x00007ff854501040-0x00007ff8545028f0)  rw-  0x4181e040 0x000018b0 0x00000000 libsystem_pthread.dylib.__DATA_DIRTY
+  0x0000000c data             [0x00007ff854501040-0x00007ff85450107c)  rw-  0x4181e040 0x0000003c 0x00000000 libsystem_pthread.dylib.__DATA_DIRTY.__data
+  0x0000000d zero-fill        [0x00007ff854501080-0x00007ff8545010b0)  rw-  0x4181e080 0x00000030 0x00000001 libsystem_pthread.dylib.__DATA_DIRTY.__common
+  0x0000000e zero-fill        [0x00007ff8545010b0-0x00007ff8545028f0)  rw-  0x4181e0b0 0x00001840 0x00000001 libsystem_pthread.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x7fd90000 0x0882bb01 0x00000000 libsystem_pthread.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_symptoms.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff819498000-0x00007ff8194a0000)  r-x  0x00000000 0x00008000 0x00000000 libsystem_symptoms.dylib.__TEXT
+  0x00000001 code             [0x00007ff819498d74-0x00007ff81949e4ce)  r-x  0x00000d74 0x0000575a 0x80000400 libsystem_symptoms.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81949e4ce-0x00007ff81949e60c)  r-x  0x000064ce 0x0000013e 0x80000408 libsystem_symptoms.dylib.__TEXT.__stubs
+  0x00000003 data-cstr        [0x00007ff81949e60c-0x00007ff81949feb0)  r-x  0x0000660c 0x000018a4 0x00000002 libsystem_symptoms.dylib.__TEXT.__cstring
+  0x00000004 regular          [0x00007ff81949feb0-0x00007ff81949fee0)  r-x  0x00007eb0 0x00000030 0x00000000 libsystem_symptoms.dylib.__TEXT.__const
+  0x00000005 compact-unwind   [0x00007ff81949fee0-0x00007ff8194a0000)  r-x  0x00007ee0 0x00000120 0x00000000 libsystem_symptoms.dylib.__TEXT.__unwind_info
+  0x00000200 container        [0x00007ff852f99e50-0x00007ff852f9a2e0)  rw-  0x39b01e50 0x00000490 0x00000000 libsystem_symptoms.dylib.__DATA_CONST
+  0x00000006 data-ptrs        [0x00007ff852f99e50-0x00007ff852f9a050)  rw-  0x39b01e50 0x00000200 0x00000006 libsystem_symptoms.dylib.__DATA_CONST.__got
+  0x00000007 regular          [0x00007ff852f9a050-0x00007ff852f9a2e0)  rw-  0x39b02050 0x00000290 0x00000000 libsystem_symptoms.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff8547a14e0-0x00007ff8547a1520)  rw-  0x3b3094e0 0x00000040 0x00000000 libsystem_symptoms.dylib.__DATA
+  0x00000008 data             [0x00007ff8547a14e0-0x00007ff8547a14e4)  rw-  0x3b3094e0 0x00000004 0x00000000 libsystem_symptoms.dylib.__DATA.__data
+  0x00000009 zero-fill        [0x00007ff8547a14e8-0x00007ff8547a1520)  rw-  0x3b3094e8 0x00000038 0x00000001 libsystem_symptoms.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff8545028f0-0x00007ff854502900)  rw-  0x2176b8f0 0x00000000 0x00000000 libsystem_symptoms.dylib.__DATA_DIRTY
+  0x0000000a zero-fill        [0x00007ff8545028f0-0x00007ff854502900)  rw-  0x3b06a8f0 0x00000010 0x00000001 libsystem_symptoms.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x795db000 0x0882bb01 0x00000000 libsystem_symptoms.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libsystem_trace.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812a58000-0x00007ff812a71000)  r-x  0x00000000 0x00019000 0x00000000 libsystem_trace.dylib.__TEXT
+  0x00000001 code             [0x00007ff812a597a0-0x00007ff812a6e323)  r-x  0x000017a0 0x00014b83 0x80000400 libsystem_trace.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812a6e324-0x00007ff812a6e8ee)  r-x  0x00016324 0x000005ca 0x80000408 libsystem_trace.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812a6e8f0-0x00007ff812a6e954)  r-x  0x000168f0 0x00000064 0x00000000 libsystem_trace.dylib.__TEXT.__objc_methlist
+  0x00000004 regular          [0x00007ff812a6e960-0x00007ff812a6ea86)  r-x  0x00016960 0x00000126 0x00000000 libsystem_trace.dylib.__TEXT.__const
+  0x00000005 regular          [0x00007ff812a6ea88-0x00007ff812a6eae8)  r-x  0x00016a88 0x00000060 0x00000000 libsystem_trace.dylib.__TEXT.__gcc_except_tab
+  0x00000006 data-cstr        [0x00007ff812a6eae8-0x00007ff812a6fd9b)  r-x  0x00016ae8 0x000012b3 0x00000002 libsystem_trace.dylib.__TEXT.__cstring
+  0x00000007 data-cstr        [0x00007ff812a6fda0-0x00007ff812a6ff16)  r-x  0x00017da0 0x00000176 0x00000002 libsystem_trace.dylib.__TEXT.__oslogstring
+  0x00000008 compact-unwind   [0x00007ff812a6ff18-0x00007ff812a703fc)  r-x  0x00017f18 0x000004e4 0x00000000 libsystem_trace.dylib.__TEXT.__unwind_info
+  0x00000009 eh-frame         [0x00007ff812a70400-0x00007ff812a70b98)  r-x  0x00018400 0x00000798 0x00000000 libsystem_trace.dylib.__TEXT.__eh_frame
+  0x0000000a data-cstr        [0x00007ff812a70b98-0x00007ff812a70bbc)  r-x  0x00018b98 0x00000024 0x00000002 libsystem_trace.dylib.__TEXT.__objc_classname
+  0x0000000b data-cstr        [0x00007ff812a70bbc-0x00007ff812a70f3a)  r-x  0x00018bbc 0x0000037e 0x00000002 libsystem_trace.dylib.__TEXT.__objc_methname
+  0x0000000c data-cstr        [0x00007ff812a70f3a-0x00007ff812a70fff)  r-x  0x00018f3a 0x000000c5 0x00000002 libsystem_trace.dylib.__TEXT.__objc_methtype
+  0x00000200 container        [0x00007ff8529d50e0-0x00007ff8529d65f0)  rw-  0x3ff7d0e0 0x00001510 0x00000000 libsystem_trace.dylib.__DATA_CONST
+  0x0000000d data-ptrs        [0x00007ff8529d50e0-0x00007ff8529d5998)  rw-  0x3ff7d0e0 0x000008b8 0x00000006 libsystem_trace.dylib.__DATA_CONST.__got
+  0x0000000e regular          [0x00007ff8529d59a0-0x00007ff8529d61e0)  rw-  0x3ff7d9a0 0x00000840 0x00000000 libsystem_trace.dylib.__DATA_CONST.__const
+  0x0000000f data-ptrs        [0x00007ff8529d61e0-0x00007ff8529d61f8)  rw-  0x3ff7e1e0 0x00000018 0x10000000 libsystem_trace.dylib.__DATA_CONST.__objc_classlist
+  0x00000010 regular          [0x00007ff8529d61f8-0x00007ff8529d6208)  rw-  0x3ff7e1f8 0x00000010 0x10000000 libsystem_trace.dylib.__DATA_CONST.__objc_nlclslist
+  0x00000011 regular          [0x00007ff8529d6208-0x00007ff8529d6210)  rw-  0x3ff7e208 0x00000008 0x00000000 libsystem_trace.dylib.__DATA_CONST.__objc_protolist
+  0x00000012 regular          [0x00007ff8529d6210-0x00007ff8529d6218)  rw-  0x3ff7e210 0x00000008 0x00000000 libsystem_trace.dylib.__DATA_CONST.__objc_imageinfo
+  0x00000013 data-ptrs        [0x00007ff8529d6218-0x00007ff8529d65f0)  rw-  0x3ff7e218 0x000003d8 0x00000000 libsystem_trace.dylib.__DATA_CONST.__objc_const
+  0x00000300 container        [0x00007ff854507d30-0x00007ff854508258)  rw-  0x41aafd30 0x00000528 0x00000000 libsystem_trace.dylib.__DATA
+  0x00000014 data-cstr-ptr    [0x00007ff854507d30-0x00007ff854507e90)  rw-  0x41aafd30 0x00000160 0x10000005 libsystem_trace.dylib.__DATA.__objc_selrefs
+  0x00000015 data-ptrs        [0x00007ff854507e90-0x00007ff854507ea0)  rw-  0x41aafe90 0x00000010 0x10000000 libsystem_trace.dylib.__DATA.__objc_classrefs
+  0x00000016 data-ptrs        [0x00007ff854507ea0-0x00007ff854507eb0)  rw-  0x41aafea0 0x00000010 0x10000000 libsystem_trace.dylib.__DATA.__objc_superrefs
+  0x00000017 regular          [0x00007ff854507eb0-0x00007ff854507f18)  rw-  0x41aafeb0 0x00000068 0x00000000 libsystem_trace.dylib.__DATA.__objc_ivar
+  0x00000018 data-ptrs        [0x00007ff854507f18-0x00007ff854507f68)  rw-  0x41aaff18 0x00000050 0x00000000 libsystem_trace.dylib.__DATA.__objc_data
+  0x00000019 data             [0x00007ff854507f68-0x00007ff854508150)  rw-  0x41aaff68 0x000001e8 0x00000000 libsystem_trace.dylib.__DATA.__data
+  0x0000001a regular          [0x00007ff854508150-0x00007ff854508190)  rw-  0x41ab0150 0x00000040 0x00000000 libsystem_trace.dylib.__DATA.__crash_info
+  0x0000001b zero-fill        [0x00007ff854508190-0x00007ff854508258)  rw-  0x41ab0190 0x000000c8 0x00000001 libsystem_trace.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff854502900-0x00007ff854502d70)  rw-  0x41aaa900 0x00000470 0x00000000 libsystem_trace.dylib.__DATA_DIRTY
+  0x0000001c data-ptrs        [0x00007ff854502900-0x00007ff8545029a0)  rw-  0x41aaa900 0x000000a0 0x00000000 libsystem_trace.dylib.__DATA_DIRTY.__objc_data
+  0x0000001d data             [0x00007ff8545029a0-0x00007ff854502ae0)  rw-  0x41aaa9a0 0x00000140 0x00000000 libsystem_trace.dylib.__DATA_DIRTY.__data
+  0x0000001e zero-fill        [0x00007ff854502ae0-0x00007ff854502d70)  rw-  0x41aaaae0 0x00000290 0x00000001 libsystem_trace.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x8001b000 0x0882bb01 0x00000000 libsystem_trace.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libunwind.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff81dac0000-0x00007ff81dacb000)  r-x  0x00000000 0x0000b000 0x00000000 libunwind.dylib.__TEXT
+  0x00000001 code             [0x00007ff81dac55c0-0x00007ff81daca48a)  r-x  0x000055c0 0x00004eca 0x80000400 libunwind.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff81daca48a-0x00007ff81daca4ea)  r-x  0x0000a48a 0x00000060 0x80000408 libunwind.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff81daca4ea-0x00007ff81daca527)  r-x  0x0000a4ea 0x0000003d 0x00000000 libunwind.dylib.__TEXT.__const
+  0x00000004 data-cstr        [0x00007ff81daca527-0x00007ff81dacae6e)  r-x  0x0000a527 0x00000947 0x00000002 libunwind.dylib.__TEXT.__cstring
+  0x00000005 compact-unwind   [0x00007ff81dacae70-0x00007ff81dacaf9c)  r-x  0x0000ae70 0x0000012c 0x00000000 libunwind.dylib.__TEXT.__unwind_info
+  0x00000006 eh-frame         [0x00007ff81dacafa0-0x00007ff81dacaff8)  r-x  0x0000afa0 0x00000058 0x00000000 libunwind.dylib.__TEXT.__eh_frame
+  0x00000200 container        [0x00007ff8531f9f78-0x00007ff8531fa1b0)  rw-  0x35739f78 0x00000238 0x00000000 libunwind.dylib.__DATA_CONST
+  0x00000007 data-ptrs        [0x00007ff8531f9f78-0x00007ff8531fa010)  rw-  0x35739f78 0x00000098 0x00000006 libunwind.dylib.__DATA_CONST.__got
+  0x00000008 regular          [0x00007ff8531fa010-0x00007ff8531fa1b0)  rw-  0x3573a010 0x000001a0 0x00000000 libunwind.dylib.__DATA_CONST.__const
+  0x00000300 container        [0x00007ff854d8a580-0x00007ff854d8ae81)  rw-  0x372ca580 0x00000901 0x00000000 libunwind.dylib.__DATA
+  0x00000009 data             [0x00007ff854d8a580-0x00007ff854d8a668)  rw-  0x372ca580 0x000000e8 0x00000000 libunwind.dylib.__DATA.__data
+  0x0000000a zero-fill        [0x00007ff854d8a670-0x00007ff854d8ae81)  rw-  0x372ca670 0x00000811 0x00000001 libunwind.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x74fb3000 0x0882bb01 0x00000000 libunwind.dylib.__LINKEDIT
+Sections for '/usr/lib/system/libxpc.dylib' (x86_64):
+  SectID     Type             Load Address                             Perm File Off.  File Size  Flags      Section Name
+  ---------- ---------------- ---------------------------------------  ---- ---------- ---------- ---------- ----------------------------
+  0x00000100 container        [0x00007ff812a21000-0x00007ff812a58000)  r-x  0x00000000 0x00037000 0x00000000 libxpc.dylib.__TEXT
+  0x00000001 code             [0x00007ff812a22ce0-0x00007ff812a4a061)  r-x  0x00001ce0 0x00027381 0x80000400 libxpc.dylib.__TEXT.__text
+  0x00000002 code             [0x00007ff812a4a062-0x00007ff812a4a66e)  r-x  0x00029062 0x0000060c 0x80000408 libxpc.dylib.__TEXT.__stubs
+  0x00000003 regular          [0x00007ff812a4a670-0x00007ff812a4a804)  r-x  0x00029670 0x00000194 0x00000000 libxpc.dylib.__TEXT.__objc_methlist
+  0x00000004 regular          [0x00007ff812a4a810-0x00007ff812a4aca0)  r-x  0x00029810 0x00000490 0x00000000 libxpc.dylib.__TEXT.__const
+  0x00000005 data-cstr        [0x00007ff812a4aca0-0x00007ff812a502a2)  r-x  0x00029ca0 0x00005602 0x00000002 libxpc.dylib.__TEXT.__cstring
+  0x00000006 data-cstr        [0x00007ff812a502b0-0x00007ff812a51233)  r-x  0x0002f2b0 0x00000f83 0x00000002 libxpc.dylib.__TEXT.__oslogstring
+  0x00000007 debug            [0x00007ff812a51233-0x00007ff812a51c78)  r-x  0x00030233 0x00000a45 0x0000000f libxpc.dylib.__TEXT.__dof_libxpc
+  0x00000008 compact-unwind   [0x00007ff812a51c78-0x00007ff812a53b90)  r-x  0x00030c78 0x00001f18 0x00000000 libxpc.dylib.__TEXT.__unwind_info
+  0x00000009 eh-frame         [0x00007ff812a53b90-0x00007ff812a57bb0)  r-x  0x00032b90 0x00004020 0x00000000 libxpc.dylib.__TEXT.__eh_frame
+  0x0000000a data-cstr        [0x00007ff812a57bb0-0x00007ff812a57d96)  r-x  0x00036bb0 0x000001e6 0x00000002 libxpc.dylib.__TEXT.__objc_classname
+  0x0000000b data-cstr        [0x00007ff812a57d96-0x00007ff812a57f4b)  r-x  0x00036d96 0x000001b5 0x00000002 libxpc.dylib.__TEXT.__objc_methname
+  0x0000000c data-cstr        [0x00007ff812a57f4b-0x00007ff812a58000)  r-x  0x00036f4b 0x000000b5 0x00000002 libxpc.dylib.__TEXT.__objc_methtype
+  0x00000200 container        [0x00007ff8529cf4c0-0x00007ff8529d50e0)  rw-  0x3ffae4c0 0x00005c20 0x00000000 libxpc.dylib.__DATA_CONST
+  0x0000000d data-ptrs        [0x00007ff8529cf4c0-0x00007ff8529cfe98)  rw-  0x3ffae4c0 0x000009d8 0x00000006 libxpc.dylib.__DATA_CONST.__got
+  0x0000000e regular          [0x00007ff8529cfea0-0x00007ff8529d2cb8)  rw-  0x3ffaeea0 0x00002e18 0x00000000 libxpc.dylib.__DATA_CONST.__const
+  0x0000000f data-ptrs        [0x00007ff8529d2cb8-0x00007ff8529d2db0)  rw-  0x3ffb1cb8 0x000000f8 0x10000000 libxpc.dylib.__DATA_CONST.__objc_classlist
+  0x00000010 regular          [0x00007ff8529d2db0-0x00007ff8529d2e88)  rw-  0x3ffb1db0 0x000000d8 0x10000000 libxpc.dylib.__DATA_CONST.__objc_nlclslist
+  0x00000011 regular          [0x00007ff8529d2e88-0x00007ff8529d2f70)  rw-  0x3ffb1e88 0x000000e8 0x00000000 libxpc.dylib.__DATA_CONST.__objc_protolist
+  0x00000012 regular          [0x00007ff8529d2f70-0x00007ff8529d2f78)  rw-  0x3ffb1f70 0x00000008 0x00000000 libxpc.dylib.__DATA_CONST.__objc_imageinfo
+  0x00000013 data-ptrs        [0x00007ff8529d2f78-0x00007ff8529d50e0)  rw-  0x3ffb1f78 0x00002168 0x00000000 libxpc.dylib.__DATA_CONST.__objc_const
+  0x00000300 container        [0x00007ff854507078-0x00007ff854507d30)  rw-  0x41ae6078 0x00000cb8 0x00000000 libxpc.dylib.__DATA
+  0x00000014 data-cstr-ptr    [0x00007ff854507078-0x00007ff8545070f0)  rw-  0x41ae6078 0x00000078 0x10000005 libxpc.dylib.__DATA.__objc_selrefs
+  0x00000015 data-ptrs        [0x00007ff8545070f0-0x00007ff854507110)  rw-  0x41ae60f0 0x00000020 0x10000000 libxpc.dylib.__DATA.__objc_classrefs
+  0x00000016 data-ptrs        [0x00007ff854507110-0x00007ff854507150)  rw-  0x41ae6110 0x00000040 0x10000000 libxpc.dylib.__DATA.__objc_superrefs
+  0x00000017 data             [0x00007ff854507150-0x00007ff854507c30)  rw-  0x41ae6150 0x00000ae0 0x00000000 libxpc.dylib.__DATA.__data
+  0x00000018 regular          [0x00007ff854507c30-0x00007ff854507c70)  rw-  0x41ae6c30 0x00000040 0x00000000 libxpc.dylib.__DATA.__crash_info
+  0x00000019 zero-fill        [0x00007ff854507c70-0x00007ff854507c80)  rw-  0x41ae6c70 0x00000010 0x00000001 libxpc.dylib.__DATA.__common
+  0x0000001a zero-fill        [0x00007ff854507c80-0x00007ff854507d30)  rw-  0x41ae6c80 0x000000b0 0x00000001 libxpc.dylib.__DATA.__bss
+  0x00000400 container        [0x00007ff854502d70-0x00007ff8545037c0)  rw-  0x41ae1d70 0x00000a50 0x00000000 libxpc.dylib.__DATA_DIRTY
+  0x0000001b data-ptrs        [0x00007ff854502d70-0x00007ff854503720)  rw-  0x41ae1d70 0x000009b0 0x00000000 libxpc.dylib.__DATA_DIRTY.__objc_data
+  0x0000001c zero-fill        [0x00007ff854503720-0x00007ff854503728)  rw-  0x41ae2720 0x00000008 0x00000001 libxpc.dylib.__DATA_DIRTY.__common
+  0x0000001d zero-fill        [0x00007ff854503728-0x00007ff8545037c0)  rw-  0x41ae2728 0x00000098 0x00000001 libxpc.dylib.__DATA_DIRTY.__bss
+  0x00000500 container        [0x00007ff892a73000-0x00007ff89b29eb01)  r--  0x80052000 0x0882bb01 0x00000000 libxpc.dylib.__LINKEDIT
+(lldb) search Array
+[0;1;31merror: [0m'search' is not a valid command.
+(lldb) lookup Array
+[0;1;31merror: [0m'lookup' is not a valid command.
+(lldb) pmodule -a
+[0;1;31merror: [0m'pmodule' is not a valid command.
+(lldb) pmodule -n libsystem_kernel.dylib
+[0;1;31merror: [0m'pmodule' is not a valid command.
+(lldb) pexecutable
+[0;1;31merror: [0m'pexecutable' is not a valid command.
+(lldb) search
+[0;1;31merror: [0m'search' is not a valid command.
+(lldb) help
+Debugger commands:
+  apropos           -- List debugger commands related to a word or subject.
+  breakpoint        -- Commands for operating on breakpoints (see 'help b' for shorthand.)
+  command           -- Commands for managing custom LLDB commands.
+  disassemble       -- Disassemble specified instructions in the current target.  Defaults to the current function for the current thread and stack frame.
+  expression        -- Evaluate an expression on the current thread.  Displays any returned value with LLDB's default formatting.
+  frame             -- Commands for selecting and examing the current thread's stack frames.
+  gdb-remote        -- Connect to a process via remote GDB server.  If no host is specifed, localhost is assumed.
+  gui               -- Switch into the curses based GUI mode.
+  help              -- Show a list of all debugger commands, or give details about a specific command.
+  kdp-remote        -- Connect to a process via remote KDP server.  If no UDP port is specified, port 41139 is assumed.
+  language          -- Commands specific to a source language.
+  log               -- Commands controlling LLDB internal logging.
+  memory            -- Commands for operating on memory in the current target process.
+  platform          -- Commands to manage and create platforms.
+  plugin            -- Commands for managing LLDB plugins.
+  process           -- Commands for interacting with processes on the current platform.
+  quit              -- Quit the LLDB debugger.
+  register          -- Commands to access registers for the current thread and stack frame.
+  reproducer        -- Commands for manipulating reproducers. Reproducers make it possible to capture full debug sessions with all its dependencies. The
+                       resulting reproducer is used to replay the debug session while debugging the debugger.
+                       Because reproducers need the whole the debug session from beginning to end, you need to launch the debugger in capture or replay mode,
+                       commonly though the command line driver.
+                       Reproducers are unrelated record-replay debugging, as you cannot interact with the debugger during replay.
+  script            -- Invoke the script interpreter with provided code and display any results.  Start the interactive interpreter if no code is supplied.
+  session           -- Commands controlling LLDB session.
+  settings          -- Commands for managing LLDB settings.
+  source            -- Commands for examining source code described by debug information for the current target process.
+  statistics        -- Print statistics about a debugging session
+  target            -- Commands for operating on debugger targets.
+  thread            -- Commands for operating on one or more threads in the current process.
+  trace             -- Commands for loading and using processor trace information.
+  type              -- Commands for operating on the type system.
+  version           -- Show the LLDB debugger version.
+  watchpoint        -- Commands for operating on watchpoints.
+Current command abbreviations (type 'help command alias' for more info):
+  add-dsym  -- Add a debug symbol file to one of the target's current modules by specifying a path to a debug symbols file or by using the options to specify
+               a module.
+  attach    -- Attach to process by ID or name.
+  b         -- Set a breakpoint using one of several shorthand formats.
+  bt        -- Show the current thread's call stack.  Any numeric argument displays at most that many frames.  The argument 'all' displays all threads.  Use
+               'settings set frame-format' to customize the printing of individual frames and 'settings set thread-format' to customize the thread header.
+  c         -- Continue execution of all threads in the current process.
+  call      -- Evaluate an expression on the current thread.  Displays any returned value with LLDB's default formatting.
+  continue  -- Continue execution of all threads in the current process.
+  detach    -- Detach from the current target process.
+  di        -- Disassemble specified instructions in the current target.  Defaults to the current function for the current thread and stack frame.
+  dis       -- Disassemble specified instructions in the current target.  Defaults to the current function for the current thread and stack frame.
+  display   -- Evaluate an expression at every stop (see 'help target stop-hook'.)
+  down      -- Select a newer stack frame.  Defaults to moving one frame, a numeric argument can specify an arbitrary number.
+  env       -- Shorthand for viewing and setting environment variables.
+  exit      -- Quit the LLDB debugger.
+  f         -- Select the current stack frame by index from within the current thread (see 'thread backtrace'.)
+  file      -- Create a target using the argument as the main executable.
+  finish    -- Finish executing the current stack frame and stop after returning.  Defaults to current thread unless specified.
+  history   -- Dump the history of commands in this session.
+               Commands in the history list can be run again using "!<INDEX>".   "!-<OFFSET>" will re-run the command that is <OFFSET> commands from the end
+               of the list (counting the current command).
+  image     -- Commands for accessing information for one or more target modules.
+  j         -- Set the program counter to a new address.
+  jump      -- Set the program counter to a new address.
+  kill      -- Terminate the current target process.
+  l         -- List relevant source code using one of several shorthand formats.
+  list      -- List relevant source code using one of several shorthand formats.
+  n         -- Source level single step, stepping over calls.  Defaults to current thread unless specified.
+  next      -- Source level single step, stepping over calls.  Defaults to current thread unless specified.
+  nexti     -- Instruction level single step, stepping over calls.  Defaults to current thread unless specified.
+  ni        -- Instruction level single step, stepping over calls.  Defaults to current thread unless specified.
+  p         -- Evaluate an expression on the current thread.  Displays any returned value with LLDB's default formatting.
+  parray    -- parray <COUNT> <EXPRESSION> -- lldb will evaluate EXPRESSION to get a typed-pointer-to-an-array in memory, and will display COUNT elements of
+               that type from the array.
+  po        -- Evaluate an expression on the current thread.  Displays any returned value with formatting controlled by the type's author.
+  poarray   -- poarray <COUNT> <EXPRESSION> -- lldb will evaluate EXPRESSION to get the address of an array of COUNT objects in memory, and will call po on
+               them.
+  print     -- Evaluate an expression on the current thread.  Displays any returned value with LLDB's default formatting.
+  q         -- Quit the LLDB debugger.
+  r         -- Launch the executable in the debugger.
+  rbreak    -- Sets a breakpoint or set of breakpoints in the executable.
+  re        -- Commands to access registers for the current thread and stack frame.
+  repl      -- Evaluate an expression on the current thread.  Displays any returned value with LLDB's default formatting.
+  run       -- Launch the executable in the debugger.
+  s         -- Source level single step, stepping into calls.  Defaults to current thread unless specified.
+  shell     -- Run a shell command on the host.
+  si        -- Instruction level single step, stepping into calls.  Defaults to current thread unless specified.
+  sif       -- Step through the current block, stopping if you step directly into a function whose name matches the TargetFunctionName.
+  step      -- Source level single step, stepping into calls.  Defaults to current thread unless specified.
+  stepi     -- Instruction level single step, stepping into calls.  Defaults to current thread unless specified.
+  t         -- Change the currently selected thread.
+  tbreak    -- Set a one-shot breakpoint using one of several shorthand formats.
+  undisplay -- Stop displaying expression at every stop (specified by stop-hook index.)
+  up        -- Select an older stack frame.  Defaults to moving one frame, a numeric argument can specify an arbitrary number.
+  v         -- Show variables for the current stack frame. Defaults to all arguments and local variables in scope. Names of argument, local, file static and
+               file global variables can be specified. Children of aggregate variables can be specified such as 'var->child.x'.  The -> and [] operators in
+               'frame variable' do not invoke operator overloads if they exist, but directly access the specified element.  If you want to trigger operator
+               overloads use the expression command to print the variable instead.
+               It is worth noting that except for overloaded operators, when printing local variables 'expr local_var' and 'frame var local_var' produce the
+               same results.  However, 'frame variable' is more efficient, since it uses debug information and memory reads directly, rather than parsing and
+               evaluating an expression, which may even involve JITing and running code in the target program.
+  var       -- Show variables for the current stack frame. Defaults to all arguments and local variables in scope. Names of argument, local, file static and
+               file global variables can be specified. Children of aggregate variables can be specified such as 'var->child.x'.  The -> and [] operators in
+               'frame variable' do not invoke operator overloads if they exist, but directly access the specified element.  If you want to trigger operator
+               overloads use the expression command to print the variable instead.
+               It is worth noting that except for overloaded operators, when printing local variables 'expr local_var' and 'frame var local_var' produce the
+               same results.  However, 'frame variable' is more efficient, since it uses debug information and memory reads directly, rather than parsing and
+               evaluating an expression, which may even involve JITing and running code in the target program.
+  vo        -- Show variables for the current stack frame. Defaults to all arguments and local variables in scope. Names of argument, local, file static and
+               file global variables can be specified. Children of aggregate variables can be specified such as 'var->child.x'.  The -> and [] operators in
+               'frame variable' do not invoke operator overloads if they exist, but directly access the specified element.  If you want to trigger operator
+               overloads use the expression command to print the variable instead.
+               It is worth noting that except for overloaded operators, when printing local variables 'expr local_var' and 'frame var local_var' produce the
+               same results.  However, 'frame variable' is more efficient, since it uses debug information and memory reads directly, rather than parsing and
+               evaluating an expression, which may even involve JITing and running code in the target program.
+  x         -- Read from the memory of the current target process.
+Current user-defined commands:
+  findjsinstances -- List all objects which share the specified map.
+  findjsobjects   -- Alias for `v8 findjsobjects`
+  jsprint         -- Alias for `v8 inspect`
+  jssource        -- Alias for `v8 source list`
+  jsstack         -- Alias for `v8 bt`
+  v8              -- Node.js helpers
+For more information on any command, type 'help <command-name>'.
+(lldb) continue
+Process 58054 resuming
+(lldb) screendump - dump the contents of a virtual console to stdout
+[0;1;31merror: [0m'screendump' is not a valid command.
+(lldb) q
+(lldb) script dumpd.txt
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+NameError: name 'dumpd' is not defined
+(lldb) script
+(lldb) sessions
+[0;1;31merror: [0m'sessions' is not a valid command.
+(lldb) session
+Commands controlling LLDB session.
+
+Syntax: session <subcommand> [<command-options>]
+
+The following subcommands are supported:
+
+      history -- Dump the history of commands in this session.
+                 Commands in the history list can be run again using "!<INDEX>".   "!-<OFFSET>" will re-run the command that is <OFFSET> commands from the end
+                 of the list (counting the current command).
+      save    -- Save the current session transcripts to a file.
+                 If no file if specified, transcripts will be saved to a temporary file.
+
+For more help on any particular subcommand, type 'help <command> <subcommand>'.
+(lldb) session save
