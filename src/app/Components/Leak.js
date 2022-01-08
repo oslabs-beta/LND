@@ -9,9 +9,13 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 exports.__esModule = true;
-exports.Subscriber = exports.state = void 0;
+exports.Test = exports.Subscriber = exports.state = void 0;
 var react_1 = require("react");
 var recoil_1 = require("recoil");
+var socket_io_client_1 = require("socket.io-client");
+// Est socket connection
+var socket = (0, socket_io_client_1["default"])('http://localhost:3000', { autoConnect: true });
+// socket.connect();
 exports.state = (0, recoil_1.atom)({
     key: 'test',
     "default": []
@@ -21,7 +25,7 @@ var Subscriber = function () {
     react_1["default"].useEffect(function () {
         var u = function (old) {
             var item = Math.random();
-            if (old.length >= 5000) {
+            if (old.length >= 100000) {
                 return __spreadArray([item], old.slice(0, -1), true);
             }
             else {
@@ -34,7 +38,8 @@ var Subscriber = function () {
     return null;
 };
 exports.Subscriber = Subscriber;
-// export const Test = () => {
-//   const test = useRecoilValue(state);
-//   return <div>{test.length}</div>;
-// };
+var Test = function () {
+    var test = (0, recoil_1.useRecoilValue)(exports.state);
+    return <div>{test.length}</div>;
+};
+exports.Test = Test;
