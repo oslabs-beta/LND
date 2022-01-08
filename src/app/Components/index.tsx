@@ -4,8 +4,10 @@ import App from './App';
 import { RecoilRoot } from 'recoil';
 
 ReactDOM.render(
-	<RecoilRoot>
-		<App />
-	</RecoilRoot>,
-	document.getElementById('root')
+  <React.StrictMode>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+  </React.StrictMode>,
+  document.getElementById('root')
 );

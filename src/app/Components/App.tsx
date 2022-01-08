@@ -1,17 +1,13 @@
-import React, { FC } from "react";
-import Body from "./Body";
+import React from 'react';
+import { Subscriber } from './Leak';
+import { Test } from './Leak';
 
-// import { RecoilTest } from './Components/recoilPOST';
-
-const App = () => {
-	return (
-		<>
-			<React.Suspense fallback={<div>loading</div>}>
-				{/* <RecoilTest /> */}
-				<Body />
-			</React.Suspense>
-		</>
-	);
-};
-
-export default App;
+export default function App() {
+  console.log('render');
+  return (
+    <>
+      <Subscriber />
+      <Test />
+    </>
+  );
+}
