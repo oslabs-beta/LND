@@ -19,12 +19,14 @@ const DoughnutChart: FC = (): JSX.Element => {
 	const [memoryData, setMemoryData] = useState([]);
 
 	const fetchData = () => {
-		fetch('/memory')
-			.then((res) => res.json())
-			.then((data) => setMemoryData(data));
+		fetch('http://localhost:3001/memory').then((res) =>
+			console.log(res.json())
+		);
+		// .then((data) => setMemoryData(data));
 	};
 	fetchData();
 	console.log('this is memorydata', memoryData);
+
 	return (
 		<div>
 			<h1>Chart</h1>

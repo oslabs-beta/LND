@@ -6,6 +6,8 @@ This project has been created using **webpack-cli**, you can now run
 npm run build
 ```
 
+<!-- run the app on yarn run dev -->
+
 or
 
 ```

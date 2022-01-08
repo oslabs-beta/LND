@@ -3,10 +3,14 @@ import { useSetRecoilState, atom, useRecoilValue } from 'recoil';
 import io from 'socket.io-client';
 
 // Est socket connection
-const socket = io('http://localhost:3000', { autoConnect: true });
+const socket = io('http://localhost:3000', {
+	autoConnect: true,
+	upgrade: false,
+});
 // socket.connect();
 socket.on('connect', () => {
 	console.log(`Connection made with id: ${socket.id}`);
+	// socket.emit('memory', )
 });
 
 // events from client/browser are sent to server; event is called on server

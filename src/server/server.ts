@@ -3,8 +3,17 @@ import fs from 'fs';
 import process from 'process';
 // import colors from 'colors';
 // colors.enable;
+import cors from 'cors';
 import express from 'express';
 const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+app.get('/memory', (req, res, next) => {
+	// console.log('this is the back', v8profiler.getHeapStatistics());
+	res.status(200).send({ memory: v8profiler.getHeapStatistics() });
+});
 
 // import ClinicHeapProfiler from '@clinic/heap-profiler';
 // const heapProfiler = new ClinicHeapProfiler();
@@ -44,7 +53,7 @@ import v8profiler from 'v8';
 const sockets = {};
 
 io.on('connection', (socket: any) => {
-	// console.log('socket ID: '.bgYellow, socket.id);
+	console.log('socket ID: ', socket.id);
 	socket.on('Atom sent', (obj: any) => {
 		// console.log('OBJ: '.america, obj);
 		// sockets[socket.id] = socket;
@@ -57,10 +66,6 @@ io.on('connection', (socket: any) => {
 	});
 });
 
-app.get('/memory', (req, res, next) => {
-	console.log('this is the back',v8profiler.getHeapStatistics());
-	res.send(v8profiler.getHeapStatistics());
-});
 //console.log(io); //maxHttpBufferSize, listening, upgrade, close, req, upgradeTimeout?
 
 // console.log(v8profiler.getHeapStatistics());
@@ -76,11 +81,14 @@ app.get('/memory', (req, res, next) => {
 process.on('SIGSEGV', () => {
 	console.log(process.pid);
 	// report?.getReport();
-	console.log(process.pid);
+	console.log('Process id: ', process.pid);
 	process.abort();
 });
 
 io.listen(3000);
+app.listen(3001, () => {
+	console.log('App is listening');
+});
 
 // if (os.constants ='SIGSEGV') process.abort();
 // io.listen(4000);
