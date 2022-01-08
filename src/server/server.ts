@@ -1,8 +1,11 @@
 import os from 'os';
 import fs from 'fs';
 import process from 'process';
+
 import colors from 'colors';
 colors.enable;
+
+// Instantiate express
 import express from 'express';
 const app = express();
 
@@ -25,8 +28,6 @@ const app = express();
 // const server = require('http').Server(app);
 const server = require('http').createServer(app);
 
-// console.log(server);
-
 //  socket.io first then clinic.js
 
 const io = require('socket.io')(server, {
@@ -38,15 +39,13 @@ const io = require('socket.io')(server, {
 });
 // io.attach(8080);
 
-import heapdump from 'heapdump';
-import v8profiler from 'v8';
-
 const sockets = {};
 
 io.on('connection', (socket: any) => {
 	// console.log('socket ID: '.bgYellow, socket.id);
 	socket.on('Atom sent', (obj: any) => {
-		// console.log('OBJ: '.america, obj);
+		console.log('OBJ: '.america, obj);
+		console.log('Process pid: ', process.pid);
 		// sockets[socket.id] = socket;
 		for (let i in obj) {
 			console.log(i);
@@ -56,6 +55,32 @@ io.on('connection', (socket: any) => {
 		console.log('DISCONNECTED'.bgRed);
 	});
 });
+
+import heapdump from 'heapdump';
+import v8profiler from 'v8';
+import path from 'path';
+
+const parser = require('heapsnapshot-parser');
+
+// const filename = `../snapshot/${Date.now()}.heapsnapshot`;
+const filename = 'Heap.20220105.221242.76459.0.001.heapsnapshot';
+
+heapdump.writeSnapshot(
+	path.resolve(__dirname, filename),
+	async (err, filename) => {
+		const snapshotFile = fs.readFileSync(
+			'Heap.20220105.221242.76459.0.001.heapsnapshot',
+			{ encoding: 'utf-8' }
+		);
+		const snapshot = parser.parse(snapshotFile);
+		// to write parsed info to a file
+		// Append file issue
+		const file = await fs.writeFile('src/server/heap.log', snapshot, (err) => {
+			console.log('err is: ', err?.message);
+		});
+		console.log('File: '.blue, file);
+	}
+);
 
 app.get('/memoryLeak', (req, res, next) => {
 	res.send(v8profiler.getHeapStatistics());
