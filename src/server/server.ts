@@ -81,27 +81,21 @@ heapdump.writeSnapshot(
 		const snapshot = parser.parse(snapshotFile);
 		// to write parsed info to a file
 		// Append file issue
-		const file = await fs.writeFile('src/server/heap.log', snapshot, (err) => {
-			console.log('err is: ', err?.message);
-		});
-		console.log('File: '.blue, file);
+		// const file = await fs.writeFile('src/server/heap.log', snapshot, (err) => {
+		// 	console.log('err is: ', err?.message);
+		// });
+		// console.log('File: '.blue, file);
 	}
 );
 
 app.get('/memoryLeak', (req, res, next) => {
+	console.log(v8profiler.getHeapStatistics());
 	res.send(v8profiler.getHeapStatistics());
 });
 //console.log(io); //maxHttpBufferSize, listening, upgrade, close, req, upgradeTimeout?
 
 // console.log(v8profiler.getHeapStatistics());
 // v8profiler.writeHeapSnapshot();
-// console.log(os.freemem(), 'FREE MEM');
-// console.log(os.totalmem(), 'TOTAL MEM');
-
-// 12 is the error number std
-// os.constants.errno.ENOMEM === 12;
-
-// ENETRESET
 
 process.on('SIGSEGV', () => {
 	console.log(process.pid);
@@ -111,6 +105,7 @@ process.on('SIGSEGV', () => {
 });
 
 io.listen(3000);
+<<<<<<< HEAD
 app.listen(3001, () => {
 	console.log('App is listening');
 });
@@ -121,3 +116,5 @@ app.listen(3001, () => {
 // 	console.log(process.pid);
 // 	console.log('App is listening');
 // });
+=======
+>>>>>>> adec926 (memory)
