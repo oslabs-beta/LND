@@ -1,10 +1,13 @@
 import os from 'os';
 import fs from 'fs';
+import cors from 'cors';
 import process from 'process';
 // import colors from 'colors';
 // colors.enable;
 import express from 'express';
 const app = express();
+app.use(cors());
+app.use(express.json());
 
 // import ClinicHeapProfiler from '@clinic/heap-profiler';
 // const heapProfiler = new ClinicHeapProfiler();
@@ -56,9 +59,9 @@ io.on('connection', (socket: any) => {
 		console.log('DISCONNECTED');
 	});
 });
+console.log('this is the back', v8profiler.getHeapStatistics());
 
 app.get('/memory', (req, res, next) => {
-	console.log('this is the back',v8profiler.getHeapStatistics());
 	res.send(v8profiler.getHeapStatistics());
 });
 //console.log(io); //maxHttpBufferSize, listening, upgrade, close, req, upgradeTimeout?
@@ -81,6 +84,9 @@ process.on('SIGSEGV', () => {
 });
 
 io.listen(3000);
+app.listen(3001, () => {
+	console.log('this is 3001');
+});
 
 // if (os.constants ='SIGSEGV') process.abort();
 // io.listen(4000);
