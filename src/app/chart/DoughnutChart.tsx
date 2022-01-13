@@ -1,6 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, useContext } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart, ArcElement } from 'chart.js';
+import { SocketContext } from '../context/socket';
 Chart.register(ArcElement);
 
 //data coming from the https server(backend)
@@ -18,7 +19,11 @@ const data = {
 const DoughnutChart: FC = (): JSX.Element => {
 	const [memoryData, setMemoryData] = useState([]);
 
+	const socket = useContext(SocketContext);
+  console.log(socket)
+
 	const fetchData = () => {
+		// cleaner way would be to store port in config
 		fetch('http://localhost:3001/memory').then((res) =>
 			console.log(res.json())
 		);
