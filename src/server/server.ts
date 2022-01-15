@@ -11,9 +11,17 @@ app.use(express.json());
 
 // connect to db
 
-import Connection from './models/db';
+import { Connection } from './models/db';
 console.log('CONNECT: ', Connection);
-Connection();
+// console.log(Connection());
+const dbConnection = async () => {
+	try {
+		await Connection();
+	} catch (e) {
+		console.error(e);
+	}
+};
+dbConnection();
 
 // eventually will move this into a route for cleanliness
 app.get('/memory', (req, res, next) => {

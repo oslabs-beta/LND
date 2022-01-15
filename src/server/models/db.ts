@@ -45,7 +45,7 @@ const {
 
 // DB saved on disk
 //must name func
-export default async () => {
+export const Connection = async () => {
 	const client = createClient();
 
 	client.on('error', (err) => {
@@ -98,8 +98,6 @@ export default async () => {
 	// console.log('CACHE: ', jCache);
 	// client.hSet('1', heapStats);
 	// await jCache.get('1');
-
-	client.get('1');
 };
 
 // // fix this
