@@ -10,6 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // connect to db
+
 import Connection from './models/db';
 console.log('CONNECT: ', Connection);
 Connection();

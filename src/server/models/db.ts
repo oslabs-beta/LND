@@ -1,4 +1,5 @@
-import { createClient } from 'redis';
+import redis, { createClient } from 'redis';
+import JSONCache from 'redis-json';
 
 // // redis connects to port 6379 by default. This is more of a development thing.
 // //create a url for redis to connect to for production
@@ -26,6 +27,7 @@ import { createClient } from 'redis';
 // Helper func for connection
 // Do we want to connect with data already inside of set data upon request?
 import v8profiler from 'v8';
+const heapStats = v8profiler.getHeapStatistics();
 const {
 	total_heap_size,
 	total_heap_size_executable,
@@ -38,10 +40,12 @@ const {
 	does_zap_garbage,
 	number_of_native_contexts,
 	number_of_detached_contexts,
-} = v8profiler.getHeapStatistics();
+} = heapStats;
+// adding an id to the stats to inc
 
 // DB saved on disk
-const Connection = async () => {
+//must name func
+export default async () => {
 	const client = createClient();
 
 	client.on('error', (err) => {
@@ -72,9 +76,30 @@ const Connection = async () => {
 	// returns num of fields in a hash; returns 0 if nil
 
 	// How to set a hash in redis?
-	// await client.set('key', 'value');
+	// cars:1 as the key; in this case 1 is a unique identifier.
+	// HMSET cars:1 make Ferrari model 458 color red topSpeed 202mph changed to HSet
+	//only 4 args allowes
+	// await client.hSet(
+	// 	'totalHeapSizeExecutable',
+	// 	// 'total_physical_size',
+	// 	'total_available_size',
+	// 	'used_heap_size'
+	// 	// 'heap_size_limit',
+	// 	// 'malloced_memory',
+	// 	// 'peak_malloced_memory',
+	// 	// 'does_zap_garbage',
+	// 	// 'number_of_native_contexts',
+	// 	// 'number_of_detached_contexts'
+	// );
+	// await client.set(1, total_heap_size);
+	//INCR id
 	// const value = await client.get('key');
+	// const jCache = new JSONCache<typeof heapStats>(redis, { prefix: 'cache:' });
+	// console.log('CACHE: ', jCache);
+	// client.hSet('1', heapStats);
+	// await jCache.get('1');
+
+	client.get('1');
 };
 
 // // fix this
-export default Connection;
