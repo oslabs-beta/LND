@@ -1,49 +1,24 @@
+<h1 align='center'> Memory Leak Visualizer </h1>
 
 ![LnD](https://user-images.githubusercontent.com/76221469/148320844-f1d34078-5610-45b5-ab65-77732f2f36a8.png)
 
-# Getting Started with Create React App
+## LND is a memory leak visualizer for developers.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
+## Disclaimer 
+LND is in early stages of development and all features are currently experimental. We would appreciate hearing about any issues you encounter or feature requests. Feel free to open issues or submit pull requests.
 In the project directory, you can run:
 
-### `yarn start`
+##### `npm install --save LND`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Create a central store
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Wraping RecoilRoot to provide the context to React component base architecture which atoms have values. 
 
-### `yarn test`
+![Screen Shot 2022-01-18 at 9 32 45 PM](https://user-images.githubusercontent.com/69587570/150053383-1824863f-531f-478d-9b93-51ed2c213606.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Retreiving Heap Snapshots
 
-### `yarn build`
+Atoms contain the source of truth for our application state. LND takes advantage of the Atoms atomic state to capture a heap snapshot.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Screen Shot 2022-01-18 at 9 31 28 PM](https://user-images.githubusercontent.com/69587570/150058907-57eb9ce7-1ceb-4dfe-9ef3-98f3e18e3aed.png)
