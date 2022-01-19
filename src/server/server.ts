@@ -1,4 +1,5 @@
 import os from 'os';
+require('dotenv').config();
 
 import process from 'process';
 import v8profiler from 'v8';
@@ -10,6 +11,8 @@ app.use(cors());
 app.use(express.json());
 
 // connect to db
+
+const SOCKET_PORT = process.env.SOCKET_PORT;
 
 import { Connection } from './models/db';
 console.log('CONNECT: ', Connection);
@@ -36,20 +39,11 @@ const httpServer = createServer();
 const io = new Server(httpServer, {
 	// options
 	cors: {
-		origin: 'http://localhost:3000',
+		origin: `http://localhost:3000${SOCKET_PORT}`,
 		methods: ['GET', 'POST'],
 		credentials: true,
 	},
 });
-
-// const io = require('socket.io')(server, {
-// 	cors: {
-// 		origin: 'http://localhost:3000',
-// 		methods: ['GET', 'POST'],
-// 		credentials: true,
-// 	},
-// });
-// io.attach(8080);
 
 io.on('connection', (socket: any) => {
 	console.log('socket ID: ', socket.id);
@@ -68,7 +62,8 @@ process.on('SIGSEGV', () => {
 });
 
 // May not be necessary to have io listen but not sure yet
-httpServer.listen(3000);
-app.listen(3001, () => {
+httpServer.listen(SOCKET_PORT);
+//regular app port
+app.listen(process.env.PORT, () => {
 	console.log('App is listening');
 });
