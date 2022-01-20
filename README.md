@@ -17,7 +17,7 @@ Wraping RecoilRoot to provide the context to React component base architecture w
 
 ![Screen Shot 2022-01-18 at 9 32 45 PM](https://user-images.githubusercontent.com/69587570/150053383-1824863f-531f-478d-9b93-51ed2c213606.png)
 
-### Retreiving Heap Snapshots
+### Retrieving Heap Snapshots
 
 Atoms contain the source of truth for our application state. LND takes advantage of the Atoms atomic state to capture a heap snapshots.  
 
