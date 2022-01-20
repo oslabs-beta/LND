@@ -15,7 +15,6 @@ app.use(express.json());
 const SOCKET_PORT = process.env.SOCKET_PORT;
 
 import { Connection } from './models/db';
-console.log('CONNECT: ', Connection);
 // console.log(Connection());
 const dbConnection = async () => {
 	try {
@@ -28,6 +27,7 @@ dbConnection();
 
 // eventually will move this into a route for cleanliness
 app.get('/memory', (req, res, next) => {
+	// needs to be updated to data from db!
 	res.status(200).send({ memory: v8profiler.getHeapStatistics() });
 });
 
